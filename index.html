@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TerraSync · Global Planetary Analog Finder</title>
+<meta name="description" content="TerraTwin ranks Earth sites as analogs for Mars and Moon landing and base sites, explaining where each analogy holds and where it breaks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='16' r='8' fill='%232f9fbf'/%3E%3Ccircle cx='22' cy='16' r='6' fill='%23d9673a'/%3E%3C/svg%3E">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<a class="skip" href="#view">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#mission" aria-label="TerraTwin home">
+    <svg viewBox="0 0 40 24" class="brand-mark" aria-hidden="true"><circle cx="12" cy="12" r="9" class="bm-earth"/><circle cx="29" cy="12" r="6.5" class="bm-mars"/><path d="M3 12h34" class="bm-orbit"/></svg>
+    <span class="brand-name">TerraSync</span><span class="brand-sub">Planetary Analog Finder</span>
+  </a>
+  <div class="status" aria-label="Dataset status">
+    <span class="st"><i class="dot"></i><span id="ds-name">loading…</span></span>
+    <span class="st mono" id="ds-count"></span>
+    <span class="flag" id="ds-flag"></span>
+    <span class="st mono" id="utc"></span>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <a href="#mission"><span class="n">01</span>Mission</a>
+  <a href="#atlas"><span class="n">02</span>Atlas</a>
+  <a href="#finder"><span class="n">03</span>Finder</a>
+  <a href="#compare"><span class="n">04</span>Compare</a>
+  <a href="#matrix"><span class="n">05</span>Matrix</a>
+  <a href="#catalog"><span class="n">06</span>Catalog</a>
+  <a href="#method"><span class="n">07</span>Method</a>
+</nav>
+
+<main id="view" tabindex="-1">
+  <div id="boot" class="boot" role="status"><span class="boot-ring"></span><p class="mono">Acquiring survey telemetry…</p></div>
+</main>
+
+<footer class="foot">
+  <p>TerraSync • we discover that the universe is not the limit of our imagination, but the beginning of it</p>
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
