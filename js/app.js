@@ -7,10 +7,13 @@ import * as start from './views/start.js';
 import * as mission from './views/mission.js';
 import * as finder from './views/finder.js';
 import * as compare from './views/compare.js';
+import * as edu from './views/edu.js';
 import * as catalog from './views/catalog.js';
 
-const ROUTES = { start, mission, finder, compare };
+const ROUTES = { start, mission, finder, compare, edu };
 const DEFAULT_ROUTE = 'start';
+// Views that render without the survey dataset.
+const NO_DATA = new Set(['start', 'edu']);
 
 const ctx = {
   data: null, engine: null, earth: [], targets: [],
@@ -62,7 +65,7 @@ function renderRoute() {
   const root = $('#view');
   $$('.nav a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + route));
   document.body.classList.toggle('is-start', route === 'start');
-  if (route !== 'start' && !ctx.engine) return;
+  if (!NO_DATA.has(route) && !ctx.engine) return;
   try {
     root.dataset.route = route;
     ROUTES[route].render(root, ctx);
@@ -152,12 +155,12 @@ async function boot() {
   starfield(); clock();
   addEventListener('hashchange', renderRoute);
   const root = $('#view');
-  if (currentRoute() === 'start') { $('#boot')?.remove(); renderRoute(); }
+  if (NO_DATA.has(currentRoute())) { $('#boot')?.remove(); renderRoute(); }
   try {
     ctx.useDataset(await loadDefaultDataset());
     if (!ctx.targets.length) throw new Error('Dataset loaded, but it has no Mars or Moon target records.');
     $('#boot')?.remove();
-    if (currentRoute() !== 'start') renderRoute();
+    if (!NO_DATA.has(currentRoute())) renderRoute();
   } catch (err) {
     console.error(err);
     $('#boot')?.remove();

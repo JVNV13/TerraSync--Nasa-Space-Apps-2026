@@ -1,0 +1,256 @@
+{
+ "source": "NASA POWER climatology v2.10 (long-term annual mean)",
+ "units": {
+  "ALLSKY_SFC_SW_DWN": "kW-hr/m^2/day",
+  "PRECTOTCORR": "mm/day",
+  "PS": "kPa",
+  "RH2M": "%",
+  "T2M": "C",
+  "T2M_MAX": "C",
+  "T2M_MIN": "C"
+ },
+ "caveat": "~0.5 deg grid (~50 km): regional climate, not the exact spot.",
+ "generated_by": "tools/build_earth_climate.py",
+ "sites": [
+  {
+   "id": "EA-001",
+   "name": "Yungay, Atacama Desert",
+   "latitude": -24.08,
+   "longitude": -69.92,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 7.2058,
+    "PRECTOTCORR": 0.02,
+    "PS": 87.5,
+    "RH2M": 44.09,
+    "T2M": 17.07,
+    "T2M_MAX": 32.93,
+    "T2M_MIN": -0.64
+   }
+  },
+  {
+   "id": "EA-002",
+   "name": "University Valley, McMurdo Dry Valleys",
+   "latitude": -77.86,
+   "longitude": 160.72,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 2.9993,
+    "PRECTOTCORR": 0.39,
+    "PS": 78.76,
+    "RH2M": 79.33,
+    "T2M": -33.67,
+    "T2M_MAX": -8.59,
+    "T2M_MIN": -60.44
+   }
+  },
+  {
+   "id": "EA-003",
+   "name": "Badwater Basin, Death Valley",
+   "latitude": 36.23,
+   "longitude": -116.77,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.7024,
+    "PRECTOTCORR": 0.38,
+    "PS": 92.46,
+    "RH2M": 31.09,
+    "T2M": 19.21,
+    "T2M_MAX": 46.72,
+    "T2M_MIN": -5.71
+   }
+  },
+  {
+   "id": "EA-004",
+   "name": "Holuhraun lava field",
+   "latitude": 64.87,
+   "longitude": -16.83,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 2.9798,
+    "PRECTOTCORR": 2.36,
+    "PS": 91.1,
+    "RH2M": 94.09,
+    "T2M": -2.84,
+    "T2M_MAX": 10.31,
+    "T2M_MIN": -23.83
+   }
+  },
+  {
+   "id": "EA-005",
+   "name": "Mauna Kea upper slopes",
+   "latitude": 19.82,
+   "longitude": -155.47,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.28,
+    "PRECTOTCORR": 4.41,
+    "PS": 94.53,
+    "RH2M": 82.05,
+    "T2M": 20.9,
+    "T2M_MAX": 28.67,
+    "T2M_MIN": 12.75
+   }
+  },
+  {
+   "id": "EA-006",
+   "name": "Haughton Impact Crater",
+   "latitude": 75.38,
+   "longitude": -89.68,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 2.3155,
+    "PRECTOTCORR": 0.85,
+    "PS": 99.06,
+    "RH2M": 94.36,
+    "T2M": -14.42,
+    "T2M_MAX": 16.81,
+    "T2M_MIN": -48.55
+   }
+  },
+  {
+   "id": "EA-007",
+   "name": "Rio Tinto headwaters",
+   "latitude": 37.72,
+   "longitude": -6.55,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.0191,
+    "PRECTOTCORR": 1.28,
+    "PS": 99.51,
+    "RH2M": 62.53,
+    "T2M": 18.01,
+    "T2M_MAX": 46.26,
+    "T2M_MIN": -4.61
+   }
+  },
+  {
+   "id": "EA-008",
+   "name": "Dresser Formation, Pilbara Craton",
+   "latitude": -21.17,
+   "longitude": 119.42,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 6.4068,
+    "PRECTOTCORR": 1.11,
+    "PS": 99.11,
+    "RH2M": 39.26,
+    "T2M": 27.5,
+    "T2M_MAX": 48.95,
+    "T2M_MIN": 6.49
+   }
+  },
+  {
+   "id": "EA-009",
+   "name": "Lonar Crater",
+   "latitude": 19.98,
+   "longitude": 76.51,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.3366,
+    "PRECTOTCORR": 2.31,
+    "PS": 94.92,
+    "RH2M": 53.19,
+    "T2M": 25.96,
+    "T2M_MAX": 45.55,
+    "T2M_MIN": 6.08
+   }
+  },
+  {
+   "id": "EA-010",
+   "name": "Dallol hydrothermal field, Danakil",
+   "latitude": 14.24,
+   "longitude": 40.3,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.957,
+    "PRECTOTCORR": 1.23,
+    "PS": 89.53,
+    "RH2M": 46.84,
+    "T2M": 25.96,
+    "T2M_MAX": 40.27,
+    "T2M_MIN": 11.26
+   }
+  },
+  {
+   "id": "EA-011",
+   "name": "Dalangtan Playa, Qaidam Basin",
+   "latitude": 38.4,
+   "longitude": 91.9,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.1864,
+    "PRECTOTCORR": 0.11,
+    "PS": 71.55,
+    "RH2M": 33.18,
+    "T2M": 3.58,
+    "T2M_MAX": 33.17,
+    "T2M_MIN": -26.99
+   }
+  },
+  {
+   "id": "EA-012",
+   "name": "Kharga Depression yardang field",
+   "latitude": 25.3,
+   "longitude": 30.55,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 6.4915,
+    "PRECTOTCORR": 0.0,
+    "PS": 99.07,
+    "RH2M": 30.73,
+    "T2M": 23.46,
+    "T2M_MAX": 46.37,
+    "T2M_MIN": 0.08
+   }
+  },
+  {
+   "id": "EA-013",
+   "name": "Kamil Crater",
+   "latitude": 22.018,
+   "longitude": 26.087,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 6.7493,
+    "PRECTOTCORR": 0.0,
+    "PS": 94.62,
+    "RH2M": 26.28,
+    "T2M": 22.31,
+    "T2M_MAX": 43.89,
+    "T2M_MIN": -1.77
+   }
+  },
+  {
+   "id": "EA-014",
+   "name": "La Corona lava tube (Cueva de los Verdes)",
+   "latitude": 29.16,
+   "longitude": -13.44,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 5.1655,
+    "PRECTOTCORR": 0.3,
+    "PS": 101.48,
+    "RH2M": 78.06,
+    "T2M": 20.12,
+    "T2M_MAX": 28.47,
+    "T2M_MIN": 13.0
+   }
+  },
+  {
+   "id": "EA-015",
+   "name": "Bockfjord Volcanic Complex",
+   "latitude": 79.45,
+   "longitude": 13.3,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 2.0894,
+    "PRECTOTCORR": 1.82,
+    "PS": 96.67,
+    "RH2M": 94.8,
+    "T2M": -7.62,
+    "T2M_MAX": 11.85,
+    "T2M_MIN": -40.09
+   }
+  },
+  {
+   "id": "EA-016",
+   "name": "Central Amazon rainforest (control)",
+   "latitude": -3.1,
+   "longitude": -60.0,
+   "annual_mean": {
+    "ALLSKY_SFC_SW_DWN": 4.673,
+    "PRECTOTCORR": 5.36,
+    "PS": 100.42,
+    "RH2M": 83.49,
+    "T2M": 27.05,
+    "T2M_MAX": 40.73,
+    "T2M_MIN": 21.16
+   }
+  }
+ ]
+}
