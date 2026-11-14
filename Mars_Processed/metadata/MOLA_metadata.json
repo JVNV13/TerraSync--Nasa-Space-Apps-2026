@@ -1,0 +1,28 @@
+{
+  "source": "megt44n000hb.img",
+  "sha256": "14022166079edafc99650f354e5a634e6eb2c2ea544b444c01cd8ee55437df36",
+  "label_sha256": "bc624a238ba6d71a770a09f959ead96f1c144970fae435b8ca5e26208b42eec5",
+  "dimensions": [
+    5632,
+    11520
+  ],
+  "dtype": "big-endian signed int16",
+  "scale": 1,
+  "offset": 0,
+  "unit": "m above MOLA GMM3 IAU2000 areoid",
+  "projection": "simple cylindrical geographic planetocentric 0-90E 0-44N",
+  "resolution_pixels_per_degree": 128,
+  "count": 64880640,
+  "minimum_m": -5062,
+  "maximum_m": 3210,
+  "zero_is_valid": true,
+  "zero_cells": 27474,
+  "contains_interpolated_bins": true,
+  "extracted_context_bbox_lonlat": [
+    77.5,
+    17.5,
+    79.0,
+    19.0
+  ],
+  "overview_resampling": "nearest decimation x8"
+}

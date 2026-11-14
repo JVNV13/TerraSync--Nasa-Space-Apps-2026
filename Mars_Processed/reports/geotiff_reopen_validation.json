@@ -1,0 +1,13 @@
+{
+  "reopened_geotiffs": 168,
+  "errors": [],
+  "valid": true,
+  "checks": [
+    "raster opens",
+    "CRS present",
+    "positive x pixel",
+    "north-up y",
+    "valid slope range",
+    "shadow class codes"
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "source": "DTEED_033651_1990_033717_1990_A01.IMG",
+    "sha256": "6103c138966bb69511eaee463f2e300b999b3bd3644f7606cb96bb1f25e0b86d",
+    "bytes": 73838120,
+    "driver": "PDS",
+    "dtype": "float32",
+    "width": 3202,
+    "height": 5764,
+    "crs_wkt": "PROJCS[\"EQUIRECTANGULAR MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS_localRadius\",3394839.8133163,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",15],PARAMETER[\"central_meridian\",78.15],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+    "pixel_size_m": [
+      2.0192195414267,
+      2.0192195414267
+    ],
+    "transform": [
+      2.0192195414267,
+      0.0,
+      -3448.8269767566017,
+      0.0,
+      -2.0192195414267,
+      1113300.7326046939
+    ],
+    "bounds_m": [
+      -3448.8269767566017,
+      1101661.9511679104,
+      3016.713994891692,
+      1113300.7326046939
+    ],
+    "nodata": -3.4028226550889045e+38,
+    "scale": 1.0,
+    "offset": 0.0,
+    "total_cells": 18456328,
+    "valid_cells": 13981321,
+    "valid_pct": 75.75353558952789,
+    "nodata_cells": 4475007,
+    "nonfinite_unmasked": 0,
+    "elevation_min_m": -2740.418701171875,
+    "elevation_max_m": -2152.603271484375,
+    "adjacent_jumps_gt_50m_within_blocks": 161
+  },
+  {
+    "source": "DTEED_042328_1985_033150_1985_A01.IMG",
+    "sha256": "027624b2724a9d121250be310ca1ef998d7ab31317108a7fb9c109de55dab6b2",
+    "bytes": 118784152,
+    "driver": "PDS",
+    "dtype": "float32",
+    "width": 3511,
+    "height": 8457,
+    "crs_wkt": "PROJCS[\"EQUIRECTANGULAR MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS_localRadius\",3394839.8133163,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",15],PARAMETER[\"central_meridian\",78.21],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+    "pixel_size_m": [
+      2.0194076293477,
+      2.0194076293477
+    ],
+    "transform": [
+      2.0194076293477,
+      0.0,
+      -3643.0113633432507,
+      0.0,
+      -2.0194076293477,
+      1084302.7519096036
+    ],
+    "bounds_m": [
+      -3643.0113633432507,
+      1067224.62158821,
+      3447.128823296524,
+      1084302.7519096036
+    ],
+    "nodata": -3.4028226550889045e+38,
+    "scale": 1.0,
+    "offset": 0.0,
+    "total_cells": 29692527,
+    "valid_cells": 20603298,
+    "valid_pct": 69.38883308921467,
+    "nodata_cells": 9089229,
+    "nonfinite_unmasked": 0,
+    "elevation_min_m": -1914.44580078125,
+    "elevation_max_m": -456.6297302246094,
+    "adjacent_jumps_gt_50m_within_blocks": 0
+  }
+]

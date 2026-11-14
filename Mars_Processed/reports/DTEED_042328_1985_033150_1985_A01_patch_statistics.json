@@ -1,0 +1,73 @@
+{
+  "source": "DTEED_042328_1985_033150_1985_A01",
+  "window_raw": {
+    "col": 800,
+    "row": 200,
+    "width": 1200,
+    "height": 1500
+  },
+  "estimated_mask_density_for_selection": 1.0,
+  "actual_native_valid_pct": 100.0,
+  "analysis_valid_pct": 100.0,
+  "native_grid_dimensions": [
+    1500,
+    1200
+  ],
+  "analysis_grid_dimensions": [
+    101,
+    81
+  ],
+  "analysis_pixel_m": [
+    29.917150064410368,
+    29.99120241605495
+  ],
+  "native_height": {
+    "count": 1800000,
+    "min_m": -1392.5023193359375,
+    "max_m": -863.8142700195312,
+    "mean_m": -1171.379638671875,
+    "std_m": 116.29896545410156
+  },
+  "analysis_height": {
+    "count": 8181,
+    "min_m": -1391.5555419921875,
+    "max_m": -868.258544921875,
+    "mean_m": -1171.3795166015625,
+    "std_m": 116.2898941040039
+  },
+  "terrain_stats": {
+    "slope": {
+      "count": 7821,
+      "min_m": 0.18284617364406586,
+      "max_m": 28.22605323791504,
+      "mean_m": 8.577006340026855,
+      "std_m": 3.162111759185791
+    },
+    "aspect": {
+      "count": 7821,
+      "min_m": 0.0008544921875,
+      "max_m": 359.9958801269531,
+      "mean_m": 240.9822998046875,
+      "std_m": 145.99514770507812
+    },
+    "local_relief": {
+      "count": 7469,
+      "min_m": 3.77630615234375,
+      "max_m": 72.339111328125,
+      "mean_m": 22.14826774597168,
+      "std_m": 8.474275588989258
+    },
+    "roughness_std": {
+      "count": 7469,
+      "min_m": 0.8075135350227356,
+      "max_m": 19.74558448791504,
+      "mean_m": 6.360592365264893,
+      "std_m": 2.1895391941070557
+    }
+  },
+  "roughness_window_m": 149.58575032205184,
+  "pixel_area_km2": 0.0008972513032932227,
+  "valid_analysis_area_km2": 7.340412912241855,
+  "number_of_shadow_scenarios": 24,
+  "native_modified_cells": 0
+}

@@ -1,0 +1,40 @@
+{
+  "inputs": "original untouched; SHA256 in input_quality_before.json and MOLA_metadata.json",
+  "sources": {
+    "HiRISE DTM specification": "https://hirise.lpl.arizona.edu/dtm/about.php",
+    "HiRISE GDAL/NoData guidance": "https://hirise.lpl.arizona.edu/dtm/howto.php",
+    "MOLA MEGDR native tiling": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+    "MOLA IAU2000 compatibility": "https://pds-geosciences.wustl.edu/missions/mgs/mola.html"
+  },
+  "HI_RISE_vertical": "Mars 2000 equipotential elevation metres from embedded PDS NOTE",
+  "MOLA_vertical": "GMM3 areoid IAU2000 from PDS label; not assumed exactly interchangeable with HiRISE",
+  "processing": "select contiguous independent most valid ~2.4 x 3.0km patches; native 2m preserved; 30m approximate analysis by average; only cells with >=99.9% valid raw footprint retained; no sink filling smoothing NoData filling or outlier removal",
+  "roughness": "population standard deviation of all 5x5 DEM heights (~150m) as sqrt(mean(z²)-mean(z)²); local relief=max-min same full-valid window",
+  "slope": "central differences dz/dE,dz/dN; slope=atan(hypot(gradients)); degrees",
+  "aspect": "downslope azimuth clockwise from grid north, east=90; flats and invalid 3x3 -> -9999",
+  "terrain_valid": "all 3x3 stencil cells valid; local relief and roughness require fully valid 5x5 neighborhood",
+  "sun_altitudes_deg": [
+    5,
+    15,
+    30
+  ],
+  "sun_azimuths_deg": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315
+  ],
+  "solar_azimuth_reference": "grid north, clockwise; local grid is equirectangular Mars, grid/true north may differ and has not been converted",
+  "shadow": "discrete nearest-cell horizon ray tracing to max 1200m using planet local radius 3396km and curvature correction -d²/(2R). Occlusion 1, definitely ray-unoccluded in 1200m 0, missing/exit 255. This is partial horizon, not infinite-range visibility.",
+  "shadow_limitations": "unknown at edge and missing data; occlusion beyond 1200m untested; subpixel obstacles excluded; MOLA not used for obstacle completion; no permanent shadow inference",
+  "self_shadow": "negative surface-normal dot sun direction; independent of cast-shadow",
+  "incidence": "cos of solar incidence angle on 3x3-valid local normal; NOT brightness, camera imagery, dust or reflectance",
+  "scale_note": "30m posts do not imply identical point spread function, instrument resolution, vertical error or effective resolution to NASADEM 30m",
+  "scenario_note": "hypothetical Sun, not time-specific; Mars Sun can be higher than polar Moon Sun",
+  "earth_requirements": "Earth NASADEM elevation incl vertical datum and CRS, native effective resolution, comparable window footprints and valid masks, identical solar geometry and shadow distance/uncertainty convention, independent comparisons after datum compatibility review",
+  "crs_note": "Mars-specific equirectangular CRS with radius 3394839.8133163 m in HiRISE headers; NO Earth UTM. MOLA sphere label radius 3396000m; no forced alignment."
+}

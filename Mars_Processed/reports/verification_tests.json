@@ -1,0 +1,49 @@
+{
+  "tests": [
+    {
+      "test": "known 10 percent eastward ramp slope",
+      "passed": true
+    },
+    {
+      "test": "downslope of rising east surface is west (270)",
+      "passed": true
+    },
+    {
+      "test": "flat unobstructed interior 5 deg",
+      "passed": true
+    },
+    {
+      "test": "boundary unresolved 5 deg",
+      "passed": true
+    },
+    {
+      "test": "flat unobstructed interior 15 deg",
+      "passed": true
+    },
+    {
+      "test": "boundary unresolved 15 deg",
+      "passed": true
+    },
+    {
+      "test": "flat unobstructed interior 30 deg",
+      "passed": true
+    },
+    {
+      "test": "boundary unresolved 30 deg",
+      "passed": true
+    },
+    {
+      "test": "synthetic barrier creates shadow westward",
+      "passed": true
+    },
+    {
+      "test": "synthetic barrier reverse sun unoccluded",
+      "passed": true
+    },
+    {
+      "test": "missing ray cell is unresolved",
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}
