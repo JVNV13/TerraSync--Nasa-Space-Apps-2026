@@ -200,13 +200,12 @@ export class Engine {
   /** Where the analogy physically breaks: quantities Earth cannot reproduce. */
   limits(a, b) {
     const out = [];
-    const src = k => `CSV · ${prov(a, k) || 'n/a'} vs ${prov(b, k) || 'n/a'}`;
     const pa = a['environment.atmospheric_pressure_kpa'], pb = b['environment.atmospheric_pressure_kpa'];
-    if (pa != null && pb != null && pb >= 0) out.push({ key: 'pressure', label: 'Surface pressure', a: pa, b: pb, unit: 'kPa', ratio: pb > 0 ? pa / pb : Infinity, source: src('environment.atmospheric_pressure_kpa') + ' (barometric approximation)' });
+    if (pa != null && pb != null && pb >= 0) out.push({ key: 'pressure', label: 'Surface pressure', a: pa, b: pb, unit: 'kPa', ratio: pb > 0 ? pa / pb : Infinity, source: 'Site records (barometric approximation)' });
     const ra = a['environment.radiation_dose_mgy_per_day'], rb = b['environment.radiation_dose_mgy_per_day'];
-    if (ra != null && rb != null && ra > 0) out.push({ key: 'radiation', label: 'Surface radiation dose', a: ra, b: rb, unit: 'mGy/day', ratio: rb / ra, source: src('environment.radiation_dose_mgy_per_day') });
+    if (ra != null && rb != null && ra > 0) out.push({ key: 'radiation', label: 'Surface radiation dose', a: ra, b: rb, unit: 'mGy/day', ratio: rb / ra, source: 'Site records' });
     const ga = GRAVITY[a.body], gb = GRAVITY[b.body];
-    if (ga && gb && a.body !== b.body) out.push({ key: 'gravity', label: 'Surface gravity', a: ga, b: gb, unit: 'm/s²', ratio: ga / gb, source: 'Reference constant (not in CSV)' });
+    if (ga && gb && a.body !== b.body) out.push({ key: 'gravity', label: 'Surface gravity', a: ga, b: gb, unit: 'm/s²', ratio: ga / gb, source: 'Reference constant' });
     return out;
   }
 

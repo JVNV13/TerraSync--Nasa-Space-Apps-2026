@@ -1,7 +1,7 @@
 // Pieces reused across views.
 import { html, raw, esc } from '../util.js';
 import { PROFILES, DIMENSIONS, scoreBand } from '../engine.js';
-import { FIELDS, formatValue, humanize, provOf } from '../data.js';
+import { FIELDS, formatValue, humanize } from '../data.js';
 
 export const shortName = s => s.name.replace(/\s*\(control\)/i, '').split(',')[0];
 
@@ -21,24 +21,6 @@ export function band(score, coverage = 1) {
   return html`<span class="band band-${b.key}">${b.label}</span>`;
 }
 
-/** M / S badge for one field of one record (nothing for blank fields). */
-export function provBadge(site, key) {
-  const p = provOf(site, key);
-  if (!p) return '';
-  const tipText = p === 'measured' ? `Measured${site.data_source ? ' · ' + site.data_source : ''}` : 'Synthetic placeholder, not an observation';
-  return html`<span class="pv pv-${p}" data-tip="${esc(tipText)}" aria-label="${p}">${p === 'measured' ? 'M' : 'S'}</span>`;
-}
-
-/** Record-level tag, derived from the record's fields. */
-export function provTag(site) {
-  const n = Object.values(site._prov || {});
-  const m = n.filter(v => v === 'measured').length;
-  const label = site.provenance === 'mixed' ? `mixed · ${m}/${n.length} fields measured` : site.provenance;
-  return html`<span class="tag ${site.provenance === 'measured' ? 'real' : 'warn'}">${label}</span>`;
-}
-
-export const provLegend = () => html`<p class="pv-legend small dim"><span class="pv pv-measured">M</span> measured value <span class="pv pv-synthetic">S</span> synthetic placeholder · labelled per field, blank fields carry no label</p>`;
-
 export function sectionHead(code, title, sub) {
   return html`<header class="sec-head"><p class="eyebrow"><span class="code">${code}</span>${title}</p>${sub ? html`<p class="sec-sub">${sub}</p>` : ''}</header>`;
 }
@@ -56,14 +38,17 @@ export function pageHead(crumb, title, sub) {
 export const hint = text => html`<p class="hint"><i aria-hidden="true">?</i>${text}</p>`;
 
 /**
- * Procedural planet globe (SVG, no image files). kind: 'mars' | 'earth'.
+ * Procedural planet globe (SVG, no image files). kind: 'mars' | 'earth' | 'moon'.
  * The surface texture slides behind a shaded sphere, which reads as slow rotation.
  */
 export function globe(kind = 'mars', cls = '') {
   const id = 'g' + Math.random().toString(36).slice(2, 7);
-  const P = kind === 'earth'
-    ? { base: ['#3d7fb0', '#1b4f7c', '#0b2440'], dark: '0.18 0.36 0.16', light: '0.78 0.70 0.52', glow: '#5aa9e6', cap: 0.55, f: 0.010 }
-    : { base: ['#e08a55', '#b5532c', '#5a1f0f'], dark: '0.24 0.08 0.04', light: '0.86 0.52 0.32', glow: '#e0703a', cap: 0.38, f: 0.012 };
+  const PALETTES = {
+    earth: { base: ['#3d7fb0', '#1b4f7c', '#0b2440'], dark: '0.18 0.36 0.16', light: '0.78 0.70 0.52', glow: '#5aa9e6', cap: 0.55, f: 0.010 },
+    moon: { base: ['#d9d6cf', '#9a968e', '#3a3835'], dark: '0.30 0.29 0.27', light: '0.92 0.91 0.88', glow: '#cfd8e6', cap: 0, f: 0.018 },
+    mars: { base: ['#e08a55', '#b5532c', '#5a1f0f'], dark: '0.24 0.08 0.04', light: '0.86 0.52 0.32', glow: '#e0703a', cap: 0.38, f: 0.012 },
+  };
+  const P = PALETTES[kind] || PALETTES.mars;
   const [dr, dg, db] = P.dark.split(' '), [lr, lg, lb] = P.light.split(' ');
   return raw(`<svg class="globe globe-${kind} ${cls}" viewBox="0 0 600 600" aria-hidden="true">
   <defs>
@@ -91,7 +76,7 @@ export const factRow = (label, value, tipText) => html`<li class="fact"${tipText
 
 export function targetOptions(ctx, selectedId) {
   const groups = {};
-  for (const t of ctx.targets) (groups[`${t.body} · ${t.provenance}`] ||= []).push(t);
+  for (const t of ctx.targets) (groups[t.body] ||= []).push(t);
   return raw(Object.entries(groups).map(([body, list]) => `<optgroup label="${esc(body)} targets">${list.map(t => `<option value="${esc(t.id)}"${t.id === selectedId ? ' selected' : ''}>${esc(t.name)}</option>`).join('')}</optgroup>`).join(''));
 }
 
@@ -118,7 +103,7 @@ export const USES = {
   geology: 'Field-geology training and sample-selection drills; calibrate spectrometers on shared minerals',
   terrain: 'Rehearse rover traverse planning, hazard avoidance and navigation on comparable slopes and roughness',
   thermal: 'Cold/hot cycling and illumination tests of hardware (vacuum and pressure effects excluded)',
-  aeolian: 'Dust-mitigation tests: seals, abrasion, solar-panel and optics fouling under real wind regimes',
+  aeolian: 'Dust-mitigation tests: seals, abrasion, solar-panel and optics fouling under natural wind regimes',
   water: 'Field-test ice-prospecting radar, neutron spectroscopy and ISRU drilling/extraction',
   habitability: 'Validate life-detection instruments near the dry/cold limits of life and study biosignature preservation',
   subsurface: 'Rehearse cave mapping, robotic access, comms dead-zones and habitat shielding concepts',
@@ -137,10 +122,4 @@ export function featureValue(v, key) {
 export function shared(a, b) {
   if (!Array.isArray(a) || !Array.isArray(b)) return [];
   return a.filter(x => b.includes(x)).map(humanize);
-}
-
-export function dataNotice(ctx) {
-  const { measured, synthetic } = ctx.data.quality.values;
-  if (!synthetic) return '';
-  return html`<aside class="notice" role="note"><b>Good to know:</b> ${measured ? html`values marked <span class="pv pv-measured">M</span> are real measurements; ` : ''}values marked <span class="pv pv-synthetic">S</span> are demo placeholders, so these match scores show how the method works rather than final science. Real data: <a href="#terrain">Mars surface</a> · <a href="#earth">Earth land</a>.</aside>`;
 }

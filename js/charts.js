@@ -26,8 +26,8 @@ function axisLabels() {
  */
 export function siteMap({ body, sites, selectedId, scoreOf, rankOf, ariaLabel, labels = false }) {
   const isEarth = body === 'Earth';
-  // Measured sites are drawn last (on top). A name label is dropped when it would sit on an earlier one.
-  const ordered = [...sites].sort((p, q) => (p.provenance === 'measured') - (q.provenance === 'measured') || (p.id === selectedId) - (q.id === selectedId));
+  // The selected site is drawn last (on top). A name label is dropped when it would sit on an earlier one.
+  const ordered = [...sites].sort((p, q) => (p.id === selectedId) - (q.id === selectedId));
   const labelled = [];
   const marks = ordered.map(s => {
     const x = s.lon + 180, y = Math.min(176, Math.max(4, 90 - s.lat));
@@ -37,7 +37,7 @@ export function siteMap({ body, sites, selectedId, scoreOf, rankOf, ariaLabel, l
     const r = score != null ? 1.6 + score * 4.2 : 2.6;
     const tipHtml = `<b>${esc(s.name)}</b><span>${esc(s['geographic.region'] || '')}</span><span class="mono">${fmtCoord(s.lat, s.lon)}</span>` +
       (score != null ? `<span class="mono">Analog score ${(score * 100).toFixed(0)}${rank ? ` · rank #${rank}` : ''}</span>` : '') +
-      (s.is_control ? '<span class="warn">Negative control</span>' : '') + `<span class="mono">${esc(s.provenance || '')} record</span>` + '<em>Click to select</em>';
+      (s.is_control ? '<span class="warn">Negative control</span>' : '') + '<em>Click to select</em>';
     const shape = isEarth
       ? `<circle cx="${x}" cy="${y}" r="${r}" class="mk earth${s.is_control ? ' ctrl' : ''}"/>`
       : `<rect x="${x - r * 0.8}" y="${y - r * 0.8}" width="${r * 1.6}" height="${r * 1.6}" transform="rotate(45 ${x} ${y})" class="mk ${body === 'Moon' ? 'moon' : 'mars'}"/>`;

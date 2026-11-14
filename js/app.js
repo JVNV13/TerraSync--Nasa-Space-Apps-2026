@@ -1,20 +1,16 @@
-// TerraSync application shell: data loading, shared state, hash routing,
+// TerraSync application shell: start page, data loading, shared state, hash routing,
 // delegated events (tooltips, selection) and the starfield backdrop.
 import { loadDefaultDataset, buildDataset } from './data.js';
 import { Engine, PROFILES, DIMENSIONS } from './engine.js';
 import { $, $$, tip, hideTip, store, esc } from './util.js';
+import * as start from './views/start.js';
 import * as mission from './views/mission.js';
-import * as atlas from './views/atlas.js';
-import * as terrain from './views/terrain.js';
 import * as finder from './views/finder.js';
 import * as compare from './views/compare.js';
-import * as matrix from './views/matrix.js';
 import * as catalog from './views/catalog.js';
-import * as method from './views/method.js';
-import * as earth from './views/earth.js';
 
-const ROUTES = { mission, terrain, earth, atlas, finder, compare, matrix, catalog, method };
-const DEFAULT_ROUTE = 'mission';
+const ROUTES = { start, mission, finder, compare };
+const DEFAULT_ROUTE = 'start';
 
 const ctx = {
   data: null, engine: null, earth: [], targets: [],
@@ -43,7 +39,6 @@ const ctx = {
     this.targets = ds.sites.filter(s => s.body !== 'Earth');
     if (!this.engine.byId.has(this.state.targetId) || this.engine.byId.get(this.state.targetId).body === 'Earth') this.state.targetId = (this.targets.find(t => t.provenance === 'synthetic') || this.targets[0])?.id ?? null;
     if (!this.engine.byId.has(this.state.candId) || this.engine.byId.get(this.state.candId).body !== 'Earth') this.state.candId = null;
-    updateStatus();
   },
   async loadFile(file) {
     const text = await file.text();
@@ -66,24 +61,18 @@ function renderRoute() {
   const route = currentRoute();
   const root = $('#view');
   $$('.nav a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + route));
-  if (!ctx.engine) return;
+  document.body.classList.toggle('is-start', route === 'start');
+  if (route !== 'start' && !ctx.engine) return;
   try {
     root.dataset.route = route;
     ROUTES[route].render(root, ctx);
     root.classList.remove('enter'); void root.offsetWidth; root.classList.add('enter');
   } catch (err) {
     console.error(err);
-    root.innerHTML = `<section class="panel error-panel"><h2>Something went wrong rendering this view</h2><p class="mono">${esc(err.message)}</p><button class="btn" onclick="location.hash='mission'">Return to mission overview</button></section>`;
+    root.innerHTML = `<section class="panel error-panel"><h2>Something went wrong rendering this view</h2><p class="mono">${esc(err.message)}</p><button class="btn" onclick="location.hash='start'">Back to the start page</button></section>`;
   }
 }
 
-function updateStatus() {
-  const { measured, synthetic } = ctx.data.quality.values;
-  const flag = $('#ds-flag');
-  flag.textContent = !synthetic ? 'All data measured' : `${measured.toLocaleString('en-US')} measured · ${synthetic.toLocaleString('en-US')} demo values`;
-  flag.className = 'flag ' + (synthetic ? 'flag-syn' : 'flag-real');
-  flag.title = 'Measured values come from HiRISE (Mars) and ESA WorldCover (Earth). Demo values are placeholders that show how the method works.';
-}
 /* ----------------------------------------------------------- delegated events */
 document.addEventListener('mouseover', e => {
   const t = e.target.closest('[data-tip]');
@@ -163,11 +152,12 @@ async function boot() {
   starfield(); clock();
   addEventListener('hashchange', renderRoute);
   const root = $('#view');
+  if (currentRoute() === 'start') { $('#boot')?.remove(); renderRoute(); }
   try {
     ctx.useDataset(await loadDefaultDataset());
     if (!ctx.targets.length) throw new Error('Dataset loaded, but it has no Mars or Moon target records.');
-    $('#boot').remove();
-    renderRoute();
+    $('#boot')?.remove();
+    if (currentRoute() !== 'start') renderRoute();
   } catch (err) {
     console.error(err);
     $('#boot')?.remove();

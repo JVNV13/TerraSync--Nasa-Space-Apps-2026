@@ -128,9 +128,9 @@ def build_patch(source, ident):
         'terrain.relief_150m_m': f(relief['mean']), 'terrain.roughness_std_150m_m': f(rough['mean']),
         'terrain.elevation_range_m': f(float(z.max()) - zmin, 1),
         'data_source': f'HiRISE DTM {source} (PDS), {w * dx / 1000:.1f} x {h * dy / 1000:.1f} km patch at ~30 m cells; Mars_Processed/pipeline.py',
-        'summary': (f'Measured terrain patch: {w * dx / 1000:.1f} x {h * dy / 1000:.1f} km of a HiRISE stereo DTM, ~{loc["center_lat_deg"]:.2f}N {loc["center_lon_east_deg"]:.2f}E, east of Jezero crater. '
+        'summary': (f'Terrain patch: {w * dx / 1000:.1f} x {h * dy / 1000:.1f} km of a HiRISE stereo DTM, ~{loc["center_lat_deg"]:.2f}N {loc["center_lon_east_deg"]:.2f}E, east of Jezero crater. '
                     f'Slope median {dist["percentiles_deg"]["p50"]:.1f} deg, 95th percentile {dist["percentiles_deg"]["p95"]:.1f} deg at a ~60 m baseline. '
-                    'Only elevation, slope, relief and roughness are measured; geology, climate and water fields are not recorded.'),
+                    'Mapped for elevation, slope, relief and roughness.'),
     }
     row['measured_fields'] = '|'.join(k for k in row if '.' in k)
     return patch, row

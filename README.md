@@ -13,17 +13,16 @@ python3 -m http.server 8000
 (Opening `index.html` straight from disk will not work, because browsers block `fetch()` of the data files over `file://`.)
 
 ## Pages
+The site opens on a **start page** (`#start`) where you choose a destination: Mars, Moon or Education.
+Moon and Education are shown as "coming soon". Every page has a home button that returns to the start page.
+
+Mars section:
+
 | # | Page | What it shows |
 |---|------|---------------|
 | 01 | Home | One-line intro, where to start, best Earth twin for each Mars place |
-| 02 | Mars | Measured Mars height, steepness and shadow maps (HiRISE), Sun sliders |
-| 03 | Earth | Measured Earth land cover (ESA WorldCover 2021, 10 m) for three dry regions, how Mars-like the ground is |
-| 04 | Find a twin | Pick a Mars place, get Earth places ranked; weights and filters are under "advanced" |
-| 05 | Compare | One Earth place vs one Mars place: score, topics, matches, differences; full record under "details" |
-| 06 | Map | Mars and Earth maps linked by match score |
-| 07 | About | Where the data comes from in plain words; method and data-quality report under "technical details" |
-
-The Matrix (`#matrix`) and Catalog (`#catalog`) views still work by URL but are no longer in the menu.
+| 02 | Find a twin | Pick a Mars place, get Earth places ranked; weights and filters are under "advanced" |
+| 03 | Compare | One Earth place vs one Mars place: score, topics, matches, differences; full record under "details" |
 ## Scoring (js/engine.js)
 - Feature similarity is 0–1. Numeric fields use `1 − |a−b| / (hi − lo)` on a **fixed physical scale** per field, so a pair's score does not change when records are added or removed. Heavy-tailed fields use a log scale.
 - Slopes are compared as **distributions**: the overlap of two 1° slope histograms. Mean and max slope are used only when a site has no histogram.

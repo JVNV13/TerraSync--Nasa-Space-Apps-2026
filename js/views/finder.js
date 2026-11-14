@@ -3,7 +3,7 @@ import { html, render, raw, pct, copyText, $ } from '../util.js';
 import { DIMENSIONS } from '../engine.js';
 import { miniBars } from '../charts.js';
 import { humanize } from '../data.js';
-import { pageHead, band, targetOptions, profileChips, bindProfileChips, bodyMark, dataNotice } from './common.js';
+import { pageHead, band, targetOptions, profileChips, bindProfileChips, bodyMark } from './common.js';
 
 const local = { q: '', maturity: new Set(['well_studied', 'emerging', 'under_studied', 'none']), terrain: '' };
 
@@ -38,8 +38,7 @@ export function render_(root, ctx) {
       <div class="res-head"><p id="res-count" class="mono dim"></p><button class="btn small ghost" id="f-copy">Copy list</button></div>
       <div id="results"></div>
     </section>
-  </div>
-  ${dataNotice(ctx)}`);
+  </div>`);
 
   const results = $('#results', root);
   const draw = () => {

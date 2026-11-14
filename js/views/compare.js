@@ -3,7 +3,7 @@ import { html, render, pct, raw, fmtCoord, copyText, esc, $ } from '../util.js';
 import { radar, dial, slopeDist } from '../charts.js';
 import { histSummary, histOverlap } from '../engine.js';
 import { FIELDS, GROUP_ORDER, formatValue } from '../data.js';
-import { sectionHead, pageHead, band, targetOptions, earthOptions, DIM, USES, featureLabel, featureValue, shared, bodyMark, shortName, dataNotice, provBadge, provTag, provLegend, rated } from './common.js';
+import { sectionHead, pageHead, band, targetOptions, earthOptions, DIM, USES, featureLabel, featureValue, shared, bodyMark, shortName, rated } from './common.js';
 
 const HIST = 'terrain.slope_hist_1deg';
 const C_EARTH = '#2f9fbf', C_TARGET = '#d9673a';
@@ -15,7 +15,6 @@ export function render_(root, ctx) {
   const w = ctx.weights();
   let cand = ctx.engine.byId.get(ctx.state.candId);
   if (!cand) cand = ctx.engine.rank(target.id, ctx.earth.filter(s => !s.is_control), w)[0].candidate;
-  const pv = f => html`<span class="pv-pair">${provBadge(cand, f.key)}${provBadge(target, f.key)}</span>`;
   const r = ctx.engine.compare(cand.id, target.id, w);
   const overlay = local.overlay && local.overlay !== cand.id ? ctx.engine.compare(local.overlay, target.id, w) : null;
   const rank = ctx.engine.rank(target.id, ctx.earth, w).findIndex(x => x.candidate.id === cand.id) + 1;
@@ -49,8 +48,8 @@ export function render_(root, ctx) {
       <p class="small dim">Based on ${r.dims.filter(d => d.score != null).length} of ${r.dims.length} topics that both places have data for.</p></div>
     </section>
     <section class="panel site-duo">
-      <div class="duo earth-side"><p class="eyebrow">${bodyMark('Earth')}Earth analog</p><h2>${cand.name}</h2><p class="mono dim">${fmtCoord(cand.lat, cand.lon)}</p><p>${provTag(cand)}</p><p>${cand.summary}</p></div>
-      <div class="duo mars-side"><p class="eyebrow">${bodyMark(target.body)}${target.body} target</p><h2>${target.name}</h2><p class="mono dim">${fmtCoord(target.lat, target.lon)}</p><p>${provTag(target)}</p><p>${target.summary}</p></div>
+      <div class="duo earth-side"><p class="eyebrow">${bodyMark('Earth')}Earth analog</p><h2>${cand.name}</h2><p class="mono dim">${fmtCoord(cand.lat, cand.lon)}</p><p>${cand.summary}</p></div>
+      <div class="duo mars-side"><p class="eyebrow">${bodyMark(target.body)}${target.body} target</p><h2>${target.name}</h2><p class="mono dim">${fmtCoord(target.lat, target.lon)}</p><p>${target.summary}</p></div>
     </section>
   </div>
 
@@ -64,7 +63,7 @@ export function render_(root, ctx) {
       <ul class="dimlist">${r.dims.map(d => html`<li class="${d.score == null ? 'na' : ''}">
         <span class="dl-name">${d.label}<small>${DIM[d.key].blurb}</small></span>
         <span class="dl-bar"><i style="width:${d.score == null ? 0 : (d.score * 100).toFixed(1)}%"></i>${overlay && overlay.dims.find(o => o.key === d.key).score != null ? html`<b style="left:${(overlay.dims.find(o => o.key === d.key).score * 100).toFixed(1)}%" title="Overlay"></b>` : ''}</span>
-        <span class="dl-v mono">${d.score == null ? 'n/a' : pct(d.score)}</span>
+        <span class="dl-v mono">${d.score == null ? 'n/a' : `${pct(d.score)}%`}</span>
         </li>`)}</ul>
     </section>
   </div>
@@ -74,11 +73,11 @@ export function render_(root, ctx) {
   <div class="grid-2">
     <section class="panel verdict good">
       <header class="block-head"><h2 class="block-title">Where they match</h2><p class="block-sub">Things that are very alike (75 or more out of 100).</p></header>
-      ${r.strengths.length ? html`<table class="data compact"><tbody>${r.strengths.slice(0, 8).map(f => html`<tr><td>${featureLabel(f.key)}</td><td class="dim">${explain(f)}</td><td>${pv(f)}</td><td class="num mono">${pct(f.sim)}</td></tr>`)}</tbody></table>` : html`<p class="empty">No field reaches a similarity of 75.</p>`}
+      ${r.strengths.length ? html`<table class="data compact"><tbody>${r.strengths.slice(0, 8).map(f => html`<tr><td>${featureLabel(f.key)}</td><td class="dim">${explain(f)}</td><td class="num mono">${pct(f.sim)}</td></tr>`)}</tbody></table>` : html`<p class="empty">No field reaches a similarity of 75.</p>`}
     </section>
     <section class="panel verdict bad">
       <header class="block-head"><h2 class="block-title">Where they differ</h2><p class="block-sub">Things that are very different (35 or less out of 100).</p></header>
-      ${r.gaps.length ? html`<table class="data compact"><tbody>${r.gaps.slice(0, 8).map(f => html`<tr><td>${featureLabel(f.key)}</td><td class="dim">${explain(f)}</td><td>${pv(f)}</td><td class="num mono">${pct(f.sim)}</td></tr>`)}</tbody></table>` : html`<p class="empty">No field scores 35 or lower.</p>`}
+      ${r.gaps.length ? html`<table class="data compact"><tbody>${r.gaps.slice(0, 8).map(f => html`<tr><td>${featureLabel(f.key)}</td><td class="dim">${explain(f)}</td><td class="num mono">${pct(f.sim)}</td></tr>`)}</tbody></table>` : html`<p class="empty">No field scores 35 or lower.</p>`}
       <h4 class="sub">What Earth can never copy</h4>
       <ul class="limits">${r.limits.map(l => html`<li><b>${l.label}</b><span class="mono">${fmtNum(l.a)} vs ${fmtNum(l.b)} ${l.unit}</span><span>${limitText(l, cand, target)}</span><small>${l.source}</small></li>`)}</ul>
     </section>
@@ -90,14 +89,11 @@ export function render_(root, ctx) {
       : html`<p class="empty">No topic reaches 60, so this pair is more useful as a contrast than as a practice site.</p>`}
   </section>
 
-  ${dataNotice(ctx)}
-
   <details class="panel tech">
     <summary>All the details (for scientists)</summary>
     ${raw(slopePanel(r, cand, target))}
     <div class="brief"><div class="brief-head"><p class="eyebrow">Field brief (plain text)</p><button class="btn small" id="c-copy">Copy brief</button></div><pre id="brief-text">${brief}</pre></div>
-    <p class="small dim">${r.scoredFields} values compared: ${r.basis.measured} real vs real · ${r.basis.mixed} real vs demo · ${r.basis.synthetic} demo vs demo.</p>
-    ${provLegend()}
+    <p class="small dim">${r.scoredFields} values compared.</p>
     ${raw(sideBySide(r, cand, target))}
   </details>`);
 
@@ -111,10 +107,9 @@ export function render_(root, ctx) {
 function landPanel(s) {
   const v = s._landcover, veg = v.fields['habitability.vegetation_cover_pct'];
   return html`<section class="panel land-panel">
-    <div><p class="eyebrow"><span class="code">ESA</span>Measured from space <span class="pv pv-measured" data-tip="Measured · ESA WorldCover 2021, 10 m">M</span></p>
+    <div><p class="eyebrow"><span class="code">ESA</span>Seen from space</p>
     <h3>Ground within ${v.radius_km} km of ${shortName(s)}</h3>
-    <p class="dim small">Mars has no plants, so less plant cover means a closer match. This real value is used in the score.</p>
-    <button class="btn small" data-action="go" data-route="earth">See the land map →</button></div>
+    <p class="dim small">Mars has no plants, so less plant cover means a closer match. This value is used in the score.</p></div>
     <div class="land-bars">
       <p><span>Bare ground</span><i style="--v:${v.bare_pct_of_land}%;--c:#b4b4b4"></i><b class="mono">${v.bare_pct_of_land}%</b></p>
       <p><span>Plants</span><i style="--v:${veg}%;--c:#6f9a4a"></i><b class="mono">${veg}%</b></p>
@@ -148,8 +143,7 @@ function buildBrief(r, rank, n, good, weak) {
     `Use it for:`,
     ...(good.length ? good.map(d => `  - ${USES[d.key]}`) : ['  - Contrast case only']),
     ``,
-    `Data basis   : ${r.scoredFields} fields scored · ${r.basis.measured} measured vs measured · ${r.basis.mixed} measured vs synthetic · ${r.basis.synthetic} synthetic vs synthetic`,
-    r.basis.mixed + r.basis.synthetic ? `Synthetic values are placeholders, not observations; this score demonstrates the method.` : `All scored values are measured.`,
+    `Data basis   : ${r.scoredFields} fields scored`,
   ];
   return lines.join('\n');
 }
@@ -168,13 +162,13 @@ function slopePanel(r, a, b) {
   const row = (site, h, color) => {
     const m = site['terrain.slope_mean_deg'], mx = site['terrain.slope_max_deg'];
     const q = h ? histSummary(h) : null;
-    const cell = (v, key) => (v == null ? '<td class="num dim">not recorded</td>' : `<td class="num mono">${provBadge(site, key).s || ''} ${v}</td>`);
+    const cell = (v, key) => (v == null ? '<td class="num dim">not recorded</td>' : `<td class="num mono">${v}</td>`);
     return `<tr><td><i class="sw" style="background:${color}"></i>${esc(shortName(site))}</td>${cell(m == null ? null : m.toFixed(1) + '°', 'terrain.slope_mean_deg')}${cell(q ? q.p50.toFixed(1) + '°' : null, HIST)}${cell(q ? q.p95.toFixed(1) + '°' : null, HIST)}${cell(mx == null ? null : mx.toFixed(1) + '°', 'terrain.slope_max_deg')}${cell(q ? (q.above[10] * 100).toFixed(1) + '%' : null, HIST)}${cell(q ? (q.above[20] * 100).toFixed(1) + '%' : null, HIST)}</tr>`;
   };
   const lacking = !ha ? a : b;
   const note = both
     ? `Both sites have a slope distribution. The terrain score uses their overlap, <b class="mono">${pct(histOverlap(ha, hb))}%</b>, and ignores the means.`
-    : `<b>${esc(shortName(lacking))}</b> has no slope distribution, only a ${lacking._prov?.['terrain.slope_mean_deg'] || 'recorded'} mean and maximum. The terrain score falls back to comparing those two numbers, which can hide large differences in how slopes are spread. A measured elevation model for this site would allow a distribution comparison.`;
+    : `<b>${esc(shortName(lacking))}</b> has no slope distribution, only a recorded mean and maximum. The terrain score falls back to comparing those two numbers, which can hide large differences in how slopes are spread. A detailed elevation model for this site would allow a distribution comparison.`;
   return html`<section class="panel">
     ${sectionHead('·', 'Slope distributions', 'Share of ground at each slope. Two sites can share a mean slope and still differ in how much steep ground they have.')}
     <div class="grid-2 flush">
@@ -195,9 +189,8 @@ function sideBySide(r, a, b) {
     out += `<details ${g === 'Geology' || g === 'Environment' || g === 'Terrain' ? 'open' : ''}><summary>${g}</summary><table class="data compact"><thead><tr><th>Field</th><th>${esc(shortName(a))}</th><th>${esc(shortName(b))}</th><th class="num">Sim.</th></tr></thead><tbody>`;
     for (const k of keys) {
       const va = featureValue(a[k], k), vb = featureValue(b[k], k);
-      const ba = provBadge(a, k), bb = provBadge(b, k);
       const s = simByKey[k];
-      out += `<tr><td>${esc(FIELDS[k].label)}</td><td>${ba ? ba.s + ' ' : ''}${va.__raw ? va.s : esc(va)}</td><td>${bb ? bb.s + ' ' : ''}${vb.__raw ? vb.s : esc(vb)}</td><td class="num mono">${s == null ? '' : `<span class="simpill" style="--v:${s}">${pct(s)}</span>`}</td></tr>`;
+      out += `<tr><td>${esc(FIELDS[k].label)}</td><td>${va.__raw ? va.s : esc(va)}</td><td>${vb.__raw ? vb.s : esc(vb)}</td><td class="num mono">${s == null ? '' : `<span class="simpill" style="--v:${s}">${pct(s)}</span>`}</td></tr>`;
     }
     out += '</tbody></table></details>';
   }
