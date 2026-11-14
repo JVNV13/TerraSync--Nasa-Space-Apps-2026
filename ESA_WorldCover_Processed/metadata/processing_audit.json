@@ -1,0 +1,80 @@
+{
+  "decisions": [
+    {
+      "tile": "N27W015",
+      "detected_nodata": 785361898,
+      "detected_unexpected": {},
+      "action": "Keep source raster; exclude NoData and unexpected codes from valid summaries.",
+      "reason": "Embedded NoData tag and official class legend.",
+      "effect": {
+        "valid_codes_changed": 0,
+        "excluded_pixels": 785361898,
+        "raster_written": false,
+        "resampled": false
+      }
+    },
+    {
+      "tile": "N36W117",
+      "detected_nodata": 0,
+      "detected_unexpected": {},
+      "action": "Keep source raster; exclude NoData and unexpected codes from valid summaries.",
+      "reason": "Embedded NoData tag and official class legend.",
+      "effect": {
+        "valid_codes_changed": 0,
+        "excluded_pixels": 0,
+        "raster_written": false,
+        "resampled": false
+      }
+    },
+    {
+      "tile": "S24W069",
+      "detected_nodata": 0,
+      "detected_unexpected": {},
+      "action": "Keep source raster; exclude NoData and unexpected codes from valid summaries.",
+      "reason": "Embedded NoData tag and official class legend.",
+      "effect": {
+        "valid_codes_changed": 0,
+        "excluded_pixels": 0,
+        "raster_written": false,
+        "resampled": false
+      }
+    }
+  ],
+  "group_code_mapping": {
+    "Water": [
+      80
+    ],
+    "Vegetation": [
+      10,
+      20,
+      30,
+      40,
+      90,
+      95,
+      100
+    ],
+    "Bare / sparse": [
+      60
+    ],
+    "Other": [
+      50,
+      70
+    ]
+  },
+  "derived_rasters": [],
+  "counts": "Exact native-resolution block scan with tile-level atomic checkpoints.",
+  "area": "WGS 84 ellipsoid integral between pixel edges, weighted by exact row counts, in square kilometers.",
+  "display": "Class samples every 24th native row and column.",
+  "denominators": {
+    "quality": "All pixels",
+    "class_percent": "Valid pixels",
+    "area_percent": "Classified ellipsoidal area"
+  },
+  "verification": [
+    "All inputs passed SHA-256 comparison",
+    "Class totals match valid pixel counts",
+    "Class percentages sum to 100% on valid coverage",
+    "Row areas close to footprint area",
+    "All figure files pass integrity and resolution checks"
+  ]
+}

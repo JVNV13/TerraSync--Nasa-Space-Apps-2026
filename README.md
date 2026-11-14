@@ -12,18 +12,18 @@ python3 -m http.server 8000
 
 (Opening `index.html` straight from disk will not work, because browsers block `fetch()` of the data files over `file://`.)
 
-## Views
-| # | View | What it does |
-|---|------|--------------|
-| 01 | Mission | Headline numbers, best Earth twin per target, overlooked analogs, negative-control self-check |
-| 02 | Terrain | Measured Mars elevation and slope maps, Sun sliders over 24 shadow maps, slope distributions, regional context |
-| 03 | Atlas | Linked Mars and Earth maps: pick a target, and Earth sites are sized by score |
-| 04 | Finder | Mission-profile presets, nine weight sliders, filters, ranked results, copy ranking as CSV |
-| 05 | Compare | Score dial, radar, dimension breakdown, slope distributions, holds/breaks tables, Earth's limits, field brief, side-by-side record with a measured/synthetic label on every field |
-| 06 | Matrix | Earth × target heatmap, overall or per dimension |
-| 07 | Catalog | Search and filter all records, parameter-space scatter, full-record drawer |
-| 08 | Method | Scoring pipeline, data-quality report, fixed scoring scales, limitations, load your own CSV |
+## Pages
+| # | Page | What it shows |
+|---|------|---------------|
+| 01 | Home | One-line intro, where to start, best Earth twin for each Mars place |
+| 02 | Mars | Measured Mars height, steepness and shadow maps (HiRISE), Sun sliders |
+| 03 | Earth | Measured Earth land cover (ESA WorldCover 2021, 10 m) for three dry regions, how Mars-like the ground is |
+| 04 | Find a twin | Pick a Mars place, get Earth places ranked; weights and filters are under "advanced" |
+| 05 | Compare | One Earth place vs one Mars place: score, topics, matches, differences; full record under "details" |
+| 06 | Map | Mars and Earth maps linked by match score |
+| 07 | About | Where the data comes from in plain words; method and data-quality report under "technical details" |
 
+The Matrix (`#matrix`) and Catalog (`#catalog`) views still work by URL but are no longer in the menu.
 ## Scoring (js/engine.js)
 - Feature similarity is 0–1. Numeric fields use `1 − |a−b| / (hi − lo)` on a **fixed physical scale** per field, so a pair's score does not change when records are added or removed. Heavy-tailed fields use a log scale.
 - Slopes are compared as **distributions**: the overlap of two 1° slope histograms. Mean and max slope are used only when a site has no histogram.
@@ -37,18 +37,21 @@ python3 -m http.server 8000
 |---|---|---|
 | `data/mars_measured.csv` | 2 Mars terrain patches from HiRISE DTMs | measured |
 | `data/mars_terrain.json` | Elevation, slope and 24 Sun-scenario grids for those patches, MOLA context | measured |
-| `data/synthetic_sites.csv` | 16 Earth records (one control) and 14 Mars records | synthetic placeholders |
+| `data/earth_landcover.json` | Land-cover maps and class shares for 3 WorldCover tiles, and plant cover within 5 km of catalogue sites inside them | measured |
+| `data/synthetic_sites.csv` | 16 Earth records (one control) and 14 Mars records | synthetic placeholders (vegetation cover replaced by measured values for Badwater Basin and La Corona) |
 
-Provenance is tracked **per field**. A row is fully measured with `is_synthetic = false`; a mixed row lists its measured columns in `measured_fields`. The two measured files are generated from `Mars_Processed/` by `tools/build_site_data.py`. See `docs/MARS_DATA_INTEGRATION.md` for the data audit, fixes and limits.
+Provenance is tracked **per field**. A row is fully measured with `is_synthetic = false`; a mixed row lists its measured columns in `measured_fields`. The Mars files are generated from `Mars_Processed/` by `tools/build_site_data.py`; the Earth file from `ESA_WorldCover_Processed/` by `tools/build_earth_data.py` (needs numpy). See `docs/MARS_DATA_INTEGRATION.md` for the data audit, fixes and limits.
 
 Earth coastlines: Natural Earth 1:110m (public domain), via `world-atlas`.
 
 ## Structure
 ```
 index.html            shell, nav, status bar
-css/style.css         design system
+css/style.css         base design system
+css/mec.css           exploration-centre theme (loaded after style.css)
 data/                 site tables and Mars terrain grids
 tools/build_site_data.py   Mars_Processed/ -> data/
+tools/build_earth_data.py  ESA_WorldCover_Processed/ -> data/earth_landcover.json
 Mars_Processed/       Mars pipeline, rasters, reports
 js/csv.js             RFC-4180 CSV parser
 js/data.js            field dictionary, typing, validation, field provenance, quality report

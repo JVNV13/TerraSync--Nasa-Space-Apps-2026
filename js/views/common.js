@@ -43,6 +43,52 @@ export function sectionHead(code, title, sub) {
   return html`<header class="sec-head"><p class="eyebrow"><span class="code">${code}</span>${title}</p>${sub ? html`<p class="sec-sub">${sub}</p>` : ''}</header>`;
 }
 
+/** Page header in the exploration-centre style: breadcrumb, big title, one plain sentence. */
+export function pageHead(crumb, title, sub) {
+  return html`<header class="page-head">
+    <p class="crumb"><a href="#mission">Home</a><span>/</span><b>${crumb}</b></p>
+    <h1 class="page-title">${title}</h1>
+    ${sub ? html`<p class="page-sub">${sub}</p>` : ''}
+  </header>`;
+}
+
+/** A short "how to read this" hint shown above a chart or map. */
+export const hint = text => html`<p class="hint"><i aria-hidden="true">?</i>${text}</p>`;
+
+/**
+ * Procedural planet globe (SVG, no image files). kind: 'mars' | 'earth'.
+ * The surface texture slides behind a shaded sphere, which reads as slow rotation.
+ */
+export function globe(kind = 'mars', cls = '') {
+  const id = 'g' + Math.random().toString(36).slice(2, 7);
+  const P = kind === 'earth'
+    ? { base: ['#3d7fb0', '#1b4f7c', '#0b2440'], dark: '0.18 0.36 0.16', light: '0.78 0.70 0.52', glow: '#5aa9e6', cap: 0.55, f: 0.010 }
+    : { base: ['#e08a55', '#b5532c', '#5a1f0f'], dark: '0.24 0.08 0.04', light: '0.86 0.52 0.32', glow: '#e0703a', cap: 0.38, f: 0.012 };
+  const [dr, dg, db] = P.dark.split(' '), [lr, lg, lb] = P.light.split(' ');
+  return raw(`<svg class="globe globe-${kind} ${cls}" viewBox="0 0 600 600" aria-hidden="true">
+  <defs>
+    <radialGradient id="${id}b" cx="38%" cy="36%" r="70%"><stop offset="0" stop-color="${P.base[0]}"/><stop offset=".6" stop-color="${P.base[1]}"/><stop offset="1" stop-color="${P.base[2]}"/></radialGradient>
+    <radialGradient id="${id}s" cx="30%" cy="28%" r="85%"><stop offset=".35" stop-color="#000" stop-opacity="0"/><stop offset=".78" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity=".92"/></radialGradient>
+    <radialGradient id="${id}g" cx="50%" cy="50%" r="50%"><stop offset=".86" stop-color="${P.glow}" stop-opacity=".55"/><stop offset="1" stop-color="${P.glow}" stop-opacity="0"/></radialGradient>
+    <clipPath id="${id}c"><circle cx="300" cy="300" r="250"/></clipPath>
+    <filter id="${id}d" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="${P.f}" numOctaves="5" seed="11"/><feColorMatrix type="matrix" values="0 0 0 0 ${dr} 0 0 0 0 ${dg} 0 0 0 0 ${db} 3.6 0 0 0 -1.55"/></filter>
+    <filter id="${id}l" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="${P.f * 2.2}" numOctaves="4" seed="4"/><feColorMatrix type="matrix" values="0 0 0 0 ${lr} 0 0 0 0 ${lg} 0 0 0 0 ${lb} 0 3 0 0 -1.65"/></filter>
+    <filter id="${id}bl"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <circle cx="300" cy="300" r="292" fill="url(#${id}g)"/>
+  <g clip-path="url(#${id}c)">
+    <circle cx="300" cy="300" r="250" fill="url(#${id}b)"/>
+    <g class="globe-spin"><rect x="0" y="40" width="1500" height="520" filter="url(#${id}d)"/><rect x="0" y="40" width="1500" height="520" filter="url(#${id}l)" opacity=".42"/></g>
+    <ellipse cx="300" cy="62" rx="120" ry="34" fill="#fff" opacity="${P.cap}" filter="url(#${id}bl)"/>
+    <circle cx="300" cy="300" r="250" fill="url(#${id}s)"/>
+  </g>
+  <circle cx="300" cy="300" r="250" fill="none" stroke="${P.glow}" stroke-opacity=".35" stroke-width="1.5"/>
+</svg>`);
+}
+
+/** One label ........ value row (encyclopedia-style data list). */
+export const factRow = (label, value, tipText) => html`<li class="fact"${tipText ? raw(` data-tip="${esc(tipText)}"`) : ''}><span>${label}</span><i></i><b>${value}</b></li>`;
+
 export function targetOptions(ctx, selectedId) {
   const groups = {};
   for (const t of ctx.targets) (groups[`${t.body} · ${t.provenance}`] ||= []).push(t);
@@ -94,10 +140,7 @@ export function shared(a, b) {
 }
 
 export function dataNotice(ctx) {
-  const q = ctx.data.quality;
-  const { measured, synthetic } = q.values;
+  const { measured, synthetic } = ctx.data.quality.values;
   if (!synthetic) return '';
-  const n = v => v.toLocaleString('en-US');
-  if (!measured) return html`<aside class="notice" role="note"><b>Synthetic dataset.</b> All ${n(synthetic)} field values in <span class="mono">${q.source}</span> are synthetic placeholders. Rankings demonstrate the method; they are not scientific findings.</aside>`;
-  return html`<aside class="notice" role="note"><b>Measured and synthetic data are mixed.</b> ${n(measured)} field values are measured (${q.records.measured || 0} fully measured record${q.records.measured === 1 ? '' : 's'}${q.records.mixed ? `, ${q.records.mixed} mixed` : ''}) and ${n(synthetic)} are synthetic placeholders. Every field is labelled <span class="pv pv-measured">M</span> or <span class="pv pv-synthetic">S</span> where it is shown. A score that uses any synthetic value demonstrates the method and is not a scientific finding. Measured Mars elevation, slope and shadow maps are under <a href="#terrain">Terrain</a>.</aside>`;
+  return html`<aside class="notice" role="note"><b>Good to know:</b> ${measured ? html`values marked <span class="pv pv-measured">M</span> are real measurements; ` : ''}values marked <span class="pv pv-synthetic">S</span> are demo placeholders, so these match scores show how the method works rather than final science. Real data: <a href="#terrain">Mars surface</a> · <a href="#earth">Earth land</a>.</aside>`;
 }

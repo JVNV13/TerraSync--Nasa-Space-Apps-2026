@@ -11,8 +11,9 @@ import * as compare from './views/compare.js';
 import * as matrix from './views/matrix.js';
 import * as catalog from './views/catalog.js';
 import * as method from './views/method.js';
+import * as earth from './views/earth.js';
 
-const ROUTES = { mission, terrain, atlas, finder, compare, matrix, catalog, method };
+const ROUTES = { mission, terrain, earth, atlas, finder, compare, matrix, catalog, method };
 const DEFAULT_ROUTE = 'mission';
 
 const ctx = {
@@ -40,7 +41,7 @@ const ctx = {
     this.engine = new Engine(ds.sites);
     this.earth = ds.sites.filter(s => s.body === 'Earth');
     this.targets = ds.sites.filter(s => s.body !== 'Earth');
-    if (!this.engine.byId.has(this.state.targetId) || this.engine.byId.get(this.state.targetId).body === 'Earth') this.state.targetId = this.targets[0]?.id ?? null;
+    if (!this.engine.byId.has(this.state.targetId) || this.engine.byId.get(this.state.targetId).body === 'Earth') this.state.targetId = (this.targets.find(t => t.provenance === 'synthetic') || this.targets[0])?.id ?? null;
     if (!this.engine.byId.has(this.state.candId) || this.engine.byId.get(this.state.candId).body !== 'Earth') this.state.candId = null;
     updateStatus();
   },
@@ -77,16 +78,12 @@ function renderRoute() {
 }
 
 function updateStatus() {
-  const q = ctx.data.quality;
-  $('#ds-name').textContent = q.source;
-  $('#ds-count').textContent = `${q.accepted} records`;
-  const { measured, synthetic } = q.values;
+  const { measured, synthetic } = ctx.data.quality.values;
   const flag = $('#ds-flag');
-  flag.textContent = !measured ? 'SYNTHETIC' : !synthetic ? 'MEASURED' : `MIXED · ${measured} MEASURED / ${synthetic} SYNTHETIC VALUES`;
+  flag.textContent = !synthetic ? 'All data measured' : `${measured.toLocaleString('en-US')} measured · ${synthetic.toLocaleString('en-US')} demo values`;
   flag.className = 'flag ' + (synthetic ? 'flag-syn' : 'flag-real');
-  flag.title = 'Counted per field value, not per record';
+  flag.title = 'Measured values come from HiRISE (Mars) and ESA WorldCover (Earth). Demo values are placeholders that show how the method works.';
 }
-
 /* ----------------------------------------------------------- delegated events */
 document.addEventListener('mouseover', e => {
   const t = e.target.closest('[data-tip]');
@@ -146,7 +143,7 @@ function starfield() {
     g.clearRect(0, 0, w, h);
     for (const s of stars) {
       const a = reduce ? s.a : s.a * (0.75 + 0.25 * Math.sin(t / 1000 * s.s + s.p));
-      g.globalAlpha = a; g.fillStyle = s.r > 1.2 * dpr ? '#f3e9d2' : '#c9d3e0';
+      g.globalAlpha = a * 0.6; g.fillStyle = s.r > 1.2 * dpr ? '#f1dcc0' : '#cfcac2';
       g.beginPath(); g.arc(s.x, s.y, s.r, 0, 6.283); g.fill();
     }
     if (!reduce) requestAnimationFrame(frame);
@@ -156,7 +153,7 @@ function starfield() {
 }
 
 function clock() {
-  const el = $('#utc');
+  const el = $('#utc'); if (!el) return;
   const tick = () => { el.textContent = new Date().toISOString().slice(11, 19) + ' UTC'; };
   tick(); setInterval(tick, 1000);
 }

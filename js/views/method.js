@@ -2,7 +2,7 @@
 import { html, render, pct, $ } from '../util.js';
 import { DIMENSIONS, PROFILES, GRAVITY } from '../engine.js';
 import { FIELDS, GROUP_ORDER } from '../data.js';
-import { sectionHead } from './common.js';
+import { sectionHead, pageHead } from './common.js';
 
 const KIND = { num: 'distance on a fixed scale', dist: 'distribution overlap', set: 'set overlap (Jaccard)', words: 'term overlap', bool: 'match / no match', class: 'class match (+ secondary)' };
 
@@ -14,8 +14,40 @@ export function render_(root, ctx) {
   });
 
   render(root, html`
-  ${sectionHead('§ METHOD', 'Method & data', 'How TerraSync turns site records into analog scores, and what the scores can and cannot tell you.')}
+  ${pageHead('About', 'About the data', 'Where every number on this site comes from, in plain words.')}
 
+  <div class="data-cards">
+    <article class="panel data-card mars">
+      <p class="eyebrow"><span class="code">01</span>Mars · real data</p>
+      <h2 class="block-title">HiRISE terrain models</h2>
+      <p>A camera on NASA’s Mars Reconnaissance Orbiter photographed the same ground from two angles. From the pair, scientists built 3D height maps. We use two patches near Jezero crater for height, steepness and shadows.</p>
+      <button class="btn small" data-action="go" data-route="terrain">Mars surface →</button>
+    </article>
+    <article class="panel data-card earth">
+      <p class="eyebrow"><span class="code">02</span>Earth · real data</p>
+      <h2 class="block-title">ESA WorldCover 2021</h2>
+      <p>European Sentinel satellites sorted every 10 × 10 m of land into 11 types: trees, grass, bare ground, water and so on. We use three dry regions: the Canary Islands coast, Death Valley and the Atacama Desert.</p>
+      <button class="btn small" data-action="go" data-route="earth">Earth land →</button>
+    </article>
+    <article class="panel data-card demo">
+      <p class="eyebrow"><span class="code">03</span>Demo values</p>
+      <h2 class="block-title">Placeholder catalogue</h2>
+      <p>Facts like rock types, temperatures and dust for ${ctx.earth.length} Earth and ${ctx.targets.length} Mars places are placeholders for now. They show how the method works and are marked <span class="pv pv-synthetic">S</span>. Real values are marked <span class="pv pv-measured">M</span>.</p>
+    </article>
+  </div>
+
+  <section class="panel">
+    <header class="block-head"><h2 class="block-title">How the match score works</h2></header>
+    <ol class="how-steps">
+      <li><b>Line up the facts</b><p>Both places are described with the same facts: rocks, slopes, temperature, wind and dust, water and ice, signs of life, caves, and how easy it is to work there.</p></li>
+      <li><b>Compare each fact</b><p>Each fact gets a similarity from 0 to 100. Facts that only one place has are skipped, never guessed.</p></li>
+      <li><b>Add it up</b><p>The facts are grouped into nine topics and averaged into one score. “What matters most” changes how much each topic counts.</p></li>
+    </ol>
+    <p class="small dim">Rating: <span class="band band-strong">Strong 60+</span> <span class="band band-good">Useful 50+</span> <span class="band band-partial">Partial 40+</span> <span class="band band-weak">Weak under 40</span>. Air pressure, radiation and gravity are always shown as differences, because no place on Earth can copy them.</p>
+  </section>
+
+  <details class="panel tech">
+  <summary>Technical details: method, data quality and loading your own data</summary>
   <div class="grid-2">
     <section class="panel prose">
       ${sectionHead('1', 'Scoring pipeline')}
@@ -90,7 +122,7 @@ export function render_(root, ctx) {
         <li><b>Atmosphere.</b> The pressures in the CSV are barometric approximations. Earth sites sit at roughly 60–103 kPa, Mars sites under 1.2 kPa, and the Moon is effectively a vacuum.</li>
         <li><b>Radiation.</b> Earth's magnetosphere and air keep surface doses about two orders of magnitude below the Mars values in this file.</li>
         <li><b>Scale and averaging.</b> Each record is one representative site. Real analogs vary across a valley or crater, so sub-site data would sharpen the matches.</li>
-        <li><b>Synthetic inputs.</b> Only the two HiRISE terrain patches are measured. All Earth records and the other Mars records are synthetic placeholders, so every Earth ranking is a demonstration of the method until measured Earth data replace them.</li>
+        <li><b>Synthetic inputs.</b> Measured values: the two HiRISE terrain patches (Mars) and ESA WorldCover land cover (Earth vegetation cover for places inside the three mapped regions). Everything else is a synthetic placeholder, so rankings demonstrate the method until more measured data replace them.</li>
         <li><b>Terrain scale.</b> The measured slopes use a ~60 m baseline on ~30 m cells. Slope depends on baseline, so compare only with terrain processed the same way.</li>
       </ul>
     </section>
@@ -105,7 +137,8 @@ export function render_(root, ctx) {
       <p class="mono small">id, name, planet, geographic.latitude, geographic.longitude</p>
       <p class="small dim">Every other column is optional. Missing values only lower a pair's coverage.</p>
     </section>
-  </div>`);
+  </div>
+  </details>`);
 
   $('#m-file', root).addEventListener('change', async e => {
     const f = e.target.files[0]; if (!f) return;

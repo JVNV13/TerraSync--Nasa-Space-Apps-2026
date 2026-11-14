@@ -5,7 +5,7 @@
 import { html, render, raw, rampColor, clamp, $, $$ } from '../util.js';
 import { slopeDist, azimuthLines } from '../charts.js';
 import { histOverlap } from '../engine.js';
-import { sectionHead } from './common.js';
+import { sectionHead, pageHead } from './common.js';
 
 const URL = 'data/mars_terrain.json';
 const K = 5;                          // canvas pixels per terrain cell
@@ -87,11 +87,11 @@ export function render_(root, ctx) {
   const bar = html`<span class="scalebar" style="width:${(500 / (p.width * p.cell_m[0]) * 100).toFixed(2)}%">500 m</span>`;
 
   render(root, html`
-  ${sectionHead('§ TERRAIN', 'Mars terrain', 'Measured elevation and slope from HiRISE stereo terrain models east of Jezero crater. Move the Sun to see which ground falls in shadow.')}
+  ${pageHead('Mars', 'The surface of Mars, up close', 'Two real patches of ground just east of Jezero crater, where the Perseverance rover explores. Each patch is about 2.4 × 3 km. Move the Sun to see where shadows fall.')}
 
   <div class="panel terr-ctrl">
-    <div class="field"><span>Terrain patch</span><div class="chips" role="radiogroup" aria-label="Terrain patch">
-      ${P.map((q, i) => html`<button class="chip${i === local.patch ? ' on' : ''}" role="radio" aria-checked="${String(i === local.patch)}" data-patch="${i}"><i class="sw" style="background:${COLORS[i]}"></i>${short(q)} · ${q.source.slice(6, 17)}</button>`)}
+    <div class="field"><span>Patch</span><div class="chips" role="radiogroup" aria-label="Terrain patch">
+      ${P.map((q, i) => html`<button class="chip${i === local.patch ? ' on' : ''}" role="radio" aria-checked="${String(i === local.patch)}" data-patch="${i}"><i class="sw" style="background:${COLORS[i]}"></i>${short(q)} · ${i ? 'south' : 'north'}</button>`)}
     </div></div>
     <label class="field sun"><span>Sun azimuth · <output id="t-az-o" class="mono"></output></span>
       <input type="range" id="t-az" min="${azs[0]}" max="${azs.at(-1)}" step="${azs[1] - azs[0]}" value="${local.az}" aria-label="Sun azimuth in degrees clockwise from grid north"></label>
@@ -101,8 +101,8 @@ export function render_(root, ctx) {
   </div>
 
   <div class="terr-maps">
-    ${[['elev', 'Elevation', `${fmtM(p.elevation.min)} m`, `${fmtM(p.elevation.max)} m`, `linear-gradient(90deg,${[0, .25, .5, .75, 1].map(rampColor).join(',')})`, 'Colour spans this patch only'],
-       ['slope', 'Slope', `${SLOPE_SCALE[0]}°`, `${SLOPE_SCALE[1]}°+`, `linear-gradient(90deg,${SLOPE_RAMP.map(css).join(',')})`, 'Fixed scale, same for every patch']].map(([id, title, lo, hi, grad, note]) => html`
+    ${[['elev', 'Height', `${fmtM(p.elevation.min)} m`, `${fmtM(p.elevation.max)} m`, `linear-gradient(90deg,${[0, .25, .5, .75, 1].map(rampColor).join(',')})`, 'Dark = low ground, light = high ground'],
+       ['slope', 'Steepness', `flat ${SLOPE_SCALE[0]}°`, `steep ${SLOPE_SCALE[1]}°+`, `linear-gradient(90deg,${SLOPE_RAMP.map(css).join(',')})`, 'Dark = flat, bright = steep']].map(([id, title, lo, hi, grad, note]) => html`
     <figure class="panel terr-fig">
       <figcaption><span class="cap-l">${title} <span class="pv pv-measured" data-tip="Measured · ${p.product}">M</span></span><span class="cap-r mono">${short(p)}</span></figcaption>
       <div class="map-box"><canvas id="t-${id}" role="img" aria-label="${title} map of ${p.name}"></canvas><i class="cell-mark"></i>${bar}</div>
@@ -113,39 +113,39 @@ export function render_(root, ctx) {
       <figcaption><span class="cap-l">Shadow map <span class="pv pv-measured" data-tip="Computed from the measured terrain. The Sun position is a hypothetical scenario, not a date or time.">M</span></span><span class="cap-r mono" id="t-sun-cap"></span></figcaption>
       <div class="map-box"><canvas id="t-shadow" role="img" aria-label="Shadow map of ${p.name}"></canvas><i class="cell-mark"></i>${bar}</div>
       <div class="map-legend terr-legend">${STATE.map(s => html`<span><i class="lg-sq${s.key === 'unres' ? ' hatch' : ''}" style="background-color:${css(s.rgb)}"></i>${s.label}</span>`)}</div>
-      <p class="small dim">Lit ground is shaded by the angle the light strikes it.</p>
+      <p class="small dim">Dark blue = in shadow</p>
     </figure>
   </div>
   <div class="terr-foot">
     <span class="mono dim">grid north ↑ · ${p.size_km[0].toFixed(2)} × ${p.size_km[1].toFixed(2)} km · ${p.width} × ${p.height} cells of ${p.cell_m[0].toFixed(1)} × ${p.cell_m[1].toFixed(1)} m</span>
-    <span class="mono readout" id="t-read" role="status">Point at a map to read a cell.</span>
+    <span class="mono readout" id="t-read" role="status">Point at a map to read the height, steepness and light at that spot.</span>
   </div>
 
   <section class="panel">
-    ${sectionHead('A', 'Ground in shadow for this Sun position', `Shadows are traced up to ${doc.sun.max_ray_m.toLocaleString('en-US')} m from each cell. Where the ray leaves the patch first, the cell is unresolved: it is not counted as lit.`)}
+    <header class="block-head"><h2 class="block-title">How much ground is in shadow?</h2><p class="block-sub">Shadows matter for solar power, cold spots and what cameras can see.</p></header>
     <div id="t-stats"></div>
   </section>
 
   <div class="grid-2">
     <section class="panel">
-      ${sectionHead('B', 'Slope distributions', 'Share of the patch at each slope. Slopes are measured over a ~60 m baseline.')}
+      <header class="block-head"><h2 class="block-title">How steep is the ground?</h2><p class="block-sub">How much of each patch sits at each steepness. More area on the left = easier driving for a rover.</p></header>
       <div class="map-legend">${P.map((q, i) => html`<span><i class="lg-line${i ? ' dash' : ''}" style="--c:${COLORS[i]}"></i>${short(q)}</span>`)}</div>
       <div class="sc-wrap">${raw(slopeDist({ series: P.map((q, i) => ({ name: short(q), hist: q.slope_distribution.counts, color: COLORS[i], dash: i > 0 })), ariaLabel: 'Slope distributions of the measured Mars patches' }))}</div>
-      ${overlap != null ? html`<p class="callout">Mean slopes differ by only <b class="mono">${Math.abs(P[0].slope.mean - P[1].slope.mean).toFixed(2)}°</b>, yet the two distributions overlap by <b class="mono">${pc(overlap, 0)}</b>. ${short(P[0])} has ${(P[0].slope_distribution.fraction_steeper_than['20deg'] / Math.max(P[1].slope_distribution.fraction_steeper_than['20deg'], 1e-9)).toFixed(1)}× as much ground steeper than 20°.</p>` : ''}
+      ${overlap != null ? html`<p class="callout">The two patches have almost the same average steepness, but ${short(P[0])} has ${(P[0].slope_distribution.fraction_steeper_than['20deg'] / Math.max(P[1].slope_distribution.fraction_steeper_than['20deg'], 1e-9)).toFixed(1)}× as much very steep ground (over 20°). That is why TerraSync compares the whole spread, not just the average.</p>` : ''}
       <div class="table-wrap"><table class="data compact">
         <thead><tr><th>Patch</th><th class="num">Mean</th><th class="num">Median</th><th class="num">95th pct</th><th class="num">Max</th><th class="num">&gt; 10°</th><th class="num">&gt; 20°</th></tr></thead>
         <tbody>${P.map((q, i) => html`<tr><td><i class="sw" style="background:${COLORS[i]}"></i>${short(q)}</td><td class="num mono">${q.slope.mean.toFixed(1)}°</td><td class="num mono">${q.slope_distribution.percentiles_deg.p50.toFixed(1)}°</td><td class="num mono">${q.slope_distribution.percentiles_deg.p95.toFixed(1)}°</td><td class="num mono">${q.slope.max.toFixed(1)}°</td><td class="num mono">${pc(q.slope_distribution.fraction_steeper_than['10deg'])}</td><td class="num mono">${pc(q.slope_distribution.fraction_steeper_than['20deg'])}</td></tr>`)}</tbody>
       </table></div>
     </section>
     <section class="panel">
-      ${sectionHead('C', `Shadow by Sun direction · ${short(p)}`, 'Share of resolved cells in shadow for each of the 24 Sun positions. The ringed point is the one shown on the map.')}
+      <header class="block-head"><h2 class="block-title">Shadow for every Sun position</h2><p class="block-sub">${short(p)}. Each line is one Sun height; a low Sun casts long shadows. The ringed point is what the map shows.</p></header>
       <div id="t-azchart" class="sc-wrap"></div>
     </section>
   </div>
 
   <div class="grid-2">
-    <section class="panel">
-      ${sectionHead('D', 'Patch record', 'All values are measured from the terrain model.')}
+    <details class="panel tech">
+      <summary>Technical details: patch record</summary>
       <div class="table-wrap"><table class="data compact">
         <thead><tr><th>Quantity</th>${P.map((q, i) => html`<th><i class="sw" style="background:${COLORS[i]}"></i>${short(q)}</th>`)}</tr></thead>
         <tbody>
@@ -161,18 +161,17 @@ export function render_(root, ctx) {
         </tbody></table></div>
       <p class="small dim">Elevation datum: ${p.vertical_reference}. MOLA uses a different datum and is shown only as context.</p>
       <p>${P.filter(q => inCatalog(q.id)).map(q => html`<button class="btn small" data-action="open-site" data-id="${q.id}">${short(q)} catalogue record</button> `)}</p>
-    </section>
+      <p class="small dim">Elevation, slope and shadows come from HiRISE stereo terrain models, averaged to ~30 m cells. The Sun positions (${alts.join('°, ')}° high, from eight directions) are “what if” scenarios, not real dates. Shadows from hills more than ${doc.sun.max_ray_m.toLocaleString('en-US')} m away, small rocks and the atmosphere are not modelled; cells whose shadow ray leaves the patch are marked unresolved.</p>
+    </details>
     <figure class="panel terr-fig">
-      <figcaption><span class="cap-l">Regional context <span class="pv pv-measured" data-tip="Measured · MOLA MEGDR ${doc.mola.pixels_per_degree} px/degree (${doc.mola.source})">M</span></span><span class="cap-r mono">${doc.mola.bounds_lonlat[0]}–${doc.mola.bounds_lonlat[2]}°E · ${doc.mola.bounds_lonlat[1]}–${doc.mola.bounds_lonlat[3]}°N</span></figcaption>
+      <figcaption><span class="cap-l">Where the patches are <span class="pv pv-measured" data-tip="Measured · MOLA MEGDR ${doc.mola.pixels_per_degree} px/degree (${doc.mola.source})">M</span></span><span class="cap-r mono">${doc.mola.bounds_lonlat[0]}–${doc.mola.bounds_lonlat[2]}°E · ${doc.mola.bounds_lonlat[1]}–${doc.mola.bounds_lonlat[3]}°N</span></figcaption>
       <div class="map-box ctx"><canvas id="t-mola" role="img" aria-label="MOLA regional elevation with the two patch footprints"></canvas>
         ${P.map((q, i) => { const [W, S, E, N] = doc.mola.bounds_lonlat, [x0, y0, x1, y1] = q.bounds_lonlat; return html`<span class="ctx-mark" style="left:${((x0 - W) / (E - W) * 100).toFixed(2)}%;top:${((N - y1) / (N - S) * 100).toFixed(2)}%;width:${((x1 - x0) / (E - W) * 100).toFixed(2)}%;height:${((y1 - y0) / (N - S) * 100).toFixed(2)}%;--c:${COLORS[i]}"><b>${String.fromCharCode(65 + i)}</b></span>`; })}
       </div>
       <div class="ramp-legend"><span class="mono dim">${doc.mola.min.toLocaleString('en-US')} m</span><i style="background:linear-gradient(90deg,${[0, .25, .5, .75, 1].map(rampColor).join(',')})"></i><span class="mono dim">${doc.mola.max.toLocaleString('en-US')} m</span></div>
-      <p class="small dim">MOLA laser altimetry, ${doc.mola.pixels_per_degree} px per degree. The squares mark the patches at true size (about 2.4 × 3.0 km).</p>
+      <p class="small dim">A wider height map of the area from NASA's MOLA laser. The small squares A and B are the two patches, drawn at true size.</p>
     </figure>
-  </div>
-
-  <aside class="notice" role="note"><b>What is and is not measured.</b> Elevation, slope and the shadow geometry come from HiRISE stereo terrain models aggregated to about 30 m cells. The Sun positions are hypothetical scenarios (${alts.join('°, ')}° above the horizon from eight directions), not dates or times, and azimuth is relative to grid north. Shadows from terrain more than ${doc.sun.max_ray_m.toLocaleString('en-US')} m away, rocks smaller than a cell, and atmosphere are not modelled.</aside>`);
+  </div>`);
 
   // ---- static maps
   const n = p.width * p.height;
@@ -203,7 +202,7 @@ export function render_(root, ctx) {
     const resolved = n - s.unresolved;
     $('#t-stats', root).innerHTML = html`
       <div class="tiles">
-        <div class="tile main"><dt>In shadow</dt><dd class="mono">${resolved ? pc((s.cast + s.self_only) / resolved) : '—'}</dd><small>of the ${pc(resolved / n, 0)} of cells that could be resolved</small></div>
+        <div class="tile main"><dt>In shadow</dt><dd class="mono">${resolved ? pc((s.cast + s.self_only) / resolved) : '—'}</dd><small>of the ground we could check (${pc(resolved / n, 0)})</small></div>
         ${parts.map(([k, v]) => html`<div class="tile"><dt><i class="lg-sq${k === 'unres' ? ' hatch' : ''}" style="background-color:${css(STATE.find(x => x.key === k).rgb)}"></i>${STATE.find(x => x.key === k).label}</dt><dd class="mono">${pc(v / n)}</dd><small>${v.toLocaleString('en-US')} cells</small></div>`)}
       </div>
       <div class="stack" role="img" aria-label="Share of all cells by illumination state">${parts.map(([k, v]) => html`<i class="${k === 'unres' ? 'hatch' : ''}" style="flex:${v};background-color:${css(STATE.find(x => x.key === k).rgb)}" data-tip="${`<b>${STATE.find(x => x.key === k).label}</b><span class="mono">${pc(v / n)} of all cells</span>`}"></i>`)}</div>`.s;

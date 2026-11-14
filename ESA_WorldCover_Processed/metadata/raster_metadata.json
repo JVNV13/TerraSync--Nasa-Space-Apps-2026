@@ -1,0 +1,434 @@
+{
+  "product": "ESA WorldCover 2021 v200 Map",
+  "sources": [
+    {
+      "path": "new_data/ESA_WorldCover_10m_2021_v200_N27W015_Map.tif",
+      "bytes": 5583741,
+      "sha256": "7dca6acdf1b0d16fbb2bbd6fed71fe33cdd42797368f10f96dc5f372c247e4c1",
+      "width": 36000,
+      "height": 36000,
+      "bands": 1,
+      "bits": [
+        8
+      ],
+      "sample_format": [
+        1
+      ],
+      "compression": 8,
+      "predictor": 1,
+      "planar_config": 1,
+      "orientation": 1,
+      "photometric": 3,
+      "extra_samples": null,
+      "nodata_tag": "0",
+      "geokeys": {
+        "1024": 2,
+        "1025": 1,
+        "2048": 4326,
+        "2054": 9102
+      },
+      "pixel_scale": [
+        8.333333333333333e-05,
+        8.333333333333333e-05,
+        0.0
+      ],
+      "tiepoint": [
+        0.0,
+        0.0,
+        0.0,
+        -15.0,
+        30.0,
+        0.0
+      ],
+      "has_transform_matrix": false,
+      "block_shape": [
+        1024,
+        1024
+      ],
+      "overview_count": 6,
+      "attributes": {
+        "algorithm_version": "V2.0.0",
+        "copyright": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+        "creation_time": "2022-10-21 07:35:40.236136",
+        "legend": "10  Tree cover\n20  Shrubland\n30  Grassland\n40  Cropland\n50  Built-up\n60  Bare/sparse vegetation\n70  Snow and ice\n80  Permanent water bodies\n90  Herbaceous wetland\n95  Mangroves\n100 Moss and lichen\n",
+        "license": "CC-BY 4.0 - https://creativecommons.org/licenses/by/4.0/",
+        "product_crs": "EPSG:4326",
+        "product_grid": "3x3 degree tiling grid",
+        "product_tile": "N27W015",
+        "product_type": "LandCover Map",
+        "product_version": "V2.0.0",
+        "reference": "https://esa-worldcover.org",
+        "time_end": "2021-12-31T23:59:59Z",
+        "time_start": "2021-01-01T00:00:00Z",
+        "title": "ESA WorldCover product at 10m resolution for year 2021"
+      },
+      "crs": "EPSG:4326",
+      "dtype": "uint8",
+      "resolution_deg": [
+        8.333333333333333e-05,
+        8.333333333333333e-05
+      ],
+      "bounds_wsen": [
+        -15.0,
+        27.0,
+        -12.0,
+        30.0
+      ],
+      "affine": [
+        8.333333333333333e-05,
+        0,
+        -15.0,
+        0,
+        -8.333333333333333e-05,
+        30.0
+      ],
+      "nodata": 0,
+      "registration": "PixelIsArea",
+      "validation": {
+        "product": true,
+        "dimensions": true,
+        "dtype": true,
+        "grid": true,
+        "block_format": true,
+        "nodata": true
+      }
+    },
+    {
+      "path": "new_data/ESA_WorldCover_10m_2021_v200_N36W117_Map.tif",
+      "bytes": 114433385,
+      "sha256": "e65917c19cb4e525029e719768f9b66b574c74d894490d19d5737f1ed770edce",
+      "width": 36000,
+      "height": 36000,
+      "bands": 1,
+      "bits": [
+        8
+      ],
+      "sample_format": [
+        1
+      ],
+      "compression": 8,
+      "predictor": 1,
+      "planar_config": 1,
+      "orientation": 1,
+      "photometric": 3,
+      "extra_samples": null,
+      "nodata_tag": "0",
+      "geokeys": {
+        "1024": 2,
+        "1025": 1,
+        "2048": 4326,
+        "2054": 9102
+      },
+      "pixel_scale": [
+        8.333333333333333e-05,
+        8.333333333333333e-05,
+        0.0
+      ],
+      "tiepoint": [
+        0.0,
+        0.0,
+        0.0,
+        -117.0,
+        39.0,
+        0.0
+      ],
+      "has_transform_matrix": false,
+      "block_shape": [
+        1024,
+        1024
+      ],
+      "overview_count": 6,
+      "attributes": {
+        "algorithm_version": "V2.0.0",
+        "copyright": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+        "creation_time": "2022-10-21 07:35:40.236136",
+        "legend": "10  Tree cover\n20  Shrubland\n30  Grassland\n40  Cropland\n50  Built-up\n60  Bare/sparse vegetation\n70  Snow and ice\n80  Permanent water bodies\n90  Herbaceous wetland\n95  Mangroves\n100 Moss and lichen\n",
+        "license": "CC-BY 4.0 - https://creativecommons.org/licenses/by/4.0/",
+        "product_crs": "EPSG:4326",
+        "product_grid": "3x3 degree tiling grid",
+        "product_tile": "N36W117",
+        "product_type": "LandCover Map",
+        "product_version": "V2.0.0",
+        "reference": "https://esa-worldcover.org",
+        "time_end": "2021-12-31T23:59:59Z",
+        "time_start": "2021-01-01T00:00:00Z",
+        "title": "ESA WorldCover product at 10m resolution for year 2021"
+      },
+      "crs": "EPSG:4326",
+      "dtype": "uint8",
+      "resolution_deg": [
+        8.333333333333333e-05,
+        8.333333333333333e-05
+      ],
+      "bounds_wsen": [
+        -117.0,
+        36.0,
+        -114.0,
+        39.0
+      ],
+      "affine": [
+        8.333333333333333e-05,
+        0,
+        -117.0,
+        0,
+        -8.333333333333333e-05,
+        39.0
+      ],
+      "nodata": 0,
+      "registration": "PixelIsArea",
+      "validation": {
+        "product": true,
+        "dimensions": true,
+        "dtype": true,
+        "grid": true,
+        "block_format": true,
+        "nodata": true
+      }
+    },
+    {
+      "path": "new_data/ESA_WorldCover_10m_2021_v200_S24W069_Map.tif",
+      "bytes": 57288645,
+      "sha256": "987bbde8966aa0c8254ae477b9e38ce9991a0a48dca23048f4f2b1f5a1038431",
+      "width": 36000,
+      "height": 36000,
+      "bands": 1,
+      "bits": [
+        8
+      ],
+      "sample_format": [
+        1
+      ],
+      "compression": 8,
+      "predictor": 1,
+      "planar_config": 1,
+      "orientation": 1,
+      "photometric": 3,
+      "extra_samples": null,
+      "nodata_tag": "0",
+      "geokeys": {
+        "1024": 2,
+        "1025": 1,
+        "2048": 4326,
+        "2054": 9102
+      },
+      "pixel_scale": [
+        8.333333333333333e-05,
+        8.333333333333333e-05,
+        0.0
+      ],
+      "tiepoint": [
+        0.0,
+        0.0,
+        0.0,
+        -69.0,
+        -21.0,
+        0.0
+      ],
+      "has_transform_matrix": false,
+      "block_shape": [
+        1024,
+        1024
+      ],
+      "overview_count": 6,
+      "attributes": {
+        "algorithm_version": "V2.0.0",
+        "copyright": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+        "creation_time": "2022-10-21 07:35:40.236136",
+        "legend": "10  Tree cover\n20  Shrubland\n30  Grassland\n40  Cropland\n50  Built-up\n60  Bare/sparse vegetation\n70  Snow and ice\n80  Permanent water bodies\n90  Herbaceous wetland\n95  Mangroves\n100 Moss and lichen\n",
+        "license": "CC-BY 4.0 - https://creativecommons.org/licenses/by/4.0/",
+        "product_crs": "EPSG:4326",
+        "product_grid": "3x3 degree tiling grid",
+        "product_tile": "S24W069",
+        "product_type": "LandCover Map",
+        "product_version": "V2.0.0",
+        "reference": "https://esa-worldcover.org",
+        "time_end": "2021-12-31T23:59:59Z",
+        "time_start": "2021-01-01T00:00:00Z",
+        "title": "ESA WorldCover product at 10m resolution for year 2021"
+      },
+      "crs": "EPSG:4326",
+      "dtype": "uint8",
+      "resolution_deg": [
+        8.333333333333333e-05,
+        8.333333333333333e-05
+      ],
+      "bounds_wsen": [
+        -69.0,
+        -24.0,
+        -66.0,
+        -21.0
+      ],
+      "affine": [
+        8.333333333333333e-05,
+        0,
+        -69.0,
+        0,
+        -8.333333333333333e-05,
+        -21.0
+      ],
+      "nodata": 0,
+      "registration": "PixelIsArea",
+      "validation": {
+        "product": true,
+        "dimensions": true,
+        "dtype": true,
+        "grid": true,
+        "block_format": true,
+        "nodata": true
+      }
+    }
+  ],
+  "classes": {
+    "10": [
+      "Tree cover",
+      "#006400"
+    ],
+    "20": [
+      "Shrubland",
+      "#ffbb22"
+    ],
+    "30": [
+      "Grassland",
+      "#ffff4c"
+    ],
+    "40": [
+      "Cropland",
+      "#f096ff"
+    ],
+    "50": [
+      "Built-up",
+      "#fa0000"
+    ],
+    "60": [
+      "Bare / sparse vegetation",
+      "#b4b4b4"
+    ],
+    "70": [
+      "Snow and ice",
+      "#f0f0f0"
+    ],
+    "80": [
+      "Permanent water bodies",
+      "#0064c8"
+    ],
+    "90": [
+      "Herbaceous wetland",
+      "#0096a0"
+    ],
+    "95": [
+      "Mangroves",
+      "#00cf75"
+    ],
+    "100": [
+      "Moss and lichen",
+      "#fae6a0"
+    ]
+  },
+  "references": [
+    "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/docs/WorldCover_PUM_V2.0.pdf",
+    "https://doi.org/10.5281/zenodo.7254221"
+  ],
+  "nasadem_geometry": {
+    "n28w014": {
+      "post_bounds_wsen": [
+        -14,
+        28,
+        -13,
+        29
+      ],
+      "pixel_edge_bounds_wsen": [
+        -14.00013888888889,
+        27.999861111111112,
+        -12.99986111111111,
+        29.000138888888888
+      ],
+      "horizontal_crs": "EPSG:4326",
+      "vertical_reference_hgt": "EGM96 geoid",
+      "registration": "PixelIsPoint",
+      "spacing_degrees": 0.0002777777777777778,
+      "spacing_arcseconds": 1,
+      "source_nodata": null,
+      "midlatitude_spacing_m_east_north": [
+        27.19558712880317,
+        30.785433588738393
+      ]
+    },
+    "n29w014": {
+      "post_bounds_wsen": [
+        -14,
+        29,
+        -13,
+        30
+      ],
+      "pixel_edge_bounds_wsen": [
+        -14.00013888888889,
+        28.999861111111112,
+        -12.99986111111111,
+        30.000138888888888
+      ],
+      "horizontal_crs": "EPSG:4326",
+      "vertical_reference_hgt": "EGM96 geoid",
+      "registration": "PixelIsPoint",
+      "spacing_degrees": 0.0002777777777777778,
+      "spacing_arcseconds": 1,
+      "source_nodata": null,
+      "midlatitude_spacing_m_east_north": [
+        26.93507932692489,
+        30.790016474337342
+      ]
+    },
+    "n36w117": {
+      "post_bounds_wsen": [
+        -117,
+        36,
+        -116,
+        37
+      ],
+      "pixel_edge_bounds_wsen": [
+        -117.00013888888888,
+        35.99986111111111,
+        -115.99986111111112,
+        37.00013888888889
+      ],
+      "horizontal_crs": "EPSG:4326",
+      "vertical_reference_hgt": "EGM96 geoid",
+      "registration": "PixelIsPoint",
+      "spacing_degrees": 0.0002777777777777778,
+      "spacing_arcseconds": 1,
+      "source_nodata": null,
+      "midlatitude_spacing_m_east_north": [
+        24.88641681362508,
+        30.824526648025714
+      ]
+    },
+    "s23w069": {
+      "post_bounds_wsen": [
+        -69,
+        -23,
+        -68,
+        -22
+      ],
+      "pixel_edge_bounds_wsen": [
+        -69.00013888888888,
+        -23.000138888888888,
+        -67.99986111111112,
+        -21.999861111111112
+      ],
+      "horizontal_crs": "EPSG:4326",
+      "vertical_reference_hgt": "EGM96 geoid",
+      "registration": "PixelIsPoint",
+      "spacing_degrees": 0.0002777777777777778,
+      "spacing_arcseconds": 1,
+      "source_nodata": null,
+      "midlatitude_spacing_m_east_north": [
+        28.58229156699476,
+        30.760300207366946
+      ]
+    }
+  },
+  "source_hashes_unchanged": {
+    "new_data/ESA_WorldCover_10m_2021_v200_N27W015_Map.tif": true,
+    "new_data/ESA_WorldCover_10m_2021_v200_N36W117_Map.tif": true,
+    "new_data/ESA_WorldCover_10m_2021_v200_S24W069_Map.tif": true
+  }
+}

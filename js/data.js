@@ -144,7 +144,7 @@ export const provOf = (site, key) => site?._prov?.[key] ?? null;
  * Parse + type + validate one or more CSV tables. Returns { sites, quality }.
  * `sources` is [{ text, name }]; tables may have different columns (union is used).
  */
-export function buildDataset(sources, sourceName) {
+export function buildDataset(sources, sourceName, patches = {}) {
   if (typeof sources === 'string') sources = [{ text: sources, name: sourceName || 'dataset.csv' }];
   const quality = { source: sources.map(s => s.name).join(' + '), files: [], rows: 0, accepted: 0, rejected: [], issues: [], unknownColumns: [], missingColumns: [], emptyColumns: [], fill: {} };
   const sites = [];
@@ -180,6 +180,18 @@ export function buildDataset(sources, sourceName) {
       if (seen.has(site.id)) { quality.rejected.push({ line, reason: `duplicate id ${site.id}` }); continue; }
       if (site['geographic.latitude'] == null || site['geographic.longitude'] == null) { quality.rejected.push({ line, reason: `${site.id}: no valid coordinates` }); continue; }
       seen.add(site.id);
+      // Measured values from another dataset (e.g. ESA WorldCover land cover) replace placeholders
+      // and are listed as measured, so the field carries its own provenance.
+      const patch = patches[site.id];
+      if (patch) {
+        for (const [k, v] of Object.entries(patch.fields || {})) {
+          if (!FIELDS[k]) continue;
+          site[k] = v;
+          site.measured_fields = [...new Set([...(site.measured_fields || []), k])];
+        }
+        if (!site.data_source && patch.source) site.data_source = patch.source;
+        site._landcover = patch;
+      }
       // Normalise longitude to [-180, 180] for mapping (planetocentric east-positive is preserved in sign).
       let lon = site['geographic.longitude'];
       if (lon > 180) lon -= 360;
@@ -233,13 +245,30 @@ export function countBy(arr, fn) {
 // Bundled tables: measured Mars terrain patches first, then the synthetic demonstration catalogue.
 export const DEFAULT_SOURCES = ['data/mars_measured.csv', 'data/synthetic_sites.csv'];
 
+// Measured Earth land cover (ESA WorldCover), built from ESA_WorldCover_Processed/ by tools/build_earth_data.py.
+export const EARTH_LANDCOVER_URL = 'data/earth_landcover.json';
+let landcover = null;
+/** The WorldCover document (tiles, class legend, per-site values). Cached. */
+export function loadLandcover() {
+  landcover ||= fetch(EARTH_LANDCOVER_URL, { cache: 'no-cache' }).then(r => {
+    if (!r.ok) throw new Error(`Could not load ${EARTH_LANDCOVER_URL} (HTTP ${r.status}).`);
+    return r.json();
+  });
+  return landcover;
+}
+
 export async function loadDefaultDataset(urls = DEFAULT_SOURCES) {
-  const sources = await Promise.all(urls.map(async url => {
-    const res = await fetch(url, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(`Could not load ${url} (HTTP ${res.status}).`);
-    return { text: await res.text(), name: url.split('/').pop() };
-  }));
-  return buildDataset(sources);
+  const [sources, lc] = await Promise.all([
+    Promise.all(urls.map(async url => {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`Could not load ${url} (HTTP ${res.status}).`);
+      return { text: await res.text(), name: url.split('/').pop() };
+    })),
+    loadLandcover().catch(err => { console.warn(err); return null; }),
+  ]);
+  const ds = buildDataset(sources, undefined, lc?.site_values || {});
+  if (lc) ds.quality.source += ' + ' + EARTH_LANDCOVER_URL.split('/').pop();
+  return ds;
 }
 
 export function formatValue(v, key) {

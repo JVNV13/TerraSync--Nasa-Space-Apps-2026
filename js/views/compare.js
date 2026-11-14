@@ -3,7 +3,7 @@ import { html, render, pct, raw, fmtCoord, copyText, esc, $ } from '../util.js';
 import { radar, dial, slopeDist } from '../charts.js';
 import { histSummary, histOverlap } from '../engine.js';
 import { FIELDS, GROUP_ORDER, formatValue } from '../data.js';
-import { sectionHead, band, targetOptions, earthOptions, DIM, USES, featureLabel, featureValue, shared, bodyMark, shortName, dataNotice, provBadge, provTag, provLegend, rated } from './common.js';
+import { sectionHead, pageHead, band, targetOptions, earthOptions, DIM, USES, featureLabel, featureValue, shared, bodyMark, shortName, dataNotice, provBadge, provTag, provLegend, rated } from './common.js';
 
 const HIST = 'terrain.slope_hist_1deg';
 const C_EARTH = '#2f9fbf', C_TARGET = '#d9673a';
@@ -34,19 +34,19 @@ export function render_(root, ctx) {
   const brief = buildBrief(r, rank, ctx.earth.length, goodDims, weakDims);
 
   render(root, html`
-  ${sectionHead('§ COMPARE', 'Pair analysis', 'How closely one Earth site reproduces one target, and where it does not.')}
+  ${pageHead('Compare', 'Earth vs Mars, side by side', 'How well one place on Earth stands in for one place on Mars: what matches, and what does not.')}
   <div class="panel pair-pick">
-    <label class="field"><span>${bodyMark('Earth')} Earth candidate</span><select id="c-cand">${earthOptions(ctx, cand.id)}</select></label>
+    <label class="field"><span>${bodyMark('Earth')} Earth place</span><select id="c-cand">${earthOptions(ctx, cand.id)}</select></label>
     <span class="pair-arrow" aria-hidden="true">⟶</span>
-    <label class="field"><span>${bodyMark(target.body)} ${target.body} target</span><select id="c-target">${targetOptions(ctx, target.id)}</select></label>
-    <label class="field"><span>Overlay a second Earth site</span><select id="c-overlay"><option value="">None</option>${earthOptions(ctx, local.overlay)}</select></label>
+    <label class="field"><span>${bodyMark(target.body)} ${target.body} place</span><select id="c-target">${targetOptions(ctx, target.id)}</select></label>
+    <label class="field"><span>Also show on the chart (optional)</span><select id="c-overlay"><option value="">Nothing</option>${earthOptions(ctx, local.overlay)}</select></label>
   </div>
 
   <div class="pair-hero">
     <section class="panel score-panel">
-      ${raw(dial(r.score, 'Analog score'))}
-      <div>${band(r.score, r.coverage)}<p class="mono dim">Rank ${rank} of ${ctx.earth.length} Earth sites for this target</p><p class="mono dim">${r.dims.filter(d => d.score != null).length} of ${r.dims.length} dimensions have data on both sides</p>
-      <p class="mono dim">${r.scoredFields} fields scored: ${r.basis.measured} measured vs measured · ${r.basis.mixed} measured vs synthetic · ${r.basis.synthetic} synthetic vs synthetic</p></div>
+      <div class="${rated(r) ? '' : 'dial-off'}">${raw(dial(r.score, 'Match score'))}</div>
+      <div>${band(r.score, r.coverage)}<p class="score-say">${rated(r) ? html`Number <b>${rank}</b> of ${ctx.earth.length} Earth places for this Mars place.` : 'Too little shared data to give a fair score.'}</p>
+      <p class="small dim">Based on ${r.dims.filter(d => d.score != null).length} of ${r.dims.length} topics that both places have data for.</p></div>
     </section>
     <section class="panel site-duo">
       <div class="duo earth-side"><p class="eyebrow">${bodyMark('Earth')}Earth analog</p><h2>${cand.name}</h2><p class="mono dim">${fmtCoord(cand.lat, cand.lon)}</p><p>${provTag(cand)}</p><p>${cand.summary}</p></div>
@@ -56,52 +56,71 @@ export function render_(root, ctx) {
 
   <div class="grid-2">
     <section class="panel">
-      ${sectionHead('A', 'Similarity by dimension', overlay ? `Solid: ${shortName(cand)} · dashed: ${shortName(overlay.candidate)} (${pct(overlay.score)})` : 'Scores out of 100. "n/a" means there is no overlapping data.')}
+      <header class="block-head"><h2 class="block-title">Match by topic</h2><p class="block-sub">${overlay ? `Solid: ${shortName(cand)} · dashed: ${shortName(overlay.candidate)} (${pct(overlay.score)})` : 'The further out the shape reaches, the more alike the two places are.'}</p></header>
       <div class="radar-wrap">${raw(radar(radarDims, { compare: overlay?.dims }))}</div>
     </section>
     <section class="panel">
-      ${sectionHead('B', 'Dimension breakdown', 'Coverage shows how much of each dimension both records actually report.')}
+      <header class="block-head"><h2 class="block-title">Score for each topic</h2><p class="block-sub">Out of 100. “n/a” means one of the places has no data on it yet.</p></header>
       <ul class="dimlist">${r.dims.map(d => html`<li class="${d.score == null ? 'na' : ''}">
         <span class="dl-name">${d.label}<small>${DIM[d.key].blurb}</small></span>
         <span class="dl-bar"><i style="width:${d.score == null ? 0 : (d.score * 100).toFixed(1)}%"></i>${overlay && overlay.dims.find(o => o.key === d.key).score != null ? html`<b style="left:${(overlay.dims.find(o => o.key === d.key).score * 100).toFixed(1)}%" title="Overlay"></b>` : ''}</span>
         <span class="dl-v mono">${d.score == null ? 'n/a' : pct(d.score)}</span>
-        <span class="dl-c mono dim">${d.na ? d.na : 'cov ' + pct(d.coverage) + '%'} · w ${(w[d.key] ?? 1).toFixed(1)}</span></li>`)}</ul>
+        </li>`)}</ul>
     </section>
   </div>
 
-  ${raw(slopePanel(r, cand, target))}
+  ${cand._landcover ? raw(landPanel(cand)) : ''}
 
   <div class="grid-2">
     <section class="panel verdict good">
-      ${sectionHead('C', 'Where the analogy holds', 'Fields with a similarity of 75 or more. Badges show the Earth value, then the target value.')}
+      <header class="block-head"><h2 class="block-title">Where they match</h2><p class="block-sub">Things that are very alike (75 or more out of 100).</p></header>
       ${r.strengths.length ? html`<table class="data compact"><tbody>${r.strengths.slice(0, 8).map(f => html`<tr><td>${featureLabel(f.key)}</td><td class="dim">${explain(f)}</td><td>${pv(f)}</td><td class="num mono">${pct(f.sim)}</td></tr>`)}</tbody></table>` : html`<p class="empty">No field reaches a similarity of 75.</p>`}
     </section>
     <section class="panel verdict bad">
-      ${sectionHead('D', 'Where it breaks down', 'Fields with a similarity of 35 or less, plus conditions Earth cannot reproduce.')}
+      <header class="block-head"><h2 class="block-title">Where they differ</h2><p class="block-sub">Things that are very different (35 or less out of 100).</p></header>
       ${r.gaps.length ? html`<table class="data compact"><tbody>${r.gaps.slice(0, 8).map(f => html`<tr><td>${featureLabel(f.key)}</td><td class="dim">${explain(f)}</td><td>${pv(f)}</td><td class="num mono">${pct(f.sim)}</td></tr>`)}</tbody></table>` : html`<p class="empty">No field scores 35 or lower.</p>`}
-      <h4 class="sub">Beyond Earth's reach (not scored)</h4>
+      <h4 class="sub">What Earth can never copy</h4>
       <ul class="limits">${r.limits.map(l => html`<li><b>${l.label}</b><span class="mono">${fmtNum(l.a)} vs ${fmtNum(l.b)} ${l.unit}</span><span>${limitText(l, cand, target)}</span><small>${l.source}</small></li>`)}</ul>
     </section>
   </div>
 
   <section class="panel">
-    ${sectionHead('E', 'How this analog helps exploration', 'Derived from the dimensions that score 60 or more.')}
+    <header class="block-head"><h2 class="block-title">What could you practise here?</h2><p class="block-sub">Ideas based on the topics that score 60 or more.</p></header>
     ${goodDims.length ? html`<ul class="uses">${goodDims.map(d => html`<li><span class="mono">${pct(d.score)}</span><b>${d.label}</b><p>${USES[d.key]}</p></li>`)}</ul>`
-      : html`<p class="empty">No dimension reaches 60. This pair is better used as a contrast case than as a test site.</p>`}
-    <div class="brief"><div class="brief-head"><p class="eyebrow">Field brief (plain text)</p><button class="btn small" id="c-copy">Copy brief</button></div><pre id="brief-text">${brief}</pre></div>
+      : html`<p class="empty">No topic reaches 60, so this pair is more useful as a contrast than as a practice site.</p>`}
   </section>
 
-  <section class="panel">
-    ${sectionHead('F', 'Side-by-side record', 'All fields for both sites, each labelled measured or synthetic. Scored fields show their similarity.')}
+  ${dataNotice(ctx)}
+
+  <details class="panel tech">
+    <summary>All the details (for scientists)</summary>
+    ${raw(slopePanel(r, cand, target))}
+    <div class="brief"><div class="brief-head"><p class="eyebrow">Field brief (plain text)</p><button class="btn small" id="c-copy">Copy brief</button></div><pre id="brief-text">${brief}</pre></div>
+    <p class="small dim">${r.scoredFields} values compared: ${r.basis.measured} real vs real · ${r.basis.mixed} real vs demo · ${r.basis.synthetic} demo vs demo.</p>
     ${provLegend()}
     ${raw(sideBySide(r, cand, target))}
-  </section>
-  ${dataNotice(ctx)}`);
+  </details>`);
 
   $('#c-cand', root).addEventListener('change', e => ctx.set({ candId: e.target.value }));
   $('#c-target', root).addEventListener('change', e => ctx.set({ targetId: e.target.value }));
   $('#c-overlay', root).addEventListener('change', e => { local.overlay = e.target.value; render_(root, ctx); });
   $('#c-copy', root).addEventListener('click', e => copyText($('#brief-text', root).textContent, e.currentTarget));
+}
+
+/** Measured land cover around an Earth place (ESA WorldCover), shown when the place lies inside a mapped region. */
+function landPanel(s) {
+  const v = s._landcover, veg = v.fields['habitability.vegetation_cover_pct'];
+  return html`<section class="panel land-panel">
+    <div><p class="eyebrow"><span class="code">ESA</span>Measured from space <span class="pv pv-measured" data-tip="Measured · ESA WorldCover 2021, 10 m">M</span></p>
+    <h3>Ground within ${v.radius_km} km of ${shortName(s)}</h3>
+    <p class="dim small">Mars has no plants, so less plant cover means a closer match. This real value is used in the score.</p>
+    <button class="btn small" data-action="go" data-route="earth">See the land map →</button></div>
+    <div class="land-bars">
+      <p><span>Bare ground</span><i style="--v:${v.bare_pct_of_land}%;--c:#b4b4b4"></i><b class="mono">${v.bare_pct_of_land}%</b></p>
+      <p><span>Plants</span><i style="--v:${veg}%;--c:#6f9a4a"></i><b class="mono">${veg}%</b></p>
+      <p><span>Mars</span><i style="--v:100%;--c:var(--mars)"></i><b class="mono">100% bare</b></p>
+    </div>
+  </section>`.s;
 }
 
 const fmtNum = v => (v === 0 ? 0 : Math.abs(v) < 0.01 ? v.toPrecision(2) : +v.toFixed(2));

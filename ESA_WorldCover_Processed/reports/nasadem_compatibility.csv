@@ -1,0 +1,13 @@
+tile,nasadem_tile,status,intersection_bounds_wsen,dem_footprint_pct,window,worldcover_crs,nasadem_crs,worldcover_arcsec,nasadem_arcsec,worldcover_registration,nasadem_registration,valid_pixels,nodata_pixels,unexpected_pixels,worldcover_valid_pct,classified_coverage
+N27W015,n28w014,Full DEM footprint,"[-14, 28, -13, 29]",100.0,"[12000, 24000, 12000, 24000]",EPSG:4326,EPSG:4326,0.3,1.0,PixelIsArea,PixelIsPoint,80924537,63075463,0,56.197595138888886,Partial
+N27W015,n29w014,Full DEM footprint,"[-14, 29, -13, 30.0]",100.0,"[0, 12000, 12000, 24000]",EPSG:4326,EPSG:4326,0.3,1.0,PixelIsArea,PixelIsPoint,58884201,85115799,0,40.89180625,Partial
+N27W015,n36w117,No area overlap,,,,,,,,,,,,,,
+N27W015,s23w069,No area overlap,,,,,,,,,,,,,,
+N36W117,n28w014,No area overlap,,,,,,,,,,,,,,
+N36W117,n29w014,No area overlap,,,,,,,,,,,,,,
+N36W117,n36w117,Full DEM footprint,"[-117.0, 36.0, -116, 37]",100.0,"[24000, 36000, 0, 12000]",EPSG:4326,EPSG:4326,0.3,1.0,PixelIsArea,PixelIsPoint,144000000,0,0,100.0,Complete
+N36W117,s23w069,No area overlap,,,,,,,,,,,,,,
+S24W069,n28w014,No area overlap,,,,,,,,,,,,,,
+S24W069,n29w014,No area overlap,,,,,,,,,,,,,,
+S24W069,n36w117,No area overlap,,,,,,,,,,,,,,
+S24W069,s23w069,Full DEM footprint,"[-69.0, -23, -68, -22]",100.0,"[12000, 24000, 0, 12000]",EPSG:4326,EPSG:4326,0.3,1.0,PixelIsArea,PixelIsPoint,144000000,0,0,100.0,Complete
