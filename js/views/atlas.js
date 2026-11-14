@@ -1,7 +1,7 @@
-// 02 · Atlas: target world map (pick a site) linked to an Earth map where every candidate is sized by its analog score.
+// 03 · Atlas: target world map (pick a site) linked to an Earth map where every candidate is sized by its analog score.
 import { html, render, pct, fmtCoord, raw } from '../util.js';
 import { siteMap } from '../charts.js';
-import { sectionHead, band, targetOptions, profileChips, bindProfileChips, shortName, bodyMark, dataNotice } from './common.js';
+import { sectionHead, band, targetOptions, profileChips, bindProfileChips, shortName, bodyMark, dataNotice, provTag } from './common.js';
 import { humanize } from '../data.js';
 
 export function render_(root, ctx) {
@@ -33,6 +33,7 @@ export function render_(root, ctx) {
         <p class="eyebrow"><span class="code">TGT</span>Selected target</p>
         <label class="field"><span>Target site</span><select id="atlas-target">${targetOptions(ctx, target.id)}</select></label>
         <h2>${target.name}</h2>
+        <p>${provTag(target)}${target.provenance !== 'synthetic' ? html` <button class="btn small" data-action="go" data-route="terrain">Terrain maps →</button>` : ''}</p>
         <p class="mono coord">${fmtCoord(target.lat, target.lon)} · ${target['geographic.elevation_m'] != null ? target['geographic.elevation_m'].toLocaleString('en-US') + ' m' : 'elevation not recorded'}</p>
         <p>${target.summary}</p>
         <p class="tags">${(target.analog_tags || []).map(t => html`<span class="tag">${humanize(t)}</span>`)}</p>
@@ -47,7 +48,7 @@ export function render_(root, ctx) {
       ${candRes ? html`<section class="panel sel-cand">
         <p class="eyebrow"><span class="code">SEL</span>Selected Earth site · rank #${candRes.rank}</p>
         <h3>${cand.name}</h3><p class="mono dim">${fmtCoord(cand.lat, cand.lon)}</p>
-        <p class="big-score"><span class="mono">${pct(candRes.r.score)}</span>${band(candRes.r.score)}</p>
+        <p class="big-score"><span class="mono">${pct(candRes.r.score)}</span>${band(candRes.r.score, candRes.r.coverage)}</p>
         <button class="btn primary" data-action="open-pair" data-a="${cand.id}" data-b="${target.id}">Full comparison →</button>
       </section>` : ''}
 

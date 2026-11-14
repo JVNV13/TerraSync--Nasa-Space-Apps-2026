@@ -12,11 +12,11 @@
               1109868.0593842685
             ],
             [
-              993.4560143821382,
+              993.4560143821384,
               1109868.0593842685
             ],
             [
-              993.4560143821382,
+              993.4560143821384,
               1112896.8886964086
             ],
             [
@@ -33,7 +33,14 @@
       "properties": {
         "patch": "DTEED_033651_1990_033717_1990_A01",
         "crs_wkt": "PROJCS[\"EQUIRECTANGULAR MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS_localRadius\",3394839.8133163,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",15],PARAMETER[\"central_meridian\",78.15],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
-        "valid_area_km2": 7.339045601663016
+        "valid_area_km2": 7.339045601663015,
+        "bounds_lonlat_deg": [
+          78.12502092420553,
+          18.73159239197623,
+          78.16735834080635,
+          18.7827108971176
+        ],
+        "lonlat_note": "planetocentric, east-positive, Mars; NOT Earth WGS84"
       }
     },
     {
@@ -47,11 +54,11 @@
               1080869.7589397125
             ],
             [
-              395.8038953521491,
+              395.8038953521493,
               1080869.7589397125
             ],
             [
-              395.8038953521491,
+              395.8038953521493,
               1083898.870383734
             ],
             [
@@ -68,7 +75,14 @@
       "properties": {
         "patch": "DTEED_042328_1985_033150_1985_A01",
         "crs_wkt": "PROJCS[\"EQUIRECTANGULAR MARS\",GEOGCS[\"GCS_MARS\",DATUM[\"D_MARS\",SPHEROID[\"MARS_localRadius\",3394839.8133163,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",15],PARAMETER[\"central_meridian\",78.21],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
-        "valid_area_km2": 7.340412912241855
+        "valid_area_km2": 7.340412912241855,
+        "bounds_lonlat_deg": [
+          78.17457439523132,
+          18.24217895278884,
+          78.2169157555126,
+          18.293302219558733
+        ],
+        "lonlat_note": "planetocentric, east-positive, Mars; NOT Earth WGS84"
       }
     }
   ],

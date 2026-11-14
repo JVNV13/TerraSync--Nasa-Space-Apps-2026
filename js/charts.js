@@ -26,7 +26,10 @@ function axisLabels() {
  */
 export function siteMap({ body, sites, selectedId, scoreOf, rankOf, ariaLabel, labels = false }) {
   const isEarth = body === 'Earth';
-  const marks = sites.map(s => {
+  // Measured sites are drawn last (on top). A name label is dropped when it would sit on an earlier one.
+  const ordered = [...sites].sort((p, q) => (p.provenance === 'measured') - (q.provenance === 'measured') || (p.id === selectedId) - (q.id === selectedId));
+  const labelled = [];
+  const marks = ordered.map(s => {
     const x = s.lon + 180, y = Math.min(176, Math.max(4, 90 - s.lat));
     const score = scoreOf ? scoreOf(s) : null;
     const rank = rankOf ? rankOf(s) : null;
@@ -34,13 +37,16 @@ export function siteMap({ body, sites, selectedId, scoreOf, rankOf, ariaLabel, l
     const r = score != null ? 1.6 + score * 4.2 : 2.6;
     const tipHtml = `<b>${esc(s.name)}</b><span>${esc(s['geographic.region'] || '')}</span><span class="mono">${fmtCoord(s.lat, s.lon)}</span>` +
       (score != null ? `<span class="mono">Analog score ${(score * 100).toFixed(0)}${rank ? ` · rank #${rank}` : ''}</span>` : '') +
-      (s.is_control ? '<span class="warn">Negative control</span>' : '') + '<em>Click to select</em>';
+      (s.is_control ? '<span class="warn">Negative control</span>' : '') + `<span class="mono">${esc(s.provenance || '')} record</span>` + '<em>Click to select</em>';
     const shape = isEarth
       ? `<circle cx="${x}" cy="${y}" r="${r}" class="mk earth${s.is_control ? ' ctrl' : ''}"/>`
       : `<rect x="${x - r * 0.8}" y="${y - r * 0.8}" width="${r * 1.6}" height="${r * 1.6}" transform="rotate(45 ${x} ${y})" class="mk ${body === 'Moon' ? 'moon' : 'mars'}"/>`;
     const ring = sel ? `<circle cx="${x}" cy="${y}" r="${r + 3}" class="mk-sel"/><circle cx="${x}" cy="${y}" r="${r + 3}" class="mk-pulse"/>` : '';
     const right = x > 285;
-    const nameLabel = labels ? `<text x="${right ? x - r - 2 : x + r + 2}" y="${y + 1.3}" text-anchor="${right ? 'end' : 'start'}" class="mk-name${sel ? ' sel' : ''}">${esc(s.name.split(/[,(]/)[0].trim())}</text>` : '';
+    const clash = labelled.some(([lx, ly]) => Math.abs(lx - x) < 30 && Math.abs(ly - y) < 4);
+    const showName = labels && (sel || !clash);
+    if (showName) labelled.push([x, y]);
+    const nameLabel = showName ? `<text x="${right ? x - r - 2 : x + r + 2}" y="${y + 1.3}" text-anchor="${right ? 'end' : 'start'}" class="mk-name${sel ? ' sel' : ''}">${esc(s.name.split(/[,(]/)[0].trim())}</text>` : '';
     const rankLabel = rank && rank <= 5 ? `<text x="${x + r + 1.6}" y="${y + 1.3}" class="mk-rank">${rank}</text>` : '';
     return `<g class="mk-g${sel ? ' sel' : ''}" tabindex="0" role="button" aria-label="${esc(s.name)}" data-action="select-site" data-id="${esc(s.id)}" data-tip="${attrTip(tipHtml)}">${ring}<circle cx="${x}" cy="${y}" r="${Math.max(r + 2.5, 6)}" class="hit"/>${shape}${rankLabel}${nameLabel}</g>`;
   }).join('');
@@ -163,4 +169,59 @@ export function dial(score, label) {
 /* ---------------------------------------------------------------- bars */
 export function miniBars(dims) {
   return `<span class="minibars" aria-hidden="true">${dims.map(d => `<i title="${esc(d.label)}" style="--v:${d.score == null ? 0 : d.score}" class="${d.score == null ? 'na' : ''}"></i>`).join('')}</span>`;
+}
+
+/* ---------------------------------------------------------------- slope distributions */
+/**
+ * Overlaid slope distributions (share of cells per 1° bin).
+ * series: [{ name, hist, color, dash }]   refs: [{ name, color, mean }] for sites that only report a mean.
+ */
+export function slopeDist({ series, refs = [], ariaLabel = 'Slope distributions' }) {
+  const W = 640, H = 300, m = { l: 52, r: 16, t: 14, b: 44 };
+  const norm = series.map(s => { const n = s.hist.reduce((a, b) => a + b, 0); return s.hist.map(c => c / n); });
+  const lastBin = Math.max(...series.map(s => s.hist.length), ...refs.map(r => Math.ceil(r.mean) + 1), 10);
+  const xMax = Math.min(90, Math.ceil((lastBin + 1) / 5) * 5);
+  const peak = Math.max(...norm.flat());
+  const yStep = peak > 0.2 ? 0.05 : peak > 0.08 ? 0.02 : 0.01;
+  const yMax = Math.ceil(peak / yStep + 0.3) * yStep;
+  const X = v => m.l + (v / xMax) * (W - m.l - m.r), Y = v => H - m.b - (v / yMax) * (H - m.t - m.b);
+  let g = '';
+  for (let v = 0; v <= yMax + 1e-9; v += yStep) g += `<line class="sc-grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text class="sc-tk" x="${m.l - 8}" y="${Y(v) + 4}" text-anchor="end">${(v * 100).toFixed(0)}%</text>`;
+  for (let v = 0; v <= xMax; v += 5) g += `<text class="sc-tk" x="${X(v)}" y="${H - m.b + 16}" text-anchor="middle">${v}°</text>`;
+  const paths = series.map((s, k) => {
+    let d = `M${X(0)} ${Y(0)}`;
+    for (let i = 0; i < xMax; i++) d += `V${Y(norm[k][i] || 0)}H${X(i + 1)}`;
+    return `<path d="${d}V${Y(0)}Z" fill="${s.color}" fill-opacity="0.12"/><path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round"${s.dash ? ' stroke-dasharray="5 3"' : ''}/>`;
+  }).join('');
+  const refLines = refs.map((r, k) => `<line x1="${X(r.mean)}" x2="${X(r.mean)}" y1="${m.t}" y2="${Y(0)}" stroke="${r.color}" stroke-width="2" stroke-dasharray="2 4"/><text class="sc-tk" x="${X(r.mean) + 6}" y="${m.t + 10 + k * 14}">${esc(r.name)}: mean ${r.mean.toFixed(1)}° only</text>`).join('');
+  let hits = '';
+  for (let i = 0; i < xMax; i++) {
+    const rows = series.map((s, k) => `<span class="mono"><i class="sw" style="background:${s.color}"></i>${esc(s.name)}: ${((norm[k][i] || 0) * 100).toFixed(1)}%</span>`).join('');
+    hits += `<rect class="sd-hit" x="${X(i)}" y="${m.t}" width="${X(i + 1) - X(i)}" height="${H - m.t - m.b}" data-tip="${attrTip(`<b>Slope ${i}–${i + 1}°</b>${rows}`)}"/>`;
+  }
+  return `<svg class="scatter slope-dist" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(ariaLabel)}">${g}
+    <line class="sc-axis" x1="${m.l}" x2="${W - m.r}" y1="${Y(0)}" y2="${Y(0)}"/>
+    ${paths}${refLines}${hits}
+    <text class="sc-lbl" x="${(W + m.l) / 2}" y="${H - 8}" text-anchor="middle">Slope (1° bins)</text>
+    <text class="sc-lbl" transform="translate(14 ${(H - m.b + m.t) / 2}) rotate(-90)" text-anchor="middle">Share of cells</text></svg>`;
+}
+
+/* ---------------------------------------------------------------- shadow share by Sun azimuth */
+/** lines: [{ label, color, values:[0..1|null] }] over categorical x labels; mark: { line, index } is ringed. */
+export function azimuthLines({ labels, lines, mark, yLabel }) {
+  const W = 640, H = 260, m = { l: 52, r: 44, t: 14, b: 44 };
+  const X = i => m.l + (i / (labels.length - 1)) * (W - m.l - m.r), Y = v => H - m.b - v * (H - m.t - m.b);
+  let g = '';
+  for (let v = 0; v <= 1.001; v += 0.25) g += `<line class="sc-grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text class="sc-tk" x="${m.l - 8}" y="${Y(v) + 4}" text-anchor="end">${v * 100}%</text>`;
+  labels.forEach((l, i) => { g += `<text class="sc-tk" x="${X(i)}" y="${H - m.b + 16}" text-anchor="middle">${esc(l)}</text>`; });
+  const body = lines.map((ln, k) => {
+    const pts = ln.values.map((v, i) => (v == null ? null : [X(i), Y(v)]));
+    const d = pts.map((p, i) => (p ? `${i && pts[i - 1] ? 'L' : 'M'}${p[0]} ${p[1]}` : '')).join('');
+    const dots = pts.map((p, i) => p ? `<g data-tip="${attrTip(`<b>Sun ${esc(ln.label)} above horizon, from ${esc(labels[i])}</b><span class="mono">${(ln.values[i] * 100).toFixed(1)}% of resolved cells in shadow</span>`)}"><circle cx="${p[0]}" cy="${p[1]}" r="10" class="hit"/><circle cx="${p[0]}" cy="${p[1]}" r="${mark && mark.line === k && mark.index === i ? 5 : 3}" fill="${ln.color}" stroke="#0c1017" stroke-width="2"/>${mark && mark.line === k && mark.index === i ? `<circle cx="${p[0]}" cy="${p[1]}" r="9" class="mk-sel"/>` : ''}</g>` : '').join('');
+    const last = pts.filter(Boolean).at(-1);
+    return `<path d="${d}" fill="none" stroke="${ln.color}" stroke-width="2"/>${dots}${last ? `<text class="sc-tk" x="${last[0] + 10}" y="${last[1] + 4}">${esc(ln.label)}</text>` : ''}`;
+  }).join('');
+  return `<svg class="scatter" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(yLabel)} by Sun azimuth">${g}<line class="sc-axis" x1="${m.l}" x2="${W - m.r}" y1="${Y(0)}" y2="${Y(0)}"/>${body}
+    <text class="sc-lbl" x="${(W + m.l) / 2}" y="${H - 8}" text-anchor="middle">Sun azimuth (direction the light comes from, grid north = N)</text>
+    <text class="sc-lbl" transform="translate(14 ${(H - m.b + m.t) / 2}) rotate(-90)" text-anchor="middle">${esc(yLabel)}</text></svg>`;
 }

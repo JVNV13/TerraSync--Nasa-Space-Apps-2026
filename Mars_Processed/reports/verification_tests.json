@@ -43,6 +43,22 @@
     {
       "test": "missing ray cell is unresolved",
       "passed": true
+    },
+    {
+      "test": "non-square cells: 10 percent northward ramp slope",
+      "passed": true
+    },
+    {
+      "test": "non-square cells: downslope of rising north surface is south (180)",
+      "passed": true
+    },
+    {
+      "test": "non-square cells: northern barrier shades at true metric distance",
+      "passed": true
+    },
+    {
+      "test": "non-square cells: barrier beyond metric shadow length is clear",
+      "passed": true
     }
   ],
   "all_passed": true

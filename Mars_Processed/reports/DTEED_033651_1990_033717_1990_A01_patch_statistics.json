@@ -8,11 +8,24 @@
   },
   "estimated_mask_density_for_selection": 1.0,
   "actual_native_valid_pct": 100.0,
-  "analysis_valid_pct": 100.0,
   "native_grid_dimensions": [
     1500,
     1200
   ],
+  "native_pixel_m": [
+    2.0192195414267,
+    2.0192195414267
+  ],
+  "native_height": {
+    "count": 1800000,
+    "unit": "m",
+    "min": -2566.28466796875,
+    "max": -2152.603271484375,
+    "mean": -2422.3447265625,
+    "std": 82.90110778808594
+  },
+  "native_modified_cells": 0,
+  "analysis_valid_pct": 100.0,
   "analysis_grid_dimensions": [
     101,
     81
@@ -21,53 +34,142 @@
     29.91436357669185,
     29.988409031089606
   ],
-  "native_height": {
-    "count": 1800000,
-    "min_m": -2566.28466796875,
-    "max_m": -2152.603271484375,
-    "mean_m": -2422.3447265625,
-    "std_m": 82.90110778808594
-  },
+  "analysis_pixel_note": "[east-west, north-south]; cells are not square and each axis uses its own size",
   "analysis_height": {
     "count": 8181,
-    "min_m": -2564.623779296875,
-    "max_m": -2153.677734375,
-    "mean_m": -2422.344970703125,
-    "std_m": 82.88168334960938
+    "unit": "m",
+    "min": -2564.623779296875,
+    "max": -2153.677734375,
+    "mean": -2422.3448510351254,
+    "std": 82.88168682674018
   },
   "terrain_stats": {
     "slope": {
       "count": 7821,
-      "min_m": 0.08578803390264511,
-      "max_m": 32.797855377197266,
-      "mean_m": 8.722833633422852,
-      "std_m": 5.359241962432861
+      "unit": "deg",
+      "min": 0.08557727932929993,
+      "max": 32.74784469604492,
+      "mean": 8.714585476893474,
+      "std": 5.354756928169645
     },
     "aspect": {
       "count": 7821,
-      "min_m": 0.000946044921875,
-      "max_m": 359.8704833984375,
-      "mean_m": 132.18084716796875,
-      "std_m": 90.87210845947266
+      "unit": "deg clockwise from grid north",
+      "circular_mean": 90.31115360275638,
+      "mean_resultant_length": 0.5308146757764183,
+      "circular_std_deg": 64.48473025013669,
+      "octant_fraction": {
+        "N": 0.13425393172228614,
+        "NE": 0.11469121595703874,
+        "E": 0.33665771640455183,
+        "SE": 0.2511187827643524,
+        "S": 0.06060606060606061,
+        "SW": 0.02186421173762946,
+        "W": 0.02109704641350211,
+        "NW": 0.0597110343945787
+      },
+      "note": "circular statistics; no arithmetic mean is reported for an angle"
     },
     "local_relief": {
       "count": 7469,
-      "min_m": 4.64794921875,
-      "max_m": 90.375732421875,
-      "mean_m": 22.95038604736328,
-      "std_m": 12.883761405944824
+      "unit": "m",
+      "min": 4.64794921875,
+      "max": 90.375732421875,
+      "mean": 22.950386532563762,
+      "std": 12.883760712916672
     },
     "roughness_std": {
       "count": 7469,
-      "min_m": 1.1007952690124512,
-      "max_m": 24.392635345458984,
-      "mean_m": 6.455199241638184,
-      "std_m": 3.753206729888916
+      "unit": "m",
+      "min": 1.1007952690124512,
+      "max": 24.392635345458984,
+      "mean": 6.45519947790209,
+      "std": 3.7532066879511112
     }
   },
-  "roughness_window_m": 149.57181788345926,
+  "slope_distribution": {
+    "unit": "deg",
+    "bin_width_deg": 1.0,
+    "bin_start_deg": 0.0,
+    "counts": [
+      46,
+      174,
+      346,
+      612,
+      818,
+      807,
+      764,
+      728,
+      613,
+      512,
+      446,
+      394,
+      300,
+      199,
+      164,
+      126,
+      108,
+      91,
+      86,
+      66,
+      79,
+      57,
+      51,
+      63,
+      48,
+      27,
+      31,
+      22,
+      16,
+      10,
+      8,
+      6,
+      3
+    ],
+    "count": 7821,
+    "percentiles_deg": {
+      "p05": 2.590009927749634,
+      "p10": 3.398678779602051,
+      "p25": 4.944000720977783,
+      "p50": 7.452459335327148,
+      "p75": 10.996734619140625,
+      "p90": 15.848461151123047,
+      "p95": 20.392120361328125,
+      "p99": 26.449111557006837
+    },
+    "fraction_steeper_than": {
+      "5deg": 0.7447896688403017,
+      "10deg": 0.30699399053829435,
+      "15deg": 0.1148190768443933,
+      "20deg": 0.05382943357626902,
+      "25deg": 0.015726889144610665,
+      "30deg": 0.00217363508502749
+    },
+    "baseline_m": "central difference over two analysis cells (~60 m)"
+  },
+  "roughness_window_m": [
+    149.57181788345926,
+    149.94204515544803
+  ],
   "pixel_area_km2": 0.000897084170842564,
-  "valid_analysis_area_km2": 7.339045601663016,
-  "number_of_shadow_scenarios": 24,
-  "native_modified_cells": 0
+  "valid_analysis_area_km2": 7.339045601663015,
+  "location": {
+    "center_lon_east_deg": 78.14618963250594,
+    "center_lat_deg": 18.757151644546916,
+    "bounds_lonlat_deg": [
+      78.12502092420553,
+      18.73159239197623,
+      78.16735834080635,
+      18.7827108971176
+    ],
+    "bounds_projected_m": [
+      -1429.6074353299016,
+      1109868.0593842685,
+      993.4560143821384,
+      1112896.8886964086
+    ],
+    "note": "planetocentric latitude, east-positive longitude, inverted from the product equirectangular projection"
+  },
+  "vertical_reference": "Mars 2000 equipotential datum (HiRISE DTM label)",
+  "number_of_shadow_scenarios": 24
 }

@@ -1,8 +1,9 @@
-1/6 Native sources inspection + hashes
-2/6 MOLA strict binary parse + independent context
+mode: derive (sources absent; rebuilding DEM-derived products from stored 30 m analysis DEMs)
+1/6 skipped (source-level report kept as is)
+2/6 skipped (MOLA products kept as is)
 3/6 Synthetic slope/cast-shadow tests
-4/6 HiRISE independent patch aggregation, terrain and 48 casts
-   DTEED_033651_1990_033717_1990_A01 native valid% 100.0 30m valid% 100.0
-   DTEED_042328_1985_033150_1985_A01 native valid% 100.0 30m valid% 100.0
-5/6 Reports, sources, frontend, verification
-6/6 Final {"tests": 11, "test_passed": true, "reopened_geotiffs": 168, "output_files": 191, "elapsed_seconds": 6.0}
+4/6 HiRISE terrain and 48 casts
+   DTEED_033651_1990_033717_1990_A01 native valid% 100.0 30m valid% 100.0 slope mean deg 8.715
+   DTEED_042328_1985_033150_1985_A01 native valid% 100.0 30m valid% 100.0 slope mean deg 8.561
+5/6 Reports, frontend, verification
+6/6 Final {"tests": 15, "test_passed": true, "reopened_geotiffs": 168, "output_files": 194}

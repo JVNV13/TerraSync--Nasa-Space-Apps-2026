@@ -12,11 +12,24 @@
       },
       "estimated_mask_density_for_selection": 1.0,
       "actual_native_valid_pct": 100.0,
-      "analysis_valid_pct": 100.0,
       "native_grid_dimensions": [
         1500,
         1200
       ],
+      "native_pixel_m": [
+        2.0192195414267,
+        2.0192195414267
+      ],
+      "native_height": {
+        "count": 1800000,
+        "unit": "m",
+        "min": -2566.28466796875,
+        "max": -2152.603271484375,
+        "mean": -2422.3447265625,
+        "std": 82.90110778808594
+      },
+      "native_modified_cells": 0,
+      "analysis_valid_pct": 100.0,
       "analysis_grid_dimensions": [
         101,
         81
@@ -25,55 +38,144 @@
         29.91436357669185,
         29.988409031089606
       ],
-      "native_height": {
-        "count": 1800000,
-        "min_m": -2566.28466796875,
-        "max_m": -2152.603271484375,
-        "mean_m": -2422.3447265625,
-        "std_m": 82.90110778808594
-      },
+      "analysis_pixel_note": "[east-west, north-south]; cells are not square and each axis uses its own size",
       "analysis_height": {
         "count": 8181,
-        "min_m": -2564.623779296875,
-        "max_m": -2153.677734375,
-        "mean_m": -2422.344970703125,
-        "std_m": 82.88168334960938
+        "unit": "m",
+        "min": -2564.623779296875,
+        "max": -2153.677734375,
+        "mean": -2422.3448510351254,
+        "std": 82.88168682674018
       },
       "terrain_stats": {
         "slope": {
           "count": 7821,
-          "min_m": 0.08578803390264511,
-          "max_m": 32.797855377197266,
-          "mean_m": 8.722833633422852,
-          "std_m": 5.359241962432861
+          "unit": "deg",
+          "min": 0.08557727932929993,
+          "max": 32.74784469604492,
+          "mean": 8.714585476893474,
+          "std": 5.354756928169645
         },
         "aspect": {
           "count": 7821,
-          "min_m": 0.000946044921875,
-          "max_m": 359.8704833984375,
-          "mean_m": 132.18084716796875,
-          "std_m": 90.87210845947266
+          "unit": "deg clockwise from grid north",
+          "circular_mean": 90.31115360275638,
+          "mean_resultant_length": 0.5308146757764183,
+          "circular_std_deg": 64.48473025013669,
+          "octant_fraction": {
+            "N": 0.13425393172228614,
+            "NE": 0.11469121595703874,
+            "E": 0.33665771640455183,
+            "SE": 0.2511187827643524,
+            "S": 0.06060606060606061,
+            "SW": 0.02186421173762946,
+            "W": 0.02109704641350211,
+            "NW": 0.0597110343945787
+          },
+          "note": "circular statistics; no arithmetic mean is reported for an angle"
         },
         "local_relief": {
           "count": 7469,
-          "min_m": 4.64794921875,
-          "max_m": 90.375732421875,
-          "mean_m": 22.95038604736328,
-          "std_m": 12.883761405944824
+          "unit": "m",
+          "min": 4.64794921875,
+          "max": 90.375732421875,
+          "mean": 22.950386532563762,
+          "std": 12.883760712916672
         },
         "roughness_std": {
           "count": 7469,
-          "min_m": 1.1007952690124512,
-          "max_m": 24.392635345458984,
-          "mean_m": 6.455199241638184,
-          "std_m": 3.753206729888916
+          "unit": "m",
+          "min": 1.1007952690124512,
+          "max": 24.392635345458984,
+          "mean": 6.45519947790209,
+          "std": 3.7532066879511112
         }
       },
-      "roughness_window_m": 149.57181788345926,
+      "slope_distribution": {
+        "unit": "deg",
+        "bin_width_deg": 1.0,
+        "bin_start_deg": 0.0,
+        "counts": [
+          46,
+          174,
+          346,
+          612,
+          818,
+          807,
+          764,
+          728,
+          613,
+          512,
+          446,
+          394,
+          300,
+          199,
+          164,
+          126,
+          108,
+          91,
+          86,
+          66,
+          79,
+          57,
+          51,
+          63,
+          48,
+          27,
+          31,
+          22,
+          16,
+          10,
+          8,
+          6,
+          3
+        ],
+        "count": 7821,
+        "percentiles_deg": {
+          "p05": 2.590009927749634,
+          "p10": 3.398678779602051,
+          "p25": 4.944000720977783,
+          "p50": 7.452459335327148,
+          "p75": 10.996734619140625,
+          "p90": 15.848461151123047,
+          "p95": 20.392120361328125,
+          "p99": 26.449111557006837
+        },
+        "fraction_steeper_than": {
+          "5deg": 0.7447896688403017,
+          "10deg": 0.30699399053829435,
+          "15deg": 0.1148190768443933,
+          "20deg": 0.05382943357626902,
+          "25deg": 0.015726889144610665,
+          "30deg": 0.00217363508502749
+        },
+        "baseline_m": "central difference over two analysis cells (~60 m)"
+      },
+      "roughness_window_m": [
+        149.57181788345926,
+        149.94204515544803
+      ],
       "pixel_area_km2": 0.000897084170842564,
-      "valid_analysis_area_km2": 7.339045601663016,
-      "number_of_shadow_scenarios": 24,
-      "native_modified_cells": 0
+      "valid_analysis_area_km2": 7.339045601663015,
+      "location": {
+        "center_lon_east_deg": 78.14618963250594,
+        "center_lat_deg": 18.757151644546916,
+        "bounds_lonlat_deg": [
+          78.12502092420553,
+          18.73159239197623,
+          78.16735834080635,
+          18.7827108971176
+        ],
+        "bounds_projected_m": [
+          -1429.6074353299016,
+          1109868.0593842685,
+          993.4560143821384,
+          1112896.8886964086
+        ],
+        "note": "planetocentric latitude, east-positive longitude, inverted from the product equirectangular projection"
+      },
+      "vertical_reference": "Mars 2000 equipotential datum (HiRISE DTM label)",
+      "number_of_shadow_scenarios": 24
     },
     {
       "source": "DTEED_042328_1985_033150_1985_A01",
@@ -85,11 +187,24 @@
       },
       "estimated_mask_density_for_selection": 1.0,
       "actual_native_valid_pct": 100.0,
-      "analysis_valid_pct": 100.0,
       "native_grid_dimensions": [
         1500,
         1200
       ],
+      "native_pixel_m": [
+        2.0194076293477,
+        2.0194076293477
+      ],
+      "native_height": {
+        "count": 1800000,
+        "unit": "m",
+        "min": -1392.5023193359375,
+        "max": -863.8142700195312,
+        "mean": -1171.379638671875,
+        "std": 116.29896545410156
+      },
+      "native_modified_cells": 0,
+      "analysis_valid_pct": 100.0,
       "analysis_grid_dimensions": [
         101,
         81
@@ -98,55 +213,140 @@
         29.917150064410368,
         29.99120241605495
       ],
-      "native_height": {
-        "count": 1800000,
-        "min_m": -1392.5023193359375,
-        "max_m": -863.8142700195312,
-        "mean_m": -1171.379638671875,
-        "std_m": 116.29896545410156
-      },
+      "analysis_pixel_note": "[east-west, north-south]; cells are not square and each axis uses its own size",
       "analysis_height": {
         "count": 8181,
-        "min_m": -1391.5555419921875,
-        "max_m": -868.258544921875,
-        "mean_m": -1171.3795166015625,
-        "std_m": 116.2898941040039
+        "unit": "m",
+        "min": -1391.5555419921875,
+        "max": -868.258544921875,
+        "mean": -1171.3796347625214,
+        "std": 116.28989462915654
       },
       "terrain_stats": {
         "slope": {
           "count": 7821,
-          "min_m": 0.18284617364406586,
-          "max_m": 28.22605323791504,
-          "mean_m": 8.577006340026855,
-          "std_m": 3.162111759185791
+          "unit": "deg",
+          "min": 0.18262630701065063,
+          "max": 28.22165870666504,
+          "mean": 8.560585468805533,
+          "std": 3.159438504750476
         },
         "aspect": {
           "count": 7821,
-          "min_m": 0.0008544921875,
-          "max_m": 359.9958801269531,
-          "mean_m": 240.9822998046875,
-          "std_m": 145.99514770507812
+          "unit": "deg clockwise from grid north",
+          "circular_mean": 344.02074515671774,
+          "mean_resultant_length": 0.876203369520256,
+          "circular_std_deg": 29.456613152651528,
+          "octant_fraction": {
+            "N": 0.6235775476281805,
+            "NE": 0.0232706814985296,
+            "E": 0.002045774197672932,
+            "SE": 0.0011507479861910242,
+            "S": 0.0029408004091548397,
+            "SW": 0.022759237949111367,
+            "W": 0.03209308272599412,
+            "NW": 0.2921621276051656
+          },
+          "note": "circular statistics; no arithmetic mean is reported for an angle"
         },
         "local_relief": {
           "count": 7469,
-          "min_m": 3.77630615234375,
-          "max_m": 72.339111328125,
-          "mean_m": 22.14826774597168,
-          "std_m": 8.474275588989258
+          "unit": "m",
+          "min": 3.77630615234375,
+          "max": 72.339111328125,
+          "mean": 22.148265638924745,
+          "std": 8.474275611594233
         },
         "roughness_std": {
           "count": 7469,
-          "min_m": 0.8075135350227356,
-          "max_m": 19.74558448791504,
-          "mean_m": 6.360592365264893,
-          "std_m": 2.1895391941070557
+          "unit": "m",
+          "min": 0.8075135350227356,
+          "max": 19.74558448791504,
+          "mean": 6.360592095874881,
+          "std": 2.1895392655705788
         }
       },
-      "roughness_window_m": 149.58575032205184,
+      "slope_distribution": {
+        "unit": "deg",
+        "bin_width_deg": 1.0,
+        "bin_start_deg": 0.0,
+        "counts": [
+          6,
+          23,
+          45,
+          125,
+          253,
+          592,
+          1420,
+          1618,
+          1253,
+          811,
+          455,
+          294,
+          256,
+          187,
+          135,
+          78,
+          60,
+          63,
+          35,
+          33,
+          19,
+          17,
+          11,
+          10,
+          10,
+          3,
+          6,
+          2,
+          1
+        ],
+        "count": 7821,
+        "percentiles_deg": {
+          "p05": 4.798814296722412,
+          "p10": 5.676512241363525,
+          "p25": 6.704476356506348,
+          "p50": 7.877883434295654,
+          "p75": 9.589578628540039,
+          "p90": 12.533326148986816,
+          "p95": 14.61056137084961,
+          "p99": 20.041186141967785
+        },
+        "fraction_steeper_than": {
+          "5deg": 0.9422068789157396,
+          "10deg": 0.21416698631888506,
+          "15deg": 0.04449558879938627,
+          "20deg": 0.010101010101010102,
+          "25deg": 0.0015343306482546988,
+          "30deg": 0.0
+        },
+        "baseline_m": "central difference over two analysis cells (~60 m)"
+      },
+      "roughness_window_m": [
+        149.58575032205184,
+        149.95601208027475
+      ],
       "pixel_area_km2": 0.0008972513032932227,
       "valid_analysis_area_km2": 7.340412912241855,
-      "number_of_shadow_scenarios": 24,
-      "native_modified_cells": 0
+      "location": {
+        "center_lon_east_deg": 78.19574507537196,
+        "center_lat_deg": 18.267740586173787,
+        "bounds_lonlat_deg": [
+          78.17457439523132,
+          18.24217895278884,
+          78.2169157555126,
+          18.293302219558733
+        ],
+        "bounds_projected_m": [
+          -2027.4852598650907,
+          1080869.7589397125,
+          395.8038953521493,
+          1083898.870383734
+        ],
+        "note": "planetocentric latitude, east-positive longitude, inverted from the product equirectangular projection"
+      },
+      "vertical_reference": "Mars 2000 equipotential datum (HiRISE DTM label)",
+      "number_of_shadow_scenarios": 24
     }
   ],
   "mola": {
@@ -156,6 +356,7 @@
       79.0,
       19.0
     ],
+    "extent_order": "[west, south, east, north]",
     "source": "megt44n000hb.img"
   },
   "scenario_altitudes_deg": [

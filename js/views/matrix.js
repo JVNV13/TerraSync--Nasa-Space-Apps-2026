@@ -1,4 +1,4 @@
-// 05 · Analog matrix: every Earth site against every target, overall or per dimension.
+// 06 · Analog matrix: every Earth site against every target, overall or per dimension.
 import { html, render, raw, pct, rampColor, esc, $ } from '../util.js';
 import { heatmap } from '../charts.js';
 import { DIMENSIONS } from '../engine.js';

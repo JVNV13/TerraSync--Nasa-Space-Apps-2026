@@ -1,17 +1,18 @@
-// TerraTwin application shell: data loading, shared state, hash routing,
+// TerraSync application shell: data loading, shared state, hash routing,
 // delegated events (tooltips, selection) and the starfield backdrop.
 import { loadDefaultDataset, buildDataset } from './data.js';
 import { Engine, PROFILES, DIMENSIONS } from './engine.js';
 import { $, $$, tip, hideTip, store, esc } from './util.js';
 import * as mission from './views/mission.js';
 import * as atlas from './views/atlas.js';
+import * as terrain from './views/terrain.js';
 import * as finder from './views/finder.js';
 import * as compare from './views/compare.js';
 import * as matrix from './views/matrix.js';
 import * as catalog from './views/catalog.js';
 import * as method from './views/method.js';
 
-const ROUTES = { mission, atlas, finder, compare, matrix, catalog, method };
+const ROUTES = { mission, terrain, atlas, finder, compare, matrix, catalog, method };
 const DEFAULT_ROUTE = 'mission';
 
 const ctx = {
@@ -45,7 +46,7 @@ const ctx = {
   },
   async loadFile(file) {
     const text = await file.text();
-    const ds = buildDataset(text, file.name);
+    const ds = buildDataset([{ text, name: file.name }]);
     if (!ds.sites.some(s => s.body === 'Earth')) throw new Error('The file has no Earth records to rank.');
     if (!ds.sites.some(s => s.body !== 'Earth')) throw new Error('The file has no Mars or Moon target records.');
     this.useDataset(ds);
@@ -79,8 +80,11 @@ function updateStatus() {
   const q = ctx.data.quality;
   $('#ds-name').textContent = q.source;
   $('#ds-count').textContent = `${q.accepted} records`;
-  $('#ds-flag').textContent = q.synthetic === q.accepted ? 'SYNTHETIC' : q.synthetic ? 'MIXED' : 'MEASURED';
-  $('#ds-flag').className = 'flag ' + (q.synthetic ? 'flag-syn' : 'flag-real');
+  const { measured, synthetic } = q.values;
+  const flag = $('#ds-flag');
+  flag.textContent = !measured ? 'SYNTHETIC' : !synthetic ? 'MEASURED' : `MIXED · ${measured} MEASURED / ${synthetic} SYNTHETIC VALUES`;
+  flag.className = 'flag ' + (synthetic ? 'flag-syn' : 'flag-real');
+  flag.title = 'Counted per field value, not per record';
 }
 
 /* ----------------------------------------------------------- delegated events */
@@ -171,7 +175,7 @@ async function boot() {
     console.error(err);
     $('#boot')?.remove();
     root.innerHTML = `<section class="panel error-panel"><p class="eyebrow">Telemetry lost</p><h2>The survey dataset could not be loaded</h2><p>${esc(err.message)}</p>
-      <p>You can load a TerraTwin-format CSV from your computer instead.</p>
+      <p>You can load a TerraSync-format CSV from your computer instead.</p>
       <label class="btn"><input type="file" accept=".csv,text/csv" id="boot-file" hidden>Load CSV…</label><p class="mono" id="boot-msg"></p></section>`;
     $('#boot-file').addEventListener('change', async e => {
       try { await ctx.loadFile(e.target.files[0]); } catch (er) { $('#boot-msg').textContent = er.message; }

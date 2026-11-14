@@ -74,6 +74,6 @@ export async function copyText(text, btn) {
 }
 
 export const store = {
-  get(k, d) { try { const v = localStorage.getItem('tt:' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
-  set(k, v) { try { localStorage.setItem('tt:' + k, JSON.stringify(v)); } catch { /* storage unavailable */ } },
+  get(k, d) { try { const v = localStorage.getItem('ts:' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('ts:' + k, JSON.stringify(v)); } catch { /* storage unavailable */ } },
 };

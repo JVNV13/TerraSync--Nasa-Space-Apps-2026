@@ -6,10 +6,15 @@
     "cast_shadow_cells": 2728,
     "cast_clear_cells": 3552,
     "cast_unresolved_cells": 1901,
-    "self_shadow_cells": 1444,
+    "self_shadow_cells": 1441,
+    "combined_shadowed_cells": 2851,
+    "combined_lit_cells": 3376,
+    "combined_unresolved_cells": 1954,
+    "shadowed_fraction_of_resolved": 0.457845,
+    "resolved_fraction_of_patch": 0.761154,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -18,10 +23,15 @@
     "cast_shadow_cells": 813,
     "cast_clear_cells": 3385,
     "cast_unresolved_cells": 3983,
-    "self_shadow_cells": 405,
+    "self_shadow_cells": 404,
+    "combined_shadowed_cells": 881,
+    "combined_lit_cells": 3284,
+    "combined_unresolved_cells": 4016,
+    "shadowed_fraction_of_resolved": 0.211525,
+    "resolved_fraction_of_patch": 0.509106,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -31,21 +41,31 @@
     "cast_clear_cells": 3773,
     "cast_unresolved_cells": 3690,
     "self_shadow_cells": 373,
+    "combined_shadowed_cells": 783,
+    "combined_lit_cells": 3614,
+    "combined_unresolved_cells": 3784,
+    "shadowed_fraction_of_resolved": 0.178076,
+    "resolved_fraction_of_patch": 0.537465,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
     "altitude_deg": 5,
     "azimuth_deg": 135,
-    "cast_shadow_cells": 1789,
+    "cast_shadow_cells": 1788,
     "cast_clear_cells": 3528,
-    "cast_unresolved_cells": 2864,
-    "self_shadow_cells": 870,
+    "cast_unresolved_cells": 2865,
+    "self_shadow_cells": 868,
+    "combined_shadowed_cells": 1889,
+    "combined_lit_cells": 3405,
+    "combined_unresolved_cells": 2887,
+    "shadowed_fraction_of_resolved": 0.356819,
+    "resolved_fraction_of_patch": 0.647109,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -54,22 +74,32 @@
     "cast_shadow_cells": 2724,
     "cast_clear_cells": 3714,
     "cast_unresolved_cells": 1743,
-    "self_shadow_cells": 1319,
+    "self_shadow_cells": 1315,
+    "combined_shadowed_cells": 2838,
+    "combined_lit_cells": 3539,
+    "combined_unresolved_cells": 1804,
+    "shadowed_fraction_of_resolved": 0.445037,
+    "resolved_fraction_of_patch": 0.779489,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
     "altitude_deg": 5,
     "azimuth_deg": 225,
-    "cast_shadow_cells": 4822,
-    "cast_clear_cells": 1347,
+    "cast_shadow_cells": 4823,
+    "cast_clear_cells": 1346,
     "cast_unresolved_cells": 2012,
-    "self_shadow_cells": 2306,
+    "self_shadow_cells": 2303,
+    "combined_shadowed_cells": 4963,
+    "combined_lit_cells": 1235,
+    "combined_unresolved_cells": 1983,
+    "shadowed_fraction_of_resolved": 0.800742,
+    "resolved_fraction_of_patch": 0.757609,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -79,21 +109,31 @@
     "cast_clear_cells": 1320,
     "cast_unresolved_cells": 1018,
     "self_shadow_cells": 3646,
+    "combined_shadowed_cells": 5935,
+    "combined_lit_cells": 1207,
+    "combined_unresolved_cells": 1039,
+    "shadowed_fraction_of_resolved": 0.831,
+    "resolved_fraction_of_patch": 0.872998,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
     "altitude_deg": 5,
     "azimuth_deg": 315,
-    "cast_shadow_cells": 6001,
+    "cast_shadow_cells": 6000,
     "cast_clear_cells": 1563,
-    "cast_unresolved_cells": 617,
-    "self_shadow_cells": 3504,
+    "cast_unresolved_cells": 618,
+    "self_shadow_cells": 3501,
+    "combined_shadowed_cells": 6080,
+    "combined_lit_cells": 1460,
+    "combined_unresolved_cells": 641,
+    "shadowed_fraction_of_resolved": 0.806366,
+    "resolved_fraction_of_patch": 0.921648,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -102,10 +142,15 @@
     "cast_shadow_cells": 417,
     "cast_clear_cells": 4777,
     "cast_unresolved_cells": 2987,
-    "self_shadow_cells": 213,
+    "self_shadow_cells": 212,
+    "combined_shadowed_cells": 436,
+    "combined_lit_cells": 4593,
+    "combined_unresolved_cells": 3152,
+    "shadowed_fraction_of_resolved": 0.086697,
+    "resolved_fraction_of_patch": 0.614717,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -114,10 +159,15 @@
     "cast_shadow_cells": 197,
     "cast_clear_cells": 3783,
     "cast_unresolved_cells": 4201,
-    "self_shadow_cells": 90,
+    "self_shadow_cells": 89,
+    "combined_shadowed_cells": 200,
+    "combined_lit_cells": 3669,
+    "combined_unresolved_cells": 4312,
+    "shadowed_fraction_of_resolved": 0.051693,
+    "resolved_fraction_of_patch": 0.472925,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -127,9 +177,14 @@
     "cast_clear_cells": 4123,
     "cast_unresolved_cells": 4039,
     "self_shadow_cells": 8,
+    "combined_shadowed_cells": 21,
+    "combined_lit_cells": 3944,
+    "combined_unresolved_cells": 4216,
+    "shadowed_fraction_of_resolved": 0.005296,
+    "resolved_fraction_of_patch": 0.48466,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -139,9 +194,14 @@
     "cast_clear_cells": 3810,
     "cast_unresolved_cells": 4153,
     "self_shadow_cells": 30,
+    "combined_shadowed_cells": 224,
+    "combined_lit_cells": 3691,
+    "combined_unresolved_cells": 4266,
+    "shadowed_fraction_of_resolved": 0.057216,
+    "resolved_fraction_of_patch": 0.478548,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -150,10 +210,15 @@
     "cast_shadow_cells": 157,
     "cast_clear_cells": 4842,
     "cast_unresolved_cells": 3182,
-    "self_shadow_cells": 66,
+    "self_shadow_cells": 65,
+    "combined_shadowed_cells": 166,
+    "combined_lit_cells": 4639,
+    "combined_unresolved_cells": 3376,
+    "shadowed_fraction_of_resolved": 0.034547,
+    "resolved_fraction_of_patch": 0.587337,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -163,9 +228,14 @@
     "cast_clear_cells": 3753,
     "cast_unresolved_cells": 3845,
     "self_shadow_cells": 157,
+    "combined_shadowed_cells": 593,
+    "combined_lit_cells": 3629,
+    "combined_unresolved_cells": 3959,
+    "shadowed_fraction_of_resolved": 0.140455,
+    "resolved_fraction_of_patch": 0.516074,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -175,9 +245,14 @@
     "cast_clear_cells": 4078,
     "cast_unresolved_cells": 3049,
     "self_shadow_cells": 496,
+    "combined_shadowed_cells": 1092,
+    "combined_lit_cells": 3896,
+    "combined_unresolved_cells": 3193,
+    "shadowed_fraction_of_resolved": 0.218925,
+    "resolved_fraction_of_patch": 0.609705,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -186,10 +261,15 @@
     "cast_shadow_cells": 1399,
     "cast_clear_cells": 3693,
     "cast_unresolved_cells": 3089,
-    "self_shadow_cells": 491,
+    "self_shadow_cells": 490,
+    "combined_shadowed_cells": 1427,
+    "combined_lit_cells": 3569,
+    "combined_unresolved_cells": 3185,
+    "shadowed_fraction_of_resolved": 0.285629,
+    "resolved_fraction_of_patch": 0.610683,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -199,9 +279,14 @@
     "cast_clear_cells": 4936,
     "cast_unresolved_cells": 3240,
     "self_shadow_cells": 3,
+    "combined_shadowed_cells": 6,
+    "combined_lit_cells": 4734,
+    "combined_unresolved_cells": 3441,
+    "shadowed_fraction_of_resolved": 0.001266,
+    "resolved_fraction_of_patch": 0.579391,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -211,9 +296,14 @@
     "cast_clear_cells": 3865,
     "cast_unresolved_cells": 4297,
     "self_shadow_cells": 0,
+    "combined_shadowed_cells": 19,
+    "combined_lit_cells": 3741,
+    "combined_unresolved_cells": 4421,
+    "shadowed_fraction_of_resolved": 0.005053,
+    "resolved_fraction_of_patch": 0.459602,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -223,9 +313,14 @@
     "cast_clear_cells": 4141,
     "cast_unresolved_cells": 4040,
     "self_shadow_cells": 0,
+    "combined_shadowed_cells": 0,
+    "combined_lit_cells": 3960,
+    "combined_unresolved_cells": 4221,
+    "shadowed_fraction_of_resolved": 0.0,
+    "resolved_fraction_of_patch": 0.484048,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -235,9 +330,14 @@
     "cast_clear_cells": 3868,
     "cast_unresolved_cells": 4312,
     "self_shadow_cells": 0,
+    "combined_shadowed_cells": 1,
+    "combined_lit_cells": 3743,
+    "combined_unresolved_cells": 4437,
+    "shadowed_fraction_of_resolved": 0.000267,
+    "resolved_fraction_of_patch": 0.457646,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -247,9 +347,14 @@
     "cast_clear_cells": 4941,
     "cast_unresolved_cells": 3240,
     "self_shadow_cells": 0,
+    "combined_shadowed_cells": 0,
+    "combined_lit_cells": 4740,
+    "combined_unresolved_cells": 3441,
+    "shadowed_fraction_of_resolved": 0.0,
+    "resolved_fraction_of_patch": 0.579391,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -258,10 +363,15 @@
     "cast_shadow_cells": 36,
     "cast_clear_cells": 3869,
     "cast_unresolved_cells": 4276,
-    "self_shadow_cells": 2,
+    "self_shadow_cells": 1,
+    "combined_shadowed_cells": 36,
+    "combined_lit_cells": 3744,
+    "combined_unresolved_cells": 4401,
+    "shadowed_fraction_of_resolved": 0.009524,
+    "resolved_fraction_of_patch": 0.462046,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -271,9 +381,14 @@
     "cast_clear_cells": 4141,
     "cast_unresolved_cells": 4034,
     "self_shadow_cells": 1,
+    "combined_shadowed_cells": 6,
+    "combined_lit_cells": 3960,
+    "combined_unresolved_cells": 4215,
+    "shadowed_fraction_of_resolved": 0.001513,
+    "resolved_fraction_of_patch": 0.484782,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   },
   {
     "patch": "DTEED_033651_1990_033717_1990_A01",
@@ -283,8 +398,13 @@
     "cast_clear_cells": 3869,
     "cast_unresolved_cells": 4202,
     "self_shadow_cells": 5,
+    "combined_shadowed_cells": 110,
+    "combined_lit_cells": 3744,
+    "combined_unresolved_cells": 4327,
+    "shadowed_fraction_of_resolved": 0.028542,
+    "resolved_fraction_of_patch": 0.471092,
     "max_ray_m": 1200.0,
     "azimuth_reference": "grid north clockwise",
-    "classification": "1 cast shadow, 0 clear within 1200m, 255 unresolved missing/boundary"
+    "classification": "cast: 1 shadow, 0 clear within 1200m, 255 unresolved missing/boundary; combined: shadowed = cast or self shadow, lit = cast clear and facing Sun"
   }
 ]

@@ -10,7 +10,9 @@
   "MOLA_vertical": "GMM3 areoid IAU2000 from PDS label; not assumed exactly interchangeable with HiRISE",
   "processing": "select contiguous independent most valid ~2.4 x 3.0km patches; native 2m preserved; 30m approximate analysis by average; only cells with >=99.9% valid raw footprint retained; no sink filling smoothing NoData filling or outlier removal",
   "roughness": "population standard deviation of all 5x5 DEM heights (~150m) as sqrt(mean(z²)-mean(z)²); local relief=max-min same full-valid window",
-  "slope": "central differences dz/dE,dz/dN; slope=atan(hypot(gradients)); degrees",
+  "slope": "central differences dz/dE over the east-west cell size and dz/dN over the north-south cell size (cells are ~29.91 x 29.99 m, not square); slope=atan(hypot(gradients)); degrees. Baseline is two cells (~60 m): slope is scale dependent",
+  "slope_distribution": "1-degree histogram counts, percentiles and fraction steeper than fixed thresholds are stored in reports/*_patch_statistics.json; compare distributions, not only means",
+  "statistics_keys": "count/unit/min/max/mean/std with an explicit unit; aspect uses circular statistics",
   "aspect": "downslope azimuth clockwise from grid north, east=90; flats and invalid 3x3 -> -9999",
   "terrain_valid": "all 3x3 stencil cells valid; local relief and roughness require fully valid 5x5 neighborhood",
   "sun_altitudes_deg": [
@@ -29,9 +31,10 @@
     315
   ],
   "solar_azimuth_reference": "grid north, clockwise; local grid is equirectangular Mars, grid/true north may differ and has not been converted",
-  "shadow": "discrete nearest-cell horizon ray tracing to max 1200m using planet local radius 3396km and curvature correction -d²/(2R). Occlusion 1, definitely ray-unoccluded in 1200m 0, missing/exit 255. This is partial horizon, not infinite-range visibility.",
+  "shadow": "discrete nearest-cell horizon ray tracing, marched in metres with per-axis cell size, to max 1200m using planet local radius 3396km and curvature correction -d²/(2R). Occlusion 1, definitely ray-unoccluded in 1200m 0, missing/exit 255. This is partial horizon, not infinite-range visibility.",
   "shadow_limitations": "unknown at edge and missing data; occlusion beyond 1200m untested; subpixel obstacles excluded; MOLA not used for obstacle completion; no permanent shadow inference",
   "self_shadow": "negative surface-normal dot sun direction; independent of cast-shadow",
+  "combined_illumination": "shadowed = cast shadow OR self shadow; lit = cast clear AND facing the Sun; everything else unresolved. Shadow fractions are quoted over resolved cells only",
   "incidence": "cos of solar incidence angle on 3x3-valid local normal; NOT brightness, camera imagery, dust or reflectance",
   "scale_note": "30m posts do not imply identical point spread function, instrument resolution, vertical error or effective resolution to NASADEM 30m",
   "scenario_note": "hypothetical Sun, not time-specific; Mars Sun can be higher than polar Moon Sun",

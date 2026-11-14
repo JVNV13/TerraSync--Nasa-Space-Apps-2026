@@ -1,4 +1,4 @@
-/* TerraTwin — mission-console design system
+/* TerraSync — mission-console design system
    Palette: deep-space ink, bone-white instrument type, Earth teal and Mars rust
    (validated categorical pair), a single bone ramp for magnitudes. */
 :root {
@@ -497,3 +497,86 @@ details summary { cursor: pointer; color: var(--ink-2); font-size: 0.85rem; marg
   .status { gap: 8px; }
 }
 .panel.map-panel, .panel.site-duo { padding: 0; }
+
+/* ------------------------------------------------------------------ provenance labels */
+.pv { display: inline-block; min-width: 15px; padding: 1px 3px; margin-right: 2px; font: 500 0.62rem/1.25 var(--mono); text-align: center; vertical-align: 1px; border: 1px solid; cursor: help; }
+.pv-measured { color: #0a0d12; background: var(--good); border-color: var(--good); }
+.pv-synthetic { color: var(--signal); border-color: rgba(232, 199, 125, 0.5); border-style: dashed; }
+.pv-pair { white-space: nowrap; }
+.pv-legend { margin: 0 0 10px; }
+.pv-legend .pv { margin-left: 8px; }
+.pv-legend .pv:first-child { margin-left: 0; }
+.tag.real { color: var(--good); border-color: rgba(127, 191, 138, 0.5); }
+.band-low { color: var(--ink-3); border-color: var(--line-2); border-style: dotted; cursor: help; }
+.sw { display: inline-block; width: 9px; height: 9px; margin-right: 6px; vertical-align: 0; }
+.chip .sw { vertical-align: -1px; }
+.chip.on .sw { outline: 1px solid #0a0d12; }
+.callout { margin: 12px 0; padding: 10px 14px; font-size: 0.9rem; color: var(--ink-2); border-left: 2px solid var(--line-2); background: rgba(233, 228, 216, 0.03); }
+.callout b { color: var(--ink); font-weight: 500; }
+.grid-2.flush { gap: 28px; align-items: start; }
+.fill-bar.split { background: rgba(232, 199, 125, 0.28); }
+.fill-bar.split i.m { background: var(--good); }
+.fill.prov li { grid-template-columns: 110px 1fr 110px; }
+
+/* ------------------------------------------------------------------ terrain view */
+.terr-ctrl { display: grid; grid-template-columns: minmax(260px, 1.3fr) 1fr 1fr 88px; gap: 24px; align-items: center; }
+.terr-ctrl .field { margin: 0; }
+.terr-ctrl .field.sun > span { display: flex; gap: 6px; align-items: baseline; }
+.terr-ctrl output { color: var(--ink); letter-spacing: 0.02em; text-transform: none; font-size: 0.8rem; }
+.terr-ctrl input[type=range] { height: 28px; }
+.sun-dial svg { width: 88px; height: 88px; display: block; }
+.sd-ring { fill: none; stroke: var(--line-2); }
+.sd-ring.in { stroke: var(--line); stroke-dasharray: 2 3; }
+.sd-tick { stroke: var(--ink-3); }
+.sd-n { font: 8px var(--mono); fill: var(--ink-2); }
+.sd-ray { stroke: var(--signal); stroke-width: 1.2; }
+.sd-sun { fill: var(--signal); }
+.sd-c { fill: var(--ink-2); }
+.terr-maps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); position: relative; z-index: 1; }
+.terr-fig { margin: 0 0 var(--gap); }
+.terr-fig figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 10px; font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.terr-fig figcaption .cap-r { letter-spacing: 0.02em; text-transform: none; color: var(--ink-3); text-align: right; }
+.terr-fig p { margin: 6px 0 0; }
+.map-box { position: relative; line-height: 0; border: 1px solid var(--line); touch-action: none; cursor: crosshair; }
+.map-box canvas { width: 100%; height: auto; display: block; image-rendering: pixelated; }
+.map-box.ctx { cursor: default; }
+.cell-mark { display: none; position: absolute; box-shadow: 0 0 0 1.5px var(--signal), 0 0 0 3px rgba(7, 9, 13, 0.8); pointer-events: none; }
+.scalebar { position: absolute; left: 8px; bottom: 8px; padding-bottom: 3px; border-bottom: 2px solid #fff; font: 500 0.62rem/1 var(--mono); color: #fff; text-shadow: 0 0 3px #000, 0 0 3px #000; text-align: center; pointer-events: none; }
+.ctx-mark { position: absolute; min-width: 5px; min-height: 5px; border: 1.5px solid var(--c); box-shadow: 0 0 0 1px rgba(7, 9, 13, 0.9); }
+.ctx-mark b { position: absolute; left: calc(100% + 5px); top: 50%; transform: translateY(-50%); font: 600 0.72rem/1 var(--mono); color: #fff; text-shadow: 0 0 3px #000, 0 0 3px #000; }
+.terr-fig .ramp-legend, .terr-legend { margin-top: 10px; }
+.lg-sq { display: inline-block; width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; border: 1px solid var(--line-2); }
+.hatch { background-image: repeating-linear-gradient(135deg, transparent 0 3px, rgba(150, 145, 130, 0.9) 3px 4px); }
+.lg-line { display: inline-block; width: 20px; height: 0; margin-right: 6px; vertical-align: 3px; border-top: 2px solid var(--c); }
+.lg-line.dash { border-top-style: dashed; }
+.lg-line.dot { border-top-style: dotted; }
+.terr-foot { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between; margin: -6px 0 var(--gap); font-size: 0.8rem; }
+.terr-foot .readout { color: var(--ink); min-height: 1.4em; }
+.tiles { display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 12px; }
+.tile { background: var(--panel-solid); padding: 12px 14px; }
+.tile dt { font: 500 0.66rem/1.3 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.tile dd { margin: 6px 0 2px; font-size: 1.25rem; color: var(--ink); }
+.tile.main dd { font-size: 2rem; }
+.tile small { color: var(--ink-3); font-size: 0.74rem; }
+.stack { display: flex; gap: 2px; height: 14px; }
+.stack i { display: block; min-width: 0; }
+.sd-hit { fill: transparent; }
+.sd-hit:hover { fill: rgba(233, 228, 216, 0.06); }
+.tip .sw { margin-right: 5px; }
+@media (max-width: 1100px) {
+  .terr-ctrl { grid-template-columns: 1fr 1fr; }
+  .terr-maps { grid-template-columns: 1fr; max-width: 520px; }
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .tile.main { grid-column: 1 / -1; }
+}
+.map-legend i.lg-line { width: 20px; height: 0; vertical-align: 3px; }
+.map-legend i.lg-sq, .tile i.lg-sq { width: 11px; height: 11px; }
+.terr-legend, .panel > .map-legend, .grid-2.flush .map-legend { padding: 0 0 8px; }
+.terr-fig .ramp-legend { margin-bottom: 0; flex-wrap: nowrap; }
+.terr-fig .ramp-legend i { flex: 1; width: auto; }
+.data td.num { white-space: nowrap; }
+.grid-2 > *, .grid-2.flush > * { min-width: 0; }
+@media (max-width: 1180px) { .grid-2, .grid-2.flush { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .terr-ctrl { grid-template-columns: minmax(0, 1fr); gap: 14px; } .sun-dial { display: none; } }
+.sbs details { overflow-x: auto; }
+.sbs th { white-space: normal; }

@@ -1,4 +1,4 @@
-// 03 · Analog finder: weighted, filterable ranking of Earth candidates for one target.
+// 04 · Analog finder: weighted, filterable ranking of Earth candidates for one target.
 import { html, render, raw, pct, copyText, $ } from '../util.js';
 import { DIMENSIONS } from '../engine.js';
 import { miniBars } from '../charts.js';
@@ -68,10 +68,10 @@ export function render_(root, ctx) {
       <div class="res-main">
         <h3>${bodyMark('Earth')}${s.name}${s.is_control ? html` <span class="tag warn">negative control</span>` : ''}${['under_studied', 'emerging'].includes(s['exploration.analog_maturity']) ? html` <span class="tag new">${humanize(s['exploration.analog_maturity'])}</span>` : ''}</h3>
         <p class="dim">${s['geographic.region']} · ${humanize(s['terrain.classification'] || '')}</p>
-        <p class="res-why"><span>Holds on</span> ${strengths.join(', ')} <span>· breaks on</span> ${weakest?.label}</p>
+        <p class="res-why"><span>Holds on</span> ${strengths.join(', ') || 'no shared data'}${strengths.length > 1 ? html` <span>· breaks on</span> ${weakest.label}` : ''}</p>
       </div>
-      <div class="res-dims">${raw2(miniBars(r.dims))}<span class="mono dim small">coverage ${pct(r.coverage)}%</span></div>
-      <div class="res-score"><span class="mono">${pct(r.score)}</span>${band(r.score)}</div>
+      <div class="res-dims">${raw2(miniBars(r.dims))}<span class="mono dim small">${r.dims.filter(d => d.score != null).length} of ${r.dims.length} dimensions</span></div>
+      <div class="res-score"><span class="mono">${pct(r.score)}</span>${band(r.score, r.coverage)}</div>
     </article>`.s;
   }
 

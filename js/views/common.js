@@ -1,7 +1,7 @@
 // Pieces reused across views.
 import { html, raw, esc } from '../util.js';
 import { PROFILES, DIMENSIONS, scoreBand } from '../engine.js';
-import { FIELDS, formatValue, humanize } from '../data.js';
+import { FIELDS, formatValue, humanize, provOf } from '../data.js';
 
 export const shortName = s => s.name.replace(/\s*\(control\)/i, '').split(',')[0];
 
@@ -9,10 +9,35 @@ export function bodyMark(body) {
   return raw(body === 'Mars' ? '<i class="glyph mars" aria-hidden="true"></i>' : body === 'Earth' ? '<i class="glyph earth" aria-hidden="true"></i>' : '<i class="glyph moon" aria-hidden="true"></i>');
 }
 
-export function band(score) {
+// A pair that shares fewer than a third of the dimensions is not rated: its score rests on too little.
+export const MIN_COVERAGE = 1 / 3;
+export const rated = r => r.coverage >= MIN_COVERAGE;
+/** Sort results: rated pairs first, then by score. */
+export const byScore = (x, y) => (rated(y) - rated(x)) || (y.score - x.score);
+
+export function band(score, coverage = 1) {
+  if (coverage < MIN_COVERAGE) return html`<span class="band band-low" data-tip="Fewer than a third of the dimensions have data on both sides, so this pair is not rated.">Limited data</span>`;
   const b = scoreBand(score);
   return html`<span class="band band-${b.key}">${b.label}</span>`;
 }
+
+/** M / S badge for one field of one record (nothing for blank fields). */
+export function provBadge(site, key) {
+  const p = provOf(site, key);
+  if (!p) return '';
+  const tipText = p === 'measured' ? `Measured${site.data_source ? ' · ' + site.data_source : ''}` : 'Synthetic placeholder, not an observation';
+  return html`<span class="pv pv-${p}" data-tip="${esc(tipText)}" aria-label="${p}">${p === 'measured' ? 'M' : 'S'}</span>`;
+}
+
+/** Record-level tag, derived from the record's fields. */
+export function provTag(site) {
+  const n = Object.values(site._prov || {});
+  const m = n.filter(v => v === 'measured').length;
+  const label = site.provenance === 'mixed' ? `mixed · ${m}/${n.length} fields measured` : site.provenance;
+  return html`<span class="tag ${site.provenance === 'measured' ? 'real' : 'warn'}">${label}</span>`;
+}
+
+export const provLegend = () => html`<p class="pv-legend small dim"><span class="pv pv-measured">M</span> measured value <span class="pv pv-synthetic">S</span> synthetic placeholder · labelled per field, blank fields carry no label</p>`;
 
 export function sectionHead(code, title, sub) {
   return html`<header class="sec-head"><p class="eyebrow"><span class="code">${code}</span>${title}</p>${sub ? html`<p class="sec-sub">${sub}</p>` : ''}</header>`;
@@ -20,7 +45,7 @@ export function sectionHead(code, title, sub) {
 
 export function targetOptions(ctx, selectedId) {
   const groups = {};
-  for (const t of ctx.targets) (groups[t.body] ||= []).push(t);
+  for (const t of ctx.targets) (groups[`${t.body} · ${t.provenance}`] ||= []).push(t);
   return raw(Object.entries(groups).map(([body, list]) => `<optgroup label="${esc(body)} targets">${list.map(t => `<option value="${esc(t.id)}"${t.id === selectedId ? ' selected' : ''}>${esc(t.name)}</option>`).join('')}</optgroup>`).join(''));
 }
 
@@ -70,6 +95,9 @@ export function shared(a, b) {
 
 export function dataNotice(ctx) {
   const q = ctx.data.quality;
-  if (!q.synthetic) return '';
-  return html`<aside class="notice" role="note"><b>Synthetic dataset.</b> ${q.synthetic} of ${q.accepted} records in <span class="mono">${q.source}</span> are flagged <span class="mono">is_synthetic = true</span>. Rankings demonstrate the method; they are not scientific findings until measured NASA/ESA data replace these values (load a new CSV under <a href="#method">Method</a>).</aside>`;
+  const { measured, synthetic } = q.values;
+  if (!synthetic) return '';
+  const n = v => v.toLocaleString('en-US');
+  if (!measured) return html`<aside class="notice" role="note"><b>Synthetic dataset.</b> All ${n(synthetic)} field values in <span class="mono">${q.source}</span> are synthetic placeholders. Rankings demonstrate the method; they are not scientific findings.</aside>`;
+  return html`<aside class="notice" role="note"><b>Measured and synthetic data are mixed.</b> ${n(measured)} field values are measured (${q.records.measured || 0} fully measured record${q.records.measured === 1 ? '' : 's'}${q.records.mixed ? `, ${q.records.mixed} mixed` : ''}) and ${n(synthetic)} are synthetic placeholders. Every field is labelled <span class="pv pv-measured">M</span> or <span class="pv pv-synthetic">S</span> where it is shown. A score that uses any synthetic value demonstrates the method and is not a scientific finding. Measured Mars elevation, slope and shadow maps are under <a href="#terrain">Terrain</a>.</aside>`;
 }

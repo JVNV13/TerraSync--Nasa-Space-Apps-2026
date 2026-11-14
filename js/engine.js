@@ -1,7 +1,12 @@
-// TerraTwin similarity engine.
+// TerraSync similarity engine.
 // Scores how well a candidate site (usually Earth) reproduces a target site
 // (Mars / Moon) along nine analog dimensions. Every score is derived from CSV
 // fields; missing values are skipped (and reported as reduced coverage), never imputed.
+//
+// Numeric similarity uses a FIXED physical scale per field (lo..hi):
+// 1 − |a − b| / (hi − lo), with both values clamped to the scale. The scale never
+// depends on which records are loaded, so adding or removing a site cannot change
+// the score of any other pair.
 
 export const DIMENSIONS = [
   { key: 'geology', label: 'Geology & minerals', short: 'GEO', blurb: 'Overlap of mineral groups, minerals and rock types.',
@@ -10,45 +15,47 @@ export const DIMENSIONS = [
       { key: 'geology.minerals', kind: 'set', w: 0.3 },
       { key: 'geology.rock_types', kind: 'set', w: 0.2 },
     ] },
-  { key: 'terrain', label: 'Terrain & topography', short: 'TER', blurb: 'Landform class, slopes, roughness, cratering.',
+  { key: 'terrain', label: 'Terrain & topography', short: 'TER', blurb: 'Landform class, slope distribution, roughness, cratering.',
     features: [
       { key: 'terrain.classification', kind: 'class', w: 0.25 },
-      { key: 'terrain.slope_mean_deg', kind: 'num', w: 0.2 },
-      { key: 'terrain.slope_max_deg', kind: 'num', w: 0.1 },
-      { key: 'terrain.roughness_index', kind: 'num', w: 0.2 },
-      { key: 'terrain.crater_density_gt1km_per_1e6km2', kind: 'num', log: true, w: 0.15 },
+      // Slopes are compared as whole distributions. Mean and max are used only when a site has no distribution.
+      { key: 'terrain.slope_hist_1deg', kind: 'dist', w: 0.3 },
+      { key: 'terrain.slope_mean_deg', kind: 'num', w: 0.2, scale: [0, 35], why: 'flat to the ~35° angle of repose of loose dry regolith', fallbackFor: 'terrain.slope_hist_1deg' },
+      { key: 'terrain.slope_max_deg', kind: 'num', w: 0.1, scale: [0, 90], why: 'flat to vertical', fallbackFor: 'terrain.slope_hist_1deg' },
+      { key: 'terrain.roughness_index', kind: 'num', w: 0.2, scale: [0, 1], why: 'index defined on 0–1' },
+      { key: 'terrain.crater_density_gt1km_per_1e6km2', kind: 'num', log: true, w: 0.15, scale: [0, 100000], why: 'uncratered to ~10⁵ per 10⁶ km², the order of crater saturation for D > 1 km' },
       { key: 'terrain.is_impact_structure', kind: 'bool', w: 0.1 },
     ] },
   { key: 'thermal', label: 'Thermal & light', short: 'THM', blurb: 'Temperature regime, surface irradiance and UV.',
     features: [
-      { key: 'environment.temperature_c.mean', kind: 'num', w: 0.3 },
-      { key: 'environment.temperature_c.min', kind: 'num', w: 0.25 },
-      { key: 'environment.temperature_c.max', kind: 'num', w: 0.15 },
-      { key: 'environment.solar_irradiance_surface_mean_wm2', kind: 'num', w: 0.15 },
-      { key: 'environment.uv_exposure_index', kind: 'num', w: 0.15 },
+      { key: 'environment.temperature_c.mean', kind: 'num', w: 0.3, scale: [-150, 60], why: 'Mars polar-winter CO₂ frost to the hottest Earth ground-level air' },
+      { key: 'environment.temperature_c.min', kind: 'num', w: 0.25, scale: [-150, 60], why: 'same span as mean temperature' },
+      { key: 'environment.temperature_c.max', kind: 'num', w: 0.15, scale: [-150, 60], why: 'same span as mean temperature' },
+      { key: 'environment.solar_irradiance_surface_mean_wm2', kind: 'num', w: 0.15, scale: [0, 1361], why: 'darkness to the solar constant at 1 AU' },
+      { key: 'environment.uv_exposure_index', kind: 'num', w: 0.15, scale: [0, 1], why: 'index defined on 0–1' },
     ] },
   { key: 'aeolian', label: 'Dust & wind', short: 'AEO', blurb: 'Dust activity, storm frequency, wind regime, erosion style.',
     features: [
-      { key: 'environment.dust_activity_index', kind: 'num', w: 0.3 },
-      { key: 'environment.dust_storms_per_earth_year', kind: 'num', w: 0.2 },
-      { key: 'environment.wind_speed_ms.mean', kind: 'num', w: 0.15 },
-      { key: 'environment.wind_speed_ms.gust_max', kind: 'num', w: 0.15 },
+      { key: 'environment.dust_activity_index', kind: 'num', w: 0.3, scale: [0, 1], why: 'index defined on 0–1' },
+      { key: 'environment.dust_storms_per_earth_year', kind: 'num', w: 0.2, log: true, scale: [0, 365], why: 'none to one storm per day' },
+      { key: 'environment.wind_speed_ms.mean', kind: 'num', w: 0.15, scale: [0, 25], why: 'calm to the windiest long-term station means on Earth' },
+      { key: 'environment.wind_speed_ms.gust_max', kind: 'num', w: 0.15, scale: [0, 100], why: 'calm to the strongest non-tornadic surface gusts recorded' },
       { key: 'environment.erosion_indicators', kind: 'words', w: 0.2 },
     ] },
   { key: 'water', label: 'Water & ice', short: 'H₂O', blurb: 'Ice probability, hydrated minerals, water content, aridity.',
     features: [
-      { key: 'water_resources.water_availability_index', kind: 'num', w: 0.2 },
-      { key: 'water_resources.surface_ice_probability', kind: 'num', w: 0.15 },
-      { key: 'water_resources.subsurface_ice_probability', kind: 'num', w: 0.2 },
+      { key: 'water_resources.water_availability_index', kind: 'num', w: 0.2, scale: [0, 1], why: 'index defined on 0–1' },
+      { key: 'water_resources.surface_ice_probability', kind: 'num', w: 0.15, scale: [0, 1], why: 'probability' },
+      { key: 'water_resources.subsurface_ice_probability', kind: 'num', w: 0.2, scale: [0, 1], why: 'probability' },
       { key: 'water_resources.hydrated_minerals_present', kind: 'bool', w: 0.1 },
       { key: 'water_resources.hydrated_mineral_types', kind: 'set', w: 0.15 },
-      { key: 'water_resources.regolith_water_equivalent_wt_pct', kind: 'num', log: true, w: 0.2 },
+      { key: 'water_resources.regolith_water_equivalent_wt_pct', kind: 'num', log: true, w: 0.2, scale: [0, 100], why: 'dry to pure water ice, weight percent' },
     ] },
   { key: 'habitability', label: 'Habitability & biosignatures', short: 'BIO', blurb: 'Biosphere sparseness, rainfall and biosignature preservation.',
     features: [
-      { key: 'habitability.vegetation_cover_pct', kind: 'num', w: 0.3 },
-      { key: 'environment.annual_liquid_precipitation_mm', kind: 'num', log: true, w: 0.3 },
-      { key: 'habitability.biosignature_preservation_potential', kind: 'num', w: 0.4 },
+      { key: 'habitability.vegetation_cover_pct', kind: 'num', w: 0.3, scale: [0, 100], why: 'percent cover' },
+      { key: 'environment.annual_liquid_precipitation_mm', kind: 'num', log: true, w: 0.3, scale: [0, 12000], why: 'none to the wettest long-term station means on Earth' },
+      { key: 'habitability.biosignature_preservation_potential', kind: 'num', w: 0.4, scale: [0, 1], why: 'index defined on 0–1' },
     ] },
   { key: 'subsurface', label: 'Caves & subsurface', short: 'SUB', blurb: 'Lava tubes and caves (scored only if the target has them).',
     onlyIfTarget: s => s['subsurface.cave_present'] === true || s['subsurface.lava_tube_present'] === true,
@@ -63,8 +70,8 @@ export const DIMENSIONS = [
     ] },
   { key: 'operations', label: 'Surface operations', short: 'OPS', blurb: 'Trafficability and worst-case slopes for rovers and crews.',
     features: [
-      { key: 'exploration.trafficability_index', kind: 'num', w: 0.6 },
-      { key: 'exploration.landing_suitability_index', kind: 'num', w: 0.4 },
+      { key: 'exploration.trafficability_index', kind: 'num', w: 0.6, scale: [0, 1], why: 'index defined on 0–1' },
+      { key: 'exploration.landing_suitability_index', kind: 'num', w: 0.4, scale: [0, 1], why: 'index defined on 0–1' },
     ] },
 ];
 
@@ -90,18 +97,45 @@ export const GRAVITY = { Earth: 9.81, Mars: 3.72, Moon: 1.62 };
 const STOP = new Set(['and', 'of', 'the', 'with', 'source', 'limit', 'near', 'site', 'early', 'young', 'fresh', 'mars', 'earth']);
 
 const transform = (f, v) => (f.log ? Math.log10(v + 1) : v);
+const clampTo = (v, [lo, hi]) => Math.min(hi, Math.max(lo, v));
+
+/** Similarity of two numbers on a fixed physical scale. Independent of the loaded records. */
+export function scaledSim(f, va, vb) {
+  const [lo, hi] = f.scale;
+  const span = transform(f, hi) - transform(f, lo);
+  return Math.max(0, 1 - Math.abs(transform(f, clampTo(va, f.scale)) - transform(f, clampTo(vb, f.scale))) / span);
+}
+
+/** Share of two histograms (equal-width bins from 0) that coincides: Σ min(pᵢ, qᵢ), 0–1. */
+export function histOverlap(a, b) {
+  const na = a.reduce((x, y) => x + y, 0), nb = b.reduce((x, y) => x + y, 0);
+  if (!na || !nb) return null;
+  let o = 0;
+  for (let i = 0; i < Math.max(a.length, b.length); i++) o += Math.min((a[i] || 0) / na, (b[i] || 0) / nb);
+  return o;
+}
+
+/** Summary of a 1°-bin slope histogram: quantiles (linear within a bin) and share steeper than thresholds. */
+export function histSummary(h, thresholds = [5, 10, 15, 20, 25]) {
+  const n = h.reduce((x, y) => x + y, 0);
+  const q = p => {
+    let acc = 0;
+    for (let i = 0; i < h.length; i++) {
+      if (acc + h[i] >= p * n && h[i] > 0) return i + (p * n - acc) / h[i];
+      acc += h[i];
+    }
+    return h.length;
+  };
+  const above = t => h.slice(t).reduce((x, y) => x + y, 0) / n;
+  return { n, p10: q(0.1), p25: q(0.25), p50: q(0.5), p75: q(0.75), p90: q(0.9), p95: q(0.95), above: Object.fromEntries(thresholds.map(t => [t, above(t)])) };
+}
+
+const prov = (s, key) => s._prov?.[key] ?? null;
 
 export class Engine {
   constructor(sites) {
     this.sites = sites;
     this.byId = new Map(sites.map(s => [s.id, s]));
-    // Normalisation spans for numeric features, computed from the loaded data.
-    this.spans = {};
-    for (const d of DIMENSIONS) for (const f of d.features) if (f.kind === 'num') {
-      const vals = sites.map(s => s[f.key]).filter(v => v != null).map(v => transform(f, v));
-      const lo = Math.min(...vals), hi = Math.max(...vals);
-      this.spans[f.key] = vals.length > 1 && hi > lo ? hi - lo : null;
-    }
     this.cache = new Map();
   }
 
@@ -109,11 +143,8 @@ export class Engine {
     const va = a[f.key], vb = b[f.key];
     if (va == null || vb == null) return null;
     switch (f.kind) {
-      case 'num': {
-        const span = this.spans[f.key];
-        if (!span) return null;
-        return Math.max(0, 1 - Math.abs(transform(f, va) - transform(f, vb)) / span);
-      }
+      case 'num': return scaledSim(f, va, vb);
+      case 'dist': return histOverlap(va, vb);
       case 'bool': return va === vb ? 1 : 0;
       case 'set': return jaccard(new Set(va), new Set(vb));
       case 'words': return 0.5 * jaccard(new Set(va), new Set(vb)) + 0.5 * jaccard(words(va), words(vb));
@@ -135,20 +166,29 @@ export class Engine {
     const dims = DIMENSIONS.map(d => {
       if (d.onlyIfTarget && !d.onlyIfTarget(b)) return { key: d.key, label: d.label, score: null, coverage: 0, na: 'Target has no recorded caves or lava tubes', features: [] };
       let num = 0, den = 0, possible = 0;
+      const primary = {};
+      for (const f of d.features) if (!f.fallbackFor) primary[f.key] = this.featureSim(f, a, b);
       const features = d.features.map(f => {
-        possible += f.w;
-        const sim = this.featureSim(f, a, b);
+        // A fallback (e.g. mean slope) stands in only when its primary (the slope distribution) is unavailable.
+        const standby = !!f.fallbackFor && primary[f.fallbackFor] != null;
+        if (!f.fallbackFor) possible += f.w;
+        const sim = standby ? null : f.fallbackFor ? this.featureSim(f, a, b) : primary[f.key];
         if (sim != null) { num += sim * f.w; den += f.w; }
-        return { key: f.key, kind: f.kind, sim, a: a[f.key], b: b[f.key] };
+        const pa = prov(a, f.key), pb = prov(b, f.key);
+        return { key: f.key, kind: f.kind, sim, a: a[f.key], b: b[f.key], provA: pa, provB: pb, standby, fallback: !!f.fallbackFor,
+          basis: sim == null ? null : pa === 'measured' && pb === 'measured' ? 'measured' : pa === 'synthetic' && pb === 'synthetic' ? 'synthetic' : 'mixed' };
       });
-      return { key: d.key, label: d.label, score: den ? num / den : null, coverage: den / possible, na: den ? null : 'No overlapping data', features };
+      return { key: d.key, label: d.label, score: den ? num / den : null, coverage: Math.min(1, den / possible), na: den ? null : 'No overlapping data', features };
     });
     let num = 0, den = 0;
     for (const d of dims) if (d.score != null) { const w = weights[d.key] ?? 1; num += d.score * w; den += w; }
     const all = dims.flatMap(d => d.features.filter(f => f.sim != null).map(f => ({ ...f, dim: d.key })));
+    const basis = { measured: 0, mixed: 0, synthetic: 0 };
+    for (const f of all) basis[f.basis]++;
     const result = {
       candidate: a, target: b, score: den ? num / den : 0, dims,
       coverage: dims.filter(d => d.score != null).length / dims.length,
+      scoredFields: all.length, basis,
       strengths: all.filter(f => f.sim >= 0.75).sort((x, y) => y.sim - x.sim),
       gaps: all.filter(f => f.sim <= 0.35).sort((x, y) => x.sim - y.sim),
       limits: this.limits(a, b),
@@ -160,10 +200,11 @@ export class Engine {
   /** Where the analogy physically breaks: quantities Earth cannot reproduce. */
   limits(a, b) {
     const out = [];
+    const src = k => `CSV · ${prov(a, k) || 'n/a'} vs ${prov(b, k) || 'n/a'}`;
     const pa = a['environment.atmospheric_pressure_kpa'], pb = b['environment.atmospheric_pressure_kpa'];
-    if (pa != null && pb != null && pb >= 0) out.push({ key: 'pressure', label: 'Surface pressure', a: pa, b: pb, unit: 'kPa', ratio: pb > 0 ? pa / pb : Infinity, source: 'CSV (barometric approximation)' });
+    if (pa != null && pb != null && pb >= 0) out.push({ key: 'pressure', label: 'Surface pressure', a: pa, b: pb, unit: 'kPa', ratio: pb > 0 ? pa / pb : Infinity, source: src('environment.atmospheric_pressure_kpa') + ' (barometric approximation)' });
     const ra = a['environment.radiation_dose_mgy_per_day'], rb = b['environment.radiation_dose_mgy_per_day'];
-    if (ra != null && rb != null && ra > 0) out.push({ key: 'radiation', label: 'Surface radiation dose', a: ra, b: rb, unit: 'mGy/day', ratio: rb / ra, source: 'CSV' });
+    if (ra != null && rb != null && ra > 0) out.push({ key: 'radiation', label: 'Surface radiation dose', a: ra, b: rb, unit: 'mGy/day', ratio: rb / ra, source: src('environment.radiation_dose_mgy_per_day') });
     const ga = GRAVITY[a.body], gb = GRAVITY[b.body];
     if (ga && gb && a.body !== b.body) out.push({ key: 'gravity', label: 'Surface gravity', a: ga, b: gb, unit: 'm/s²', ratio: ga / gb, source: 'Reference constant (not in CSV)' });
     return out;

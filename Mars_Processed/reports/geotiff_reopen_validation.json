@@ -8,6 +8,7 @@
     "positive x pixel",
     "north-up y",
     "valid slope range",
-    "shadow class codes"
+    "cast and self shadow class codes",
+    "cos incidence within [-1,1]"
   ]
 }
