@@ -1,0 +1,8 @@
+{
+  "flat_shadow_all_clear": true,
+  "obstacle_blocks_southward_solar_ray": true,
+  "gap_unresolved": true,
+  "edge_unresolved": true,
+  "known_plane_slope_deg": true,
+  "known_plane_aspect_east_deg": true
+}

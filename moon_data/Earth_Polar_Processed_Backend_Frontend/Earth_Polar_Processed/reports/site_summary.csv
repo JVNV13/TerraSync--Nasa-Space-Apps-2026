@@ -1,0 +1,4 @@
+site,utm_center_scale_error_pct,valid_core_pct,shadow_min_unresolved_pct,shadow_max_unresolved_pct
+Haughton_tile,-0.03403359903365599,100.0,0.0,16.765625
+Antarctic_tile,-0.03554191696453213,100.0,0.0,11.84375
+North_Greenland,-0.039417010108555584,100.0,0.9375,22.75

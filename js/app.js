@@ -8,12 +8,13 @@ import * as mission from './views/mission.js';
 import * as finder from './views/finder.js';
 import * as compare from './views/compare.js';
 import * as edu from './views/edu.js';
+import * as moon from './views/moon.js';
 import * as catalog from './views/catalog.js';
 
-const ROUTES = { start, mission, finder, compare, edu };
+const ROUTES = { start, mission, finder, compare, edu, moon };
 const DEFAULT_ROUTE = 'start';
 // Views that render without the survey dataset.
-const NO_DATA = new Set(['start', 'edu']);
+const NO_DATA = new Set(['start', 'edu', 'moon']);
 
 const ctx = {
   data: null, engine: null, earth: [], targets: [],

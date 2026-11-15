@@ -1,0 +1,14 @@
+{
+  "Haughton_tile": {
+    "geotiff_reopened": 33,
+    "core_geotiffs_grid_aligned": 31
+  },
+  "Antarctic_tile": {
+    "geotiff_reopened": 33,
+    "core_geotiffs_grid_aligned": 31
+  },
+  "North_Greenland": {
+    "geotiff_reopened": 33,
+    "core_geotiffs_grid_aligned": 31
+  }
+}

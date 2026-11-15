@@ -1,0 +1,113 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Haughton_tile",
+        "landcover_verified": false,
+        "field_training_suitability": "not_assessed",
+        "projection_epsg": 32616
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -89.61986049857666,
+              75.52754926163837
+            ],
+            [
+              -89.39064470459745,
+              75.52997691863943
+            ],
+            [
+              -89.38141417429954,
+              75.472667976928
+            ],
+            [
+              -89.60974728859132,
+              75.47025029989638
+            ],
+            [
+              -89.61986049857666,
+              75.52754926163837
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Antarctic_tile",
+        "landcover_verified": false,
+        "field_training_suitability": "not_assessed",
+        "projection_epsg": 32758
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              162.37320707319535,
+              -77.4699629111105
+            ],
+            [
+              162.63724142516432,
+              -77.4723998033749
+            ],
+            [
+              162.62655508384412,
+              -77.5297003168723
+            ],
+            [
+              162.36132975222165,
+              -77.5272518792022
+            ],
+            [
+              162.37320707319535,
+              -77.4699629111105
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "North_Greenland",
+        "landcover_verified": false,
+        "field_training_suitability": "not_assessed",
+        "projection_epsg": 32625
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -31.71535669714572,
+              82.52948699670054
+            ],
+            [
+              -31.274639323657397,
+              82.52799398554039
+            ],
+            [
+              -31.28769882536575,
+              82.47068755996732
+            ],
+            [
+              -31.725082936702695,
+              82.47216908019757
+            ],
+            [
+              -31.71535669714572,
+              82.52948699670054
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

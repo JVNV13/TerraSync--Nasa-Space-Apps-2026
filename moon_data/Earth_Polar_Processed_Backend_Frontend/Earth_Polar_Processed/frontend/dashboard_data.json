@@ -1,0 +1,1001 @@
+{
+  "schema_version": "1.0",
+  "status": "processed_dem_only; no lunar_or_mars_similarity_scores",
+  "sites": [
+    {
+      "id": "Haughton_tile",
+      "label": "Haughton-region tile; exact crater footprint unverified",
+      "center_lonlat": [
+        -89.50041666666667,
+        75.50013888888888
+      ],
+      "analysis_epsg": 32616,
+      "spatial_resolution_m": 80,
+      "core_size_m": 6400,
+      "terrain_stats": {
+        "slope_deg": {
+          "count": 6400,
+          "min": 0.03148210421204567,
+          "max": 33.182682037353516,
+          "mean": 4.348193168640137,
+          "std": 4.1652092933654785,
+          "p05": 1.0116771459579468,
+          "p50": 3.2203588485717773,
+          "p95": 12.708786964416504
+        },
+        "local_relief_m": {
+          "count": 6400,
+          "min": 3.00506591796875,
+          "max": 166.51980590820312,
+          "mean": 29.224720001220703,
+          "std": 22.247695922851562,
+          "p05": 9.835539817810059,
+          "p50": 23.146560668945312,
+          "p95": 76.84642028808594
+        },
+        "detrended_roughness_m": {
+          "count": 6400,
+          "min": 0.20017386972904205,
+          "max": 35.714195251464844,
+          "mean": 3.4496893882751465,
+          "std": 3.8426289558410645,
+          "p05": 0.6978514194488525,
+          "p50": 2.2024576663970947,
+          "p95": 11.244236946105957
+        },
+        "elevation_m": {
+          "count": 6400,
+          "min": 98.3463134765625,
+          "max": 356.8179016113281,
+          "mean": 278.7176818847656,
+          "std": 31.696260452270508,
+          "p05": 228.30250549316406,
+          "p50": 282.17279052734375,
+          "p95": 328.8550720214844
+        }
+      },
+      "landcover_status": "unverified",
+      "field_suitability": "not_assessed",
+      "terrain_preview": "../figures/Haughton_tile_terrain.png",
+      "core_dem": "../processed/common/Haughton_tile_core_dem_80m.tif",
+      "shadow_scenarios_csv": "../reports/Haughton_tile_shadow_scenarios.csv",
+      "scenarios": [
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 1819,
+          "cast_shadow_pixels": 4581,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.71578125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az000.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 737,
+          "cast_shadow_pixels": 4951,
+          "unresolved_pixels": 712,
+          "resolved_shadow_fraction": 0.8704289732770746,
+          "fraction_of_all_core_pixels_unresolved": 0.11125,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az045.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 1019,
+          "cast_shadow_pixels": 5381,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.84078125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az090.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 829,
+          "cast_shadow_pixels": 5067,
+          "unresolved_pixels": 504,
+          "resolved_shadow_fraction": 0.8593962008141113,
+          "fraction_of_all_core_pixels_unresolved": 0.07875,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az135.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 2274,
+          "cast_shadow_pixels": 4126,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.6446875,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az180.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 1545,
+          "cast_shadow_pixels": 4546,
+          "unresolved_pixels": 309,
+          "resolved_shadow_fraction": 0.7463470694467247,
+          "fraction_of_all_core_pixels_unresolved": 0.04828125,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az225.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 2151,
+          "cast_shadow_pixels": 4249,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.66390625,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az270.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 1420,
+          "cast_shadow_pixels": 4456,
+          "unresolved_pixels": 524,
+          "resolved_shadow_fraction": 0.7583390061266168,
+          "fraction_of_all_core_pixels_unresolved": 0.081875,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az315.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 2815,
+          "cast_shadow_pixels": 3585,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.56015625,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az000.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 1108,
+          "cast_shadow_pixels": 4362,
+          "unresolved_pixels": 930,
+          "resolved_shadow_fraction": 0.7974405850091407,
+          "fraction_of_all_core_pixels_unresolved": 0.1453125,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az045.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 2014,
+          "cast_shadow_pixels": 4386,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.6853125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az090.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 1397,
+          "cast_shadow_pixels": 4261,
+          "unresolved_pixels": 742,
+          "resolved_shadow_fraction": 0.7530929657122658,
+          "fraction_of_all_core_pixels_unresolved": 0.1159375,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az135.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 3092,
+          "cast_shadow_pixels": 3308,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.516875,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az180.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 2184,
+          "cast_shadow_pixels": 3688,
+          "unresolved_pixels": 528,
+          "resolved_shadow_fraction": 0.6280653950953679,
+          "fraction_of_all_core_pixels_unresolved": 0.0825,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az225.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 2953,
+          "cast_shadow_pixels": 3447,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.53859375,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az270.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 2061,
+          "cast_shadow_pixels": 3573,
+          "unresolved_pixels": 766,
+          "resolved_shadow_fraction": 0.634185303514377,
+          "fraction_of_all_core_pixels_unresolved": 0.1196875,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az315.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 3619,
+          "cast_shadow_pixels": 2781,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.43453125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az000.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 1732,
+          "cast_shadow_pixels": 3595,
+          "unresolved_pixels": 1073,
+          "resolved_shadow_fraction": 0.6748639008822978,
+          "fraction_of_all_core_pixels_unresolved": 0.16765625,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az045.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 2952,
+          "cast_shadow_pixels": 3448,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.53875,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az090.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 2159,
+          "cast_shadow_pixels": 3296,
+          "unresolved_pixels": 945,
+          "resolved_shadow_fraction": 0.6042163153070578,
+          "fraction_of_all_core_pixels_unresolved": 0.14765625,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az135.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 3642,
+          "cast_shadow_pixels": 2758,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.4309375,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az180.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 2708,
+          "cast_shadow_pixels": 3018,
+          "unresolved_pixels": 674,
+          "resolved_shadow_fraction": 0.5270695075096054,
+          "fraction_of_all_core_pixels_unresolved": 0.1053125,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az225.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 3563,
+          "cast_shadow_pixels": 2837,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.44328125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az270.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 2524,
+          "cast_shadow_pixels": 2899,
+          "unresolved_pixels": 977,
+          "resolved_shadow_fraction": 0.5345749585100498,
+          "fraction_of_all_core_pixels_unresolved": 0.15265625,
+          "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az315.tif"
+        }
+      ],
+      "warnings": [
+        "Hypothetical sun; not real-time solar position",
+        "Unresolved cast-shadow pixels must not be counted as sunlight",
+        "DSM includes surfaces; exposed rock not validated"
+      ]
+    },
+    {
+      "id": "Antarctic_tile",
+      "label": "East Antarctica tile; Dry Valleys location not established",
+      "center_lonlat": [
+        162.49958333333333,
+        -77.49986111111112
+      ],
+      "analysis_epsg": 32758,
+      "spatial_resolution_m": 80,
+      "core_size_m": 6400,
+      "terrain_stats": {
+        "slope_deg": {
+          "count": 6400,
+          "min": 0.419222891330719,
+          "max": 60.080963134765625,
+          "mean": 17.057788848876953,
+          "std": 10.190476417541504,
+          "p05": 2.947826623916626,
+          "p50": 16.254932403564453,
+          "p95": 33.75494384765625
+        },
+        "local_relief_m": {
+          "count": 6400,
+          "min": 9.042236328125,
+          "max": 437.2362060546875,
+          "mean": 130.38259887695312,
+          "std": 74.89115142822266,
+          "p05": 25.03138542175293,
+          "p50": 125.01768493652344,
+          "p95": 269.7893371582031
+        },
+        "detrended_roughness_m": {
+          "count": 6400,
+          "min": 0.0,
+          "max": 50.156375885009766,
+          "mean": 8.504915237426758,
+          "std": 7.606064796447754,
+          "p05": 1.5249302387237549,
+          "p50": 6.2171525955200195,
+          "p95": 25.761470794677734
+        },
+        "elevation_m": {
+          "count": 6400,
+          "min": 231.11871337890625,
+          "max": 1776.6539306640625,
+          "mean": 1005.1807861328125,
+          "std": 367.3888244628906,
+          "p05": 299.6017761230469,
+          "p50": 1034.985107421875,
+          "p95": 1534.6363525390625
+        }
+      },
+      "landcover_status": "unverified",
+      "field_suitability": "not_assessed",
+      "terrain_preview": "../figures/Antarctic_tile_terrain.png",
+      "core_dem": "../processed/common/Antarctic_tile_core_dem_80m.tif",
+      "shadow_scenarios_csv": "../reports/Antarctic_tile_shadow_scenarios.csv",
+      "scenarios": [
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 450,
+          "cast_shadow_pixels": 5950,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.9296875,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az000.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 179,
+          "cast_shadow_pixels": 5665,
+          "unresolved_pixels": 556,
+          "resolved_shadow_fraction": 0.9693702943189596,
+          "fraction_of_all_core_pixels_unresolved": 0.086875,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az045.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 88,
+          "cast_shadow_pixels": 6312,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.98625,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az090.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 84,
+          "cast_shadow_pixels": 6269,
+          "unresolved_pixels": 47,
+          "resolved_shadow_fraction": 0.9867779002046277,
+          "fraction_of_all_core_pixels_unresolved": 0.00734375,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az135.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 784,
+          "cast_shadow_pixels": 5616,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.8775,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az180.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 1681,
+          "cast_shadow_pixels": 4012,
+          "unresolved_pixels": 707,
+          "resolved_shadow_fraction": 0.7047251010012295,
+          "fraction_of_all_core_pixels_unresolved": 0.11046875,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az225.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 1770,
+          "cast_shadow_pixels": 4630,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.7234375,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az270.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 2350,
+          "cast_shadow_pixels": 3591,
+          "unresolved_pixels": 459,
+          "resolved_shadow_fraction": 0.6044436963474162,
+          "fraction_of_all_core_pixels_unresolved": 0.07171875,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt0p5_az315.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 579,
+          "cast_shadow_pixels": 5821,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.90953125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az000.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 181,
+          "cast_shadow_pixels": 5662,
+          "unresolved_pixels": 557,
+          "resolved_shadow_fraction": 0.9690227622796509,
+          "fraction_of_all_core_pixels_unresolved": 0.08703125,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az045.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 94,
+          "cast_shadow_pixels": 6306,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.9853125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az090.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 103,
+          "cast_shadow_pixels": 6217,
+          "unresolved_pixels": 80,
+          "resolved_shadow_fraction": 0.9837025316455696,
+          "fraction_of_all_core_pixels_unresolved": 0.0125,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az135.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 1052,
+          "cast_shadow_pixels": 5348,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.835625,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az180.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 1760,
+          "cast_shadow_pixels": 3908,
+          "unresolved_pixels": 732,
+          "resolved_shadow_fraction": 0.689484827099506,
+          "fraction_of_all_core_pixels_unresolved": 0.114375,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az225.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 1909,
+          "cast_shadow_pixels": 4491,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.70171875,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az270.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 2462,
+          "cast_shadow_pixels": 3429,
+          "unresolved_pixels": 509,
+          "resolved_shadow_fraction": 0.5820743507044644,
+          "fraction_of_all_core_pixels_unresolved": 0.07953125,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p0_az315.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 784,
+          "cast_shadow_pixels": 5616,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.8775,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az000.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 183,
+          "cast_shadow_pixels": 5657,
+          "unresolved_pixels": 560,
+          "resolved_shadow_fraction": 0.9686643835616439,
+          "fraction_of_all_core_pixels_unresolved": 0.0875,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az045.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 107,
+          "cast_shadow_pixels": 6293,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.98328125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az090.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 121,
+          "cast_shadow_pixels": 6154,
+          "unresolved_pixels": 125,
+          "resolved_shadow_fraction": 0.9807171314741036,
+          "fraction_of_all_core_pixels_unresolved": 0.01953125,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az135.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 1270,
+          "cast_shadow_pixels": 5130,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.8015625,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az180.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 1850,
+          "cast_shadow_pixels": 3792,
+          "unresolved_pixels": 758,
+          "resolved_shadow_fraction": 0.6721020914569301,
+          "fraction_of_all_core_pixels_unresolved": 0.1184375,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az225.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 2062,
+          "cast_shadow_pixels": 4338,
+          "unresolved_pixels": 0,
+          "resolved_shadow_fraction": 0.6778125,
+          "fraction_of_all_core_pixels_unresolved": 0.0,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az270.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 2561,
+          "cast_shadow_pixels": 3285,
+          "unresolved_pixels": 554,
+          "resolved_shadow_fraction": 0.5619226821758467,
+          "fraction_of_all_core_pixels_unresolved": 0.0865625,
+          "mask": "processed/illumination/Antarctic_tile_castshadow_alt1p5_az315.tif"
+        }
+      ],
+      "warnings": [
+        "Hypothetical sun; not real-time solar position",
+        "Unresolved cast-shadow pixels must not be counted as sunlight",
+        "DSM includes surfaces; exposed rock not validated"
+      ]
+    },
+    {
+      "id": "North_Greenland",
+      "label": "Northern Greenland candidate; Peary Land and bare ground unverified",
+      "center_lonlat": [
+        -31.50069444444444,
+        82.50013888888888
+      ],
+      "analysis_epsg": 32625,
+      "spatial_resolution_m": 80,
+      "core_size_m": 6400,
+      "terrain_stats": {
+        "slope_deg": {
+          "count": 6400,
+          "min": 0.2084827572107315,
+          "max": 49.252418518066406,
+          "mean": 11.112823486328125,
+          "std": 8.10382080078125,
+          "p05": 2.3842008113861084,
+          "p50": 8.449336051940918,
+          "p95": 28.112648010253906
+        },
+        "local_relief_m": {
+          "count": 6400,
+          "min": 5.84521484375,
+          "max": 245.47027587890625,
+          "mean": 78.19392395019531,
+          "std": 49.24350357055664,
+          "p05": 19.628259658813477,
+          "p50": 63.962066650390625,
+          "p95": 178.07994079589844
+        },
+        "detrended_roughness_m": {
+          "count": 6400,
+          "min": 0.07861176133155823,
+          "max": 54.714881896972656,
+          "mean": 6.965534687042236,
+          "std": 6.621333599090576,
+          "p05": 1.0722700357437134,
+          "p50": 4.459477424621582,
+          "p95": 21.31072998046875
+        },
+        "elevation_m": {
+          "count": 6400,
+          "min": 446.63909912109375,
+          "max": 1020.596435546875,
+          "mean": 794.7548217773438,
+          "std": 119.09192657470703,
+          "p05": 567.9235229492188,
+          "p50": 810.14697265625,
+          "p95": 973.5425415039062
+        }
+      },
+      "landcover_status": "unverified",
+      "field_suitability": "not_assessed",
+      "terrain_preview": "../figures/North_Greenland_terrain.png",
+      "core_dem": "../processed/common/North_Greenland_core_dem_80m.tif",
+      "shadow_scenarios_csv": "../reports/North_Greenland_shadow_scenarios.csv",
+      "scenarios": [
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 1619,
+          "cast_shadow_pixels": 4489,
+          "unresolved_pixels": 292,
+          "resolved_shadow_fraction": 0.7349377865094957,
+          "fraction_of_all_core_pixels_unresolved": 0.045625,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az000.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 1138,
+          "cast_shadow_pixels": 4185,
+          "unresolved_pixels": 1077,
+          "resolved_shadow_fraction": 0.7862107833928236,
+          "fraction_of_all_core_pixels_unresolved": 0.16828125,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az045.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 1449,
+          "cast_shadow_pixels": 4863,
+          "unresolved_pixels": 88,
+          "resolved_shadow_fraction": 0.7704372623574145,
+          "fraction_of_all_core_pixels_unresolved": 0.01375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az090.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 934,
+          "cast_shadow_pixels": 5404,
+          "unresolved_pixels": 62,
+          "resolved_shadow_fraction": 0.8526349005995583,
+          "fraction_of_all_core_pixels_unresolved": 0.0096875,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az135.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 788,
+          "cast_shadow_pixels": 5467,
+          "unresolved_pixels": 145,
+          "resolved_shadow_fraction": 0.8740207833733014,
+          "fraction_of_all_core_pixels_unresolved": 0.02265625,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az180.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 839,
+          "cast_shadow_pixels": 5328,
+          "unresolved_pixels": 233,
+          "resolved_shadow_fraction": 0.8639532998216313,
+          "fraction_of_all_core_pixels_unresolved": 0.03640625,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az225.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 577,
+          "cast_shadow_pixels": 5763,
+          "unresolved_pixels": 60,
+          "resolved_shadow_fraction": 0.9089905362776025,
+          "fraction_of_all_core_pixels_unresolved": 0.009375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az270.tif"
+        },
+        {
+          "altitude_deg": 0.5,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 371,
+          "cast_shadow_pixels": 5184,
+          "unresolved_pixels": 845,
+          "resolved_shadow_fraction": 0.9332133213321332,
+          "fraction_of_all_core_pixels_unresolved": 0.13203125,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt0p5_az315.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 1857,
+          "cast_shadow_pixels": 4232,
+          "unresolved_pixels": 311,
+          "resolved_shadow_fraction": 0.6950238134340614,
+          "fraction_of_all_core_pixels_unresolved": 0.04859375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az000.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 1428,
+          "cast_shadow_pixels": 3681,
+          "unresolved_pixels": 1291,
+          "resolved_shadow_fraction": 0.7204932472108044,
+          "fraction_of_all_core_pixels_unresolved": 0.20171875,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az045.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 1764,
+          "cast_shadow_pixels": 4518,
+          "unresolved_pixels": 118,
+          "resolved_shadow_fraction": 0.7191977077363897,
+          "fraction_of_all_core_pixels_unresolved": 0.0184375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az090.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 1224,
+          "cast_shadow_pixels": 4985,
+          "unresolved_pixels": 191,
+          "resolved_shadow_fraction": 0.8028668062489934,
+          "fraction_of_all_core_pixels_unresolved": 0.02984375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az135.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 1066,
+          "cast_shadow_pixels": 5136,
+          "unresolved_pixels": 198,
+          "resolved_shadow_fraction": 0.8281199613028055,
+          "fraction_of_all_core_pixels_unresolved": 0.0309375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az180.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 1137,
+          "cast_shadow_pixels": 4786,
+          "unresolved_pixels": 477,
+          "resolved_shadow_fraction": 0.808036468006078,
+          "fraction_of_all_core_pixels_unresolved": 0.07453125,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az225.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 942,
+          "cast_shadow_pixels": 5380,
+          "unresolved_pixels": 78,
+          "resolved_shadow_fraction": 0.8509965200885795,
+          "fraction_of_all_core_pixels_unresolved": 0.0121875,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az270.tif"
+        },
+        {
+          "altitude_deg": 1.0,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 555,
+          "cast_shadow_pixels": 4980,
+          "unresolved_pixels": 865,
+          "resolved_shadow_fraction": 0.8997289972899729,
+          "fraction_of_all_core_pixels_unresolved": 0.13515625,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p0_az315.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 0,
+          "azimuth_grid_north_deg": 45.0,
+          "clear_pixels": 2145,
+          "cast_shadow_pixels": 3930,
+          "unresolved_pixels": 325,
+          "resolved_shadow_fraction": 0.6469135802469136,
+          "fraction_of_all_core_pixels_unresolved": 0.05078125,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az000.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 45,
+          "azimuth_grid_north_deg": 90.0,
+          "clear_pixels": 1711,
+          "cast_shadow_pixels": 3233,
+          "unresolved_pixels": 1456,
+          "resolved_shadow_fraction": 0.6539239482200647,
+          "fraction_of_all_core_pixels_unresolved": 0.2275,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az045.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 90,
+          "azimuth_grid_north_deg": 135.0,
+          "clear_pixels": 2110,
+          "cast_shadow_pixels": 4144,
+          "unresolved_pixels": 146,
+          "resolved_shadow_fraction": 0.6626159258074832,
+          "fraction_of_all_core_pixels_unresolved": 0.0228125,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az090.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 135,
+          "azimuth_grid_north_deg": 180.0,
+          "clear_pixels": 1503,
+          "cast_shadow_pixels": 4562,
+          "unresolved_pixels": 335,
+          "resolved_shadow_fraction": 0.7521846661170651,
+          "fraction_of_all_core_pixels_unresolved": 0.05234375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az135.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 180,
+          "azimuth_grid_north_deg": 225.0,
+          "clear_pixels": 1468,
+          "cast_shadow_pixels": 4684,
+          "unresolved_pixels": 248,
+          "resolved_shadow_fraction": 0.7613784135240572,
+          "fraction_of_all_core_pixels_unresolved": 0.03875,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az180.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 225,
+          "azimuth_grid_north_deg": 270.0,
+          "clear_pixels": 1361,
+          "cast_shadow_pixels": 4361,
+          "unresolved_pixels": 678,
+          "resolved_shadow_fraction": 0.7621461027612723,
+          "fraction_of_all_core_pixels_unresolved": 0.1059375,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az225.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 270,
+          "azimuth_grid_north_deg": 315.0,
+          "clear_pixels": 1389,
+          "cast_shadow_pixels": 4915,
+          "unresolved_pixels": 96,
+          "resolved_shadow_fraction": 0.7796637055837563,
+          "fraction_of_all_core_pixels_unresolved": 0.015,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az270.tif"
+        },
+        {
+          "altitude_deg": 1.5,
+          "azimuth_true_north_deg": 315,
+          "azimuth_grid_north_deg": 0.0,
+          "clear_pixels": 774,
+          "cast_shadow_pixels": 4744,
+          "unresolved_pixels": 882,
+          "resolved_shadow_fraction": 0.8597317868793041,
+          "fraction_of_all_core_pixels_unresolved": 0.1378125,
+          "mask": "processed/illumination/North_Greenland_castshadow_alt1p5_az315.tif"
+        }
+      ],
+      "warnings": [
+        "Hypothetical sun; not real-time solar position",
+        "Unresolved cast-shadow pixels must not be counted as sunlight",
+        "DSM includes surfaces; exposed rock not validated"
+      ]
+    }
+  ],
+  "shadow_mask_codes": {
+    "0": "clear within tested 6400m ray",
+    "1": "cast shadow",
+    "2": "unresolved insufficient context"
+  },
+  "sun_scenarios": "hypothetical true-north azimuth, not ephemeris",
+  "sun_duration": "not_computed",
+  "computed_utc": "2026-11-14T21:28:45.372569+00:00"
+}

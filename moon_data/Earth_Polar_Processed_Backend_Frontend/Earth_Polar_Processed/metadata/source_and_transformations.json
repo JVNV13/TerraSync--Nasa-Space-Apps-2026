@@ -1,0 +1,45 @@
+{
+  "inputs": [
+    {
+      "site": "Haughton_tile",
+      "key": "6d7271cf086638105d0e21dc8e808e756d9483f91d6b221537812e44750d59ac",
+      "source_sha256": "6731d23cff09f4cb7d2c72ec1d41c7ae9b6389565434e820692e08c2a4bcefa7",
+      "reused": false
+    },
+    {
+      "site": "Antarctic_tile",
+      "key": "1b9c0bdd045f577233ba817fdc080b3a63291e76a3f64605a0dbd6a97621011d",
+      "source_sha256": "dae6c48d7642f87b5b9fc24df4dcd39847b8e991f3d5c99e83365549d87fa138",
+      "reused": false
+    },
+    {
+      "site": "North_Greenland",
+      "key": "05b527b06c31e0b86369e4124c00af9109ec4ea6bf1dc72ba09060e24bc19c4c",
+      "source_sha256": "b1da8227cd8fd09a3487ae347364fdb5aa7feb694042c8824c584bc0172640a8",
+      "reused": false
+    }
+  ],
+  "algorithm_version": "1.0.0",
+  "source_docs": [
+    "https://copernicus-dem-30m.s3.amazonaws.com/readme.html",
+    "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM"
+  ],
+  "decisions": [
+    "Copernicus DSM is a surface model, not bare-earth validation",
+    "80m bilinear reprojection, nearest would be used for class labels if supplied",
+    "80m is sample grid, not guarantee of intrinsic accuracy",
+    "5x5 local relief is max-min over 400m nominal neighborhood",
+    "roughness is local plane-detrended RMS residual with symmetric 5x5 regression; includes no broad regional trend",
+    "Cast shadow uses ray traversal and Earth curvature d^2/(2R), not hillshade",
+    "Unknown if search exits context before obstruction; 0 means clear only through 6.4km",
+    "No filling or smoothing: no automatically detected reason for mutation",
+    "UTM used as local metric grid, local scale accuracy not measured; verify distortion before quantitative interplanetary inference",
+    "site centers chosen from tile centers; site identity and bare-ground status unverified",
+    "no low-sun annual duration or final interplanetary similarity without independent information"
+  ],
+  "runtime": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "rasterio": "1.5.0",
+    "numpy": "2.3.5"
+  }
+}

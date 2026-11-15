@@ -2,3 +2,8 @@ __pycache__/
 *.nbc
 *.nbi
 .ipynb_checkpoints/
+
+# Moon page: large source rasters, streamed Earth tiles and build logs (regenerate with tools/lunar_light/build.py)
+moon_data/The moon/
+moon_data/lunar_light_cache/
+moon_data/*.log

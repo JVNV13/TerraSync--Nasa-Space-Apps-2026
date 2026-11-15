@@ -1,5 +1,5 @@
 // 00 · Start: choose a destination (Mars, Moon or Education). Full-screen, space themed.
-// Mars opens the analog explorer, Education opens the lesson page; Moon is not built yet.
+// Mars opens the analog explorer, Moon opens Lunar Light, Education opens the lesson page.
 import { html, render, raw } from '../util.js';
 import { globe } from './common.js';
 
@@ -25,7 +25,7 @@ const LEARN = raw(`<svg class="globe start-learn" viewBox="0 0 600 600" aria-hid
 
 const DESTINATIONS = [
   { key: 'mars', n: '01', title: 'Mars', text: 'Find the places on Earth that look and feel most like the Red Planet.', visual: globe('mars', 'start-globe'), href: '#mission' },
-  { key: 'moon', n: '02', title: 'Moon', text: 'Our nearest neighbour in space.', visual: globe('moon', 'start-globe'), soon: true },
+  { key: 'moon', n: '02', title: 'Moon', text: 'Find places on Earth with the light and shadow of the lunar south pole.', visual: globe('moon', 'start-globe'), href: '#moon' },
   { key: 'edu', n: '03', title: 'Education', text: 'Learn about planets, missions and exploring space.', visual: LEARN, href: '#edu' },
 ];
 

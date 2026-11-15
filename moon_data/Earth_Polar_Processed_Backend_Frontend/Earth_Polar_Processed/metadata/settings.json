@@ -1,0 +1,33 @@
+{
+  "pixel_m": 80.0,
+  "core_shape": [
+    80,
+    80
+  ],
+  "context_shape": [
+    200,
+    200
+  ],
+  "search_m": 6400.0,
+  "ray_step_m": 80.0,
+  "altitudes_deg": [
+    0.5,
+    1.0,
+    1.5
+  ],
+  "azimuths_true_north_deg": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315
+  ],
+  "curvature_radius_m": 6371008.8,
+  "roughness_window_cells": 5,
+  "relief_window_cells": 5,
+  "resampling": "bilinear",
+  "code_version": "1.0.0"
+}

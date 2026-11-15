@@ -1,0 +1,377 @@
+{
+  "site": "Haughton_tile",
+  "source_filename": "Copernicus_DSM_COG_10_N75_00_W090_00_DEM.tif",
+  "source_sha256": "6731d23cff09f4cb7d2c72ec1d41c7ae9b6389565434e820692e08c2a4bcefa7",
+  "processing_fingerprint": "6d7271cf086638105d0e21dc8e808e756d9483f91d6b221537812e44750d59ac",
+  "input": {
+    "crs": "EPSG:4326",
+    "bounds_lonlat": [
+      -90.00041666666667,
+      75.00013888888888,
+      -89.00041666666667,
+      76.00013888888888
+    ],
+    "shape": [
+      3600,
+      1200
+    ],
+    "pixel_size_degrees": [
+      0.0008333333333333333,
+      0.0002777777777777778
+    ],
+    "approx_pixel_spacing_m_at_center": {
+      "east_west": 23.299809297579607,
+      "north_south": 31.006453753512524
+    },
+    "nodata_tag": null,
+    "scale": 1.0,
+    "offset": 0.0,
+    "AREA_OR_POINT": "Point",
+    "elevation_units": "m (Copernicus product documentation; vertical reference not encoded in TIFF CRS)",
+    "vertical_datum": "EGM2008 per Copernicus DEM product documentation; not verified independently from GeoTIFF"
+  },
+  "streamed_quality": {
+    "finite_pixels": 4320000,
+    "nonfinite_or_masked_pixels": 0,
+    "exact_zero_pixels_not_interpreted_as_water": 973800,
+    "range_m": [
+      -0.19985279440879822,
+      413.162841796875
+    ],
+    "adjacent_row_differences_gt_100m_flag_count_blockwise": 0,
+    "automatic_outlier_correction": false
+  },
+  "analysis": {
+    "projection_epsg": 32616,
+    "center_lonlat": [
+      -89.50041666666667,
+      75.50013888888888
+    ],
+    "core_size_m": [
+      6400.0,
+      6400.0
+    ],
+    "context_size_m": [
+      16000.0,
+      16000.0
+    ],
+    "core_valid_pct": 100.0,
+    "context_valid_pct": 100.0,
+    "grid_north_offset_deg_as_true_north_seen_in_grid": 45.0,
+    "landcover_validation": "unverified",
+    "note": "Haughton-region tile; exact crater footprint unverified",
+    "site_geometry": "tile-center exploratory square only, not verified field-site polygon",
+    "local_utm_meridional_scale": 0.9996596640096634,
+    "local_utm_parallel_scale": 0.9996596640018744,
+    "approx_scale_distortion_percent_at_center": -0.03403359903365599,
+    "spatial_selection_validation": "exploratory tile-centered core; no external field observation validated"
+  },
+  "terrain_stats": {
+    "slope_deg": {
+      "count": 6400,
+      "min": 0.03148210421204567,
+      "max": 33.182682037353516,
+      "mean": 4.348193168640137,
+      "std": 4.1652092933654785,
+      "p05": 1.0116771459579468,
+      "p50": 3.2203588485717773,
+      "p95": 12.708786964416504
+    },
+    "local_relief_m": {
+      "count": 6400,
+      "min": 3.00506591796875,
+      "max": 166.51980590820312,
+      "mean": 29.224720001220703,
+      "std": 22.247695922851562,
+      "p05": 9.835539817810059,
+      "p50": 23.146560668945312,
+      "p95": 76.84642028808594
+    },
+    "detrended_roughness_m": {
+      "count": 6400,
+      "min": 0.20017386972904205,
+      "max": 35.714195251464844,
+      "mean": 3.4496893882751465,
+      "std": 3.8426289558410645,
+      "p05": 0.6978514194488525,
+      "p50": 2.2024576663970947,
+      "p95": 11.244236946105957
+    },
+    "elevation_m": {
+      "count": 6400,
+      "min": 98.3463134765625,
+      "max": 356.8179016113281,
+      "mean": 278.7176818847656,
+      "std": 31.696260452270508,
+      "p05": 228.30250549316406,
+      "p50": 282.17279052734375,
+      "p95": 328.8550720214844
+    }
+  },
+  "shadow_scenarios": [
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 0,
+      "azimuth_grid_north_deg": 45.0,
+      "clear_pixels": 1819,
+      "cast_shadow_pixels": 4581,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.71578125,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az000.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 45,
+      "azimuth_grid_north_deg": 90.0,
+      "clear_pixels": 737,
+      "cast_shadow_pixels": 4951,
+      "unresolved_pixels": 712,
+      "resolved_shadow_fraction": 0.8704289732770746,
+      "fraction_of_all_core_pixels_unresolved": 0.11125,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az045.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 90,
+      "azimuth_grid_north_deg": 135.0,
+      "clear_pixels": 1019,
+      "cast_shadow_pixels": 5381,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.84078125,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az090.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 135,
+      "azimuth_grid_north_deg": 180.0,
+      "clear_pixels": 829,
+      "cast_shadow_pixels": 5067,
+      "unresolved_pixels": 504,
+      "resolved_shadow_fraction": 0.8593962008141113,
+      "fraction_of_all_core_pixels_unresolved": 0.07875,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az135.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 180,
+      "azimuth_grid_north_deg": 225.0,
+      "clear_pixels": 2274,
+      "cast_shadow_pixels": 4126,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.6446875,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az180.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 225,
+      "azimuth_grid_north_deg": 270.0,
+      "clear_pixels": 1545,
+      "cast_shadow_pixels": 4546,
+      "unresolved_pixels": 309,
+      "resolved_shadow_fraction": 0.7463470694467247,
+      "fraction_of_all_core_pixels_unresolved": 0.04828125,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az225.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 270,
+      "azimuth_grid_north_deg": 315.0,
+      "clear_pixels": 2151,
+      "cast_shadow_pixels": 4249,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.66390625,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az270.tif"
+    },
+    {
+      "altitude_deg": 0.5,
+      "azimuth_true_north_deg": 315,
+      "azimuth_grid_north_deg": 0.0,
+      "clear_pixels": 1420,
+      "cast_shadow_pixels": 4456,
+      "unresolved_pixels": 524,
+      "resolved_shadow_fraction": 0.7583390061266168,
+      "fraction_of_all_core_pixels_unresolved": 0.081875,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt0p5_az315.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 0,
+      "azimuth_grid_north_deg": 45.0,
+      "clear_pixels": 2815,
+      "cast_shadow_pixels": 3585,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.56015625,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az000.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 45,
+      "azimuth_grid_north_deg": 90.0,
+      "clear_pixels": 1108,
+      "cast_shadow_pixels": 4362,
+      "unresolved_pixels": 930,
+      "resolved_shadow_fraction": 0.7974405850091407,
+      "fraction_of_all_core_pixels_unresolved": 0.1453125,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az045.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 90,
+      "azimuth_grid_north_deg": 135.0,
+      "clear_pixels": 2014,
+      "cast_shadow_pixels": 4386,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.6853125,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az090.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 135,
+      "azimuth_grid_north_deg": 180.0,
+      "clear_pixels": 1397,
+      "cast_shadow_pixels": 4261,
+      "unresolved_pixels": 742,
+      "resolved_shadow_fraction": 0.7530929657122658,
+      "fraction_of_all_core_pixels_unresolved": 0.1159375,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az135.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 180,
+      "azimuth_grid_north_deg": 225.0,
+      "clear_pixels": 3092,
+      "cast_shadow_pixels": 3308,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.516875,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az180.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 225,
+      "azimuth_grid_north_deg": 270.0,
+      "clear_pixels": 2184,
+      "cast_shadow_pixels": 3688,
+      "unresolved_pixels": 528,
+      "resolved_shadow_fraction": 0.6280653950953679,
+      "fraction_of_all_core_pixels_unresolved": 0.0825,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az225.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 270,
+      "azimuth_grid_north_deg": 315.0,
+      "clear_pixels": 2953,
+      "cast_shadow_pixels": 3447,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.53859375,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az270.tif"
+    },
+    {
+      "altitude_deg": 1.0,
+      "azimuth_true_north_deg": 315,
+      "azimuth_grid_north_deg": 0.0,
+      "clear_pixels": 2061,
+      "cast_shadow_pixels": 3573,
+      "unresolved_pixels": 766,
+      "resolved_shadow_fraction": 0.634185303514377,
+      "fraction_of_all_core_pixels_unresolved": 0.1196875,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p0_az315.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 0,
+      "azimuth_grid_north_deg": 45.0,
+      "clear_pixels": 3619,
+      "cast_shadow_pixels": 2781,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.43453125,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az000.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 45,
+      "azimuth_grid_north_deg": 90.0,
+      "clear_pixels": 1732,
+      "cast_shadow_pixels": 3595,
+      "unresolved_pixels": 1073,
+      "resolved_shadow_fraction": 0.6748639008822978,
+      "fraction_of_all_core_pixels_unresolved": 0.16765625,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az045.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 90,
+      "azimuth_grid_north_deg": 135.0,
+      "clear_pixels": 2952,
+      "cast_shadow_pixels": 3448,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.53875,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az090.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 135,
+      "azimuth_grid_north_deg": 180.0,
+      "clear_pixels": 2159,
+      "cast_shadow_pixels": 3296,
+      "unresolved_pixels": 945,
+      "resolved_shadow_fraction": 0.6042163153070578,
+      "fraction_of_all_core_pixels_unresolved": 0.14765625,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az135.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 180,
+      "azimuth_grid_north_deg": 225.0,
+      "clear_pixels": 3642,
+      "cast_shadow_pixels": 2758,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.4309375,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az180.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 225,
+      "azimuth_grid_north_deg": 270.0,
+      "clear_pixels": 2708,
+      "cast_shadow_pixels": 3018,
+      "unresolved_pixels": 674,
+      "resolved_shadow_fraction": 0.5270695075096054,
+      "fraction_of_all_core_pixels_unresolved": 0.1053125,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az225.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 270,
+      "azimuth_grid_north_deg": 315.0,
+      "clear_pixels": 3563,
+      "cast_shadow_pixels": 2837,
+      "unresolved_pixels": 0,
+      "resolved_shadow_fraction": 0.44328125,
+      "fraction_of_all_core_pixels_unresolved": 0.0,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az270.tif"
+    },
+    {
+      "altitude_deg": 1.5,
+      "azimuth_true_north_deg": 315,
+      "azimuth_grid_north_deg": 0.0,
+      "clear_pixels": 2524,
+      "cast_shadow_pixels": 2899,
+      "unresolved_pixels": 977,
+      "resolved_shadow_fraction": 0.5345749585100498,
+      "fraction_of_all_core_pixels_unresolved": 0.15265625,
+      "mask": "processed/illumination/Haughton_tile_castshadow_alt1p5_az315.tif"
+    }
+  ]
+}

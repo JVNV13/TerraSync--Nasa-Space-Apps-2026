@@ -1,0 +1,158 @@
+{
+  "moon": [
+    {
+      "id": "south_pole",
+      "name": "South Pole (Shackleton rim)",
+      "kind": "point",
+      "lat": -90.0,
+      "lon": 0.0,
+      "blurb": "The pole itself sits on the rim of Shackleton crater."
+    },
+    {
+      "id": "shackleton",
+      "name": "Shackleton Crater",
+      "kind": "centre",
+      "lat": -89.67,
+      "lon": 129.78,
+      "diam_km": 21,
+      "blurb": "A 21 km crater whose floor has not seen sunlight for billions of years."
+    },
+    {
+      "id": "de_gerlache_rim",
+      "name": "de Gerlache Rim",
+      "kind": "rim",
+      "lat": -88.5,
+      "lon": -87.1,
+      "diam_km": 32.4,
+      "blurb": "An Artemis III candidate region on the rim of de Gerlache crater."
+    },
+    {
+      "id": "shoemaker_rim",
+      "name": "Shoemaker Rim",
+      "kind": "rim",
+      "lat": -88.1,
+      "lon": 44.9,
+      "diam_km": 51,
+      "blurb": "Rim of a 51 km crater with a permanently shadowed floor."
+    },
+    {
+      "id": "faustini_rim",
+      "name": "Faustini Rim",
+      "kind": "rim",
+      "lat": -87.3,
+      "lon": 77.0,
+      "diam_km": 39,
+      "blurb": "An Artemis III candidate region on the rim of Faustini crater."
+    },
+    {
+      "id": "haworth_rim",
+      "name": "Haworth Rim",
+      "kind": "rim",
+      "lat": -87.45,
+      "lon": -5.0,
+      "diam_km": 35,
+      "blurb": "Rim of Haworth, a named Artemis III candidate region."
+    },
+    {
+      "id": "sverdrup_rim",
+      "name": "Sverdrup Rim",
+      "kind": "rim",
+      "lat": -88.3,
+      "lon": -152.0,
+      "diam_km": 33,
+      "blurb": "Rim of Sverdrup crater, between Shackleton and the far side."
+    },
+    {
+      "id": "malapert",
+      "name": "Malapert Massif",
+      "kind": "peak",
+      "lat": -86.0,
+      "lon": 0.0,
+      "search_km": 20,
+      "blurb": "A tall mountain massif and Artemis III candidate region."
+    },
+    {
+      "id": "nobile_rim",
+      "name": "Nobile Rim",
+      "kind": "rim",
+      "lat": -85.2,
+      "lon": 53.5,
+      "diam_km": 73,
+      "blurb": "Rim of a 73 km crater; Nobile Rim is an Artemis III candidate region."
+    }
+  ],
+  "earth": [
+    {
+      "id": "haughton",
+      "name": "Haughton Crater",
+      "place": "Devon Island, Canada",
+      "lat": 75.38,
+      "lon": -89.68,
+      "blurb": "A 23 km impact crater in the High Arctic, home of the NASA Haughton-Mars Project since 1997."
+    },
+    {
+      "id": "dry_valleys",
+      "name": "McMurdo Dry Valleys",
+      "place": "Wright Valley, Antarctica",
+      "lat": -77.53,
+      "lon": 161.58,
+      "blurb": "The largest ice-free region of Antarctica, a long-standing NASA analog for polar exploration."
+    },
+    {
+      "id": "peary_land",
+      "name": "Peary Land",
+      "place": "North Greenland",
+      "lat": 82.5,
+      "lon": -31.5,
+      "blurb": "One of the northernmost land areas on Earth, at 82.5° N."
+    },
+    {
+      "id": "svalbard",
+      "name": "Adventdalen",
+      "place": "Svalbard, Norway",
+      "lat": 78.2,
+      "lon": 15.83,
+      "blurb": "Arctic valley near Longyearbyen; Svalbard has hosted the NASA-supported AMASE analog expeditions."
+    },
+    {
+      "id": "askja",
+      "name": "Askja",
+      "place": "Iceland",
+      "lat": 65.04,
+      "lon": -16.75,
+      "blurb": "Volcanic caldera where Apollo astronauts trained in 1965 and 1967."
+    },
+    {
+      "id": "sudbury",
+      "name": "Sudbury Basin",
+      "place": "Ontario, Canada",
+      "lat": 46.6,
+      "lon": -81.18,
+      "blurb": "Ancient impact structure used for Apollo 16 and 17 geology training."
+    },
+    {
+      "id": "ries",
+      "name": "Nördlinger Ries",
+      "place": "Bavaria, Germany",
+      "lat": 48.88,
+      "lon": 10.57,
+      "blurb": "A 24 km impact crater where the Apollo 14 crew trained in 1970."
+    },
+    {
+      "id": "meteor_crater",
+      "name": "Meteor Crater",
+      "place": "Arizona, USA",
+      "lat": 35.027,
+      "lon": -111.022,
+      "blurb": "A 1.2 km impact crater used for Apollo astronaut geology training."
+    },
+    {
+      "id": "mauna_kea",
+      "name": "Mauna Kea",
+      "place": "Hawai'i, USA",
+      "lat": 19.82,
+      "lon": -155.47,
+      "blurb": "Volcano slopes used for NASA lunar resource-extraction field tests."
+    }
+  ]
+}

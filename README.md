@@ -14,7 +14,21 @@ python3 -m http.server 8000
 
 ## Pages
 The site opens on a **start page** (`#start`) where you choose a destination: Mars, Moon or Education.
-Moon and Education are shown as "coming soon". Every page has a home button that returns to the start page.
+Every page has a home button that returns to the start page.
+
+Moon section (`#moon`, "Lunar Light"): one scrolling page with its own sticky section bar
+(Problem, Idea, Science, Data, Method, Results, Limits). It ranks Earth places by how much their
+light and shadow behave like the lunar south pole: 60% shadow similarity + 40% low-Sun time.
+The page only reads `data/moon_light.json` and `images/moon/`. Rebuild them with
+
+```bash
+python tools/lunar_light/build.py      # needs numpy, scipy, rasterio; ~2–5 min
+```
+
+Inputs: the LOLA south-pole elevation mosaic in `moon_data/The moon/The moon/` (not in git, 181 MB)
+and Copernicus GLO-30 elevation streamed from its public AWS bucket on first run and cached in
+`moon_data/lunar_light_cache/`. Places are listed in `tools/lunar_light/sites.json`; Sun angles,
+directions, tile size, shadow reach and score weights in `tools/lunar_light/settings.json`.
 
 Mars section:
 

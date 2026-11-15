@@ -1,0 +1,3880 @@
+{
+ "generated": "2026-11-15T00:48:37+00:00",
+ "settings": {
+  "pixel_m": 80,
+  "core_px": 160,
+  "shadow_cap_m": 20000,
+  "sun_altitudes_deg": [
+   1,
+   3,
+   5,
+   7
+  ],
+  "sun_azimuths_deg": [
+   0,
+   30,
+   60,
+   90,
+   120,
+   150,
+   180,
+   210,
+   240,
+   270,
+   300,
+   330
+  ],
+  "display_azimuth_deg": 300,
+  "radius_m": {
+   "Moon": 1737400,
+   "Earth": 6371008.8
+  },
+  "moon_axis_tilt_deg": 1.54,
+  "low_sun_band_deg": [
+   0,
+   7
+  ],
+  "budget_year": 2027,
+  "weights": {
+   "shadow": 0.6,
+   "time": 0.4
+  },
+  "time_score_parts": {
+   "hours": 0.5,
+   "stretch": 0.5,
+   "hours_scale": "linear, divided by the best latitude on Earth",
+   "stretch_scale": "log(1 + hours), divided by the best latitude on Earth"
+  },
+  "metric_scales": {
+   "shadow_fraction": {
+    "kind": "linear",
+    "lo": 0,
+    "hi": 1
+   },
+   "shadow_run_km": {
+    "kind": "log",
+    "lo": 0.08,
+    "hi": 12.8
+   },
+   "patch_km2": {
+    "kind": "log",
+    "lo": 0.0064,
+    "hi": 163.84
+   },
+   "edge_km_per_km2": {
+    "kind": "log",
+    "lo": 0.1,
+    "hi": 25
+   },
+   "always_dark_fraction": {
+    "kind": "linear",
+    "lo": 0,
+    "hi": 1
+   }
+  }
+ },
+ "time_norm": {
+  "hours_max": 1308.7,
+  "longest_max_h": 467.3,
+  "curve_step_min": 10
+ },
+ "lat_curve": [
+  {
+   "lat": -90,
+   "hours": 919.2,
+   "longest_h": 463.0
+  },
+  {
+   "lat": -88,
+   "hours": 920.8,
+   "longest_h": 247.8
+  },
+  {
+   "lat": -86,
+   "hours": 926.7,
+   "longest_h": 19.8
+  },
+  {
+   "lat": -84,
+   "hours": 938.3,
+   "longest_h": 14.0
+  },
+  {
+   "lat": -82,
+   "hours": 951.3,
+   "longest_h": 11.3
+  },
+  {
+   "lat": -80,
+   "hours": 973.2,
+   "longest_h": 10.0
+  },
+  {
+   "lat": -78,
+   "hours": 1006.5,
+   "longest_h": 9.0
+  },
+  {
+   "lat": -76,
+   "hours": 1050.7,
+   "longest_h": 8.3
+  },
+  {
+   "lat": -74,
+   "hours": 1126.5,
+   "longest_h": 8.0
+  },
+  {
+   "lat": -72,
+   "hours": 1245.7,
+   "longest_h": 7.3
+  },
+  {
+   "lat": -70,
+   "hours": 1279.5,
+   "longest_h": 7.0
+  },
+  {
+   "lat": -68,
+   "hours": 1294.0,
+   "longest_h": 6.8
+  },
+  {
+   "lat": -66,
+   "hours": 1294.7,
+   "longest_h": 6.5
+  },
+  {
+   "lat": -64,
+   "hours": 1206.5,
+   "longest_h": 6.2
+  },
+  {
+   "lat": -62,
+   "hours": 1125.8,
+   "longest_h": 6.0
+  },
+  {
+   "lat": -60,
+   "hours": 1008.5,
+   "longest_h": 5.8
+  },
+  {
+   "lat": -58,
+   "hours": 868.3,
+   "longest_h": 2.0
+  },
+  {
+   "lat": -56,
+   "hours": 787.8,
+   "longest_h": 1.5
+  },
+  {
+   "lat": -54,
+   "hours": 728.3,
+   "longest_h": 1.3
+  },
+  {
+   "lat": -52,
+   "hours": 678.3,
+   "longest_h": 1.3
+  },
+  {
+   "lat": -50,
+   "hours": 639.5,
+   "longest_h": 1.2
+  },
+  {
+   "lat": -48,
+   "hours": 606.8,
+   "longest_h": 1.0
+  },
+  {
+   "lat": -46,
+   "hours": 577.7,
+   "longest_h": 1.0
+  },
+  {
+   "lat": -44,
+   "hours": 554.8,
+   "longest_h": 1.0
+  },
+  {
+   "lat": -42,
+   "hours": 531.2,
+   "longest_h": 0.8
+  },
+  {
+   "lat": -40,
+   "hours": 514.8,
+   "longest_h": 0.8
+  },
+  {
+   "lat": -38,
+   "hours": 495.5,
+   "longest_h": 0.8
+  },
+  {
+   "lat": -36,
+   "hours": 483.2,
+   "longest_h": 0.8
+  },
+  {
+   "lat": -34,
+   "hours": 465.8,
+   "longest_h": 0.8
+  },
+  {
+   "lat": -32,
+   "hours": 454.7,
+   "longest_h": 0.8
+  },
+  {
+   "lat": -30,
+   "hours": 447.5,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -28,
+   "hours": 433.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -26,
+   "hours": 428.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -24,
+   "hours": 419.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -22,
+   "hours": 412.0,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -20,
+   "hours": 403.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -18,
+   "hours": 403.5,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -16,
+   "hours": 397.2,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -14,
+   "hours": 386.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -12,
+   "hours": 391.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -10,
+   "hours": 386.0,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -8,
+   "hours": 376.0,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -6,
+   "hours": 386.2,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -4,
+   "hours": 389.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": -2,
+   "hours": 379.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 0,
+   "hours": 375.5,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 2,
+   "hours": 376.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 4,
+   "hours": 380.3,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 6,
+   "hours": 377.5,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 8,
+   "hours": 385.2,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 10,
+   "hours": 387.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 12,
+   "hours": 388.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 14,
+   "hours": 395.7,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 16,
+   "hours": 395.2,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 18,
+   "hours": 397.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 20,
+   "hours": 405.3,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 22,
+   "hours": 411.3,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 24,
+   "hours": 419.3,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 26,
+   "hours": 427.3,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 28,
+   "hours": 434.5,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 30,
+   "hours": 442.8,
+   "longest_h": 0.7
+  },
+  {
+   "lat": 32,
+   "hours": 455.5,
+   "longest_h": 0.8
+  },
+  {
+   "lat": 34,
+   "hours": 467.0,
+   "longest_h": 0.8
+  },
+  {
+   "lat": 36,
+   "hours": 477.7,
+   "longest_h": 0.8
+  },
+  {
+   "lat": 38,
+   "hours": 498.3,
+   "longest_h": 0.8
+  },
+  {
+   "lat": 40,
+   "hours": 510.7,
+   "longest_h": 0.8
+  },
+  {
+   "lat": 42,
+   "hours": 532.2,
+   "longest_h": 0.8
+  },
+  {
+   "lat": 44,
+   "hours": 555.8,
+   "longest_h": 1.0
+  },
+  {
+   "lat": 46,
+   "hours": 577.7,
+   "longest_h": 1.0
+  },
+  {
+   "lat": 48,
+   "hours": 606.0,
+   "longest_h": 1.0
+  },
+  {
+   "lat": 50,
+   "hours": 638.7,
+   "longest_h": 1.2
+  },
+  {
+   "lat": 52,
+   "hours": 677.7,
+   "longest_h": 1.2
+  },
+  {
+   "lat": 54,
+   "hours": 724.8,
+   "longest_h": 1.3
+  },
+  {
+   "lat": 56,
+   "hours": 784.7,
+   "longest_h": 1.5
+  },
+  {
+   "lat": 58,
+   "hours": 861.7,
+   "longest_h": 2.0
+  },
+  {
+   "lat": 60,
+   "hours": 999.8,
+   "longest_h": 6.0
+  },
+  {
+   "lat": 62,
+   "hours": 1112.3,
+   "longest_h": 6.0
+  },
+  {
+   "lat": 64,
+   "hours": 1198.7,
+   "longest_h": 6.2
+  },
+  {
+   "lat": 66,
+   "hours": 1295.7,
+   "longest_h": 6.5
+  },
+  {
+   "lat": 68,
+   "hours": 1308.7,
+   "longest_h": 6.8
+  },
+  {
+   "lat": 70,
+   "hours": 1304.2,
+   "longest_h": 7.0
+  },
+  {
+   "lat": 72,
+   "hours": 1267.7,
+   "longest_h": 7.3
+  },
+  {
+   "lat": 74,
+   "hours": 1143.3,
+   "longest_h": 7.8
+  },
+  {
+   "lat": 76,
+   "hours": 1062.0,
+   "longest_h": 8.3
+  },
+  {
+   "lat": 78,
+   "hours": 1016.5,
+   "longest_h": 9.0
+  },
+  {
+   "lat": 80,
+   "hours": 983.8,
+   "longest_h": 10.0
+  },
+  {
+   "lat": 82,
+   "hours": 962.7,
+   "longest_h": 11.3
+  },
+  {
+   "lat": 84,
+   "hours": 945.0,
+   "longest_h": 13.8
+  },
+  {
+   "lat": 86,
+   "hours": 935.3,
+   "longest_h": 19.5
+  },
+  {
+   "lat": 88,
+   "hours": 928.7,
+   "longest_h": 225.8
+  },
+  {
+   "lat": 90,
+   "hours": 927.3,
+   "longest_h": 467.3
+  }
+ ],
+ "moon": [
+  {
+   "id": "south_pole",
+   "name": "South Pole (Shackleton rim)",
+   "blurb": "The pole itself sits on the rim of Shackleton crater.",
+   "lat": -90.0,
+   "lon": 0.0,
+   "x": 0.0,
+   "y": 0.0,
+   "located_by": null,
+   "max_sun_deg": 1.54,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.7124386695671815,
+     "shadow_run_km": 3.787417765883946,
+     "patch_km2": 68.16640000000001,
+     "edge_km_per_km2": 0.3343924730362195,
+     "always_dark_fraction": 0.29539051494756613,
+     "unresolved_fraction": 0.00014322916666666594,
+     "runs_counted": 5090,
+     "runs_truncated_fraction": 0.7512770137524558
+    },
+    "3": {
+     "shadow_fraction": 0.6446809499248848,
+     "shadow_run_km": 3.602665679743264,
+     "patch_km2": 92.0,
+     "edge_km_per_km2": 0.34265087245213105,
+     "always_dark_fraction": 0.22557893499471024,
+     "unresolved_fraction": 0.00025716145833333076,
+     "runs_counted": 4939,
+     "runs_truncated_fraction": 0.7270702571370723
+    },
+    "5": {
+     "shadow_fraction": 0.5783589004544567,
+     "shadow_run_km": 3.140785464391565,
+     "patch_km2": 66.208,
+     "edge_km_per_km2": 0.3543965077459284,
+     "always_dark_fraction": 0.16968627450980392,
+     "unresolved_fraction": 0.0003255208333333333,
+     "runs_counted": 4804,
+     "runs_truncated_fraction": 0.6781848459616986
+    },
+    "7": {
+     "shadow_fraction": 0.5090386351610533,
+     "shadow_run_km": 2.32,
+     "patch_km2": 65.2928,
+     "edge_km_per_km2": 0.3941614332409961,
+     "always_dark_fraction": 0.12598610620511008,
+     "unresolved_fraction": 0.00039388020833332665,
+     "runs_counted": 4919,
+     "runs_truncated_fraction": 0.6106932303313681
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_south_pole_alt1.png",
+    "3": "images/moon/moon_south_pole_alt3.png",
+    "5": "images/moon/moon_south_pole_alt5.png",
+    "7": "images/moon/moon_south_pole_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 4508.77880859375,
+    "elev_min_m": -2772.021728515625,
+    "elev_max_m": 1736.757080078125,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "shackleton",
+   "name": "Shackleton Crater",
+   "blurb": "A 21 km crater whose floor has not seen sunlight for billions of years.",
+   "lat": -89.67031703745427,
+   "lon": 129.8055710922652,
+   "x": 7680.0,
+   "y": -6400.0,
+   "located_by": null,
+   "max_sun_deg": 1.869682962545732,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.99939453125,
+     "shadow_run_km": 11.731757469933198,
+     "patch_km2": 163.84,
+     "edge_km_per_km2": 0.0033365885416666665,
+     "always_dark_fraction": 0.996171875,
+     "unresolved_fraction": 0.0,
+     "runs_counted": 3192,
+     "runs_truncated_fraction": 1.0
+    },
+    "3": {
+     "shadow_fraction": 0.9932486979166667,
+     "shadow_run_km": 11.68,
+     "patch_km2": 163.4112,
+     "edge_km_per_km2": 0.016357421875,
+     "always_dark_fraction": 0.9671875,
+     "unresolved_fraction": 0.0,
+     "runs_counted": 3183,
+     "runs_truncated_fraction": 1.0
+    },
+    "5": {
+     "shadow_fraction": 0.9765527343750001,
+     "shadow_run_km": 11.36225329765184,
+     "patch_km2": 160.9728,
+     "edge_km_per_km2": 0.040079752604166664,
+     "always_dark_fraction": 0.901484375,
+     "unresolved_fraction": 0.0,
+     "runs_counted": 3163,
+     "runs_truncated_fraction": 1.0
+    },
+    "7": {
+     "shadow_fraction": 0.9430338541666666,
+     "shadow_run_km": 10.96,
+     "patch_km2": 155.5264,
+     "edge_km_per_km2": 0.07401529947916667,
+     "always_dark_fraction": 0.77671875,
+     "unresolved_fraction": 0.0,
+     "runs_counted": 3118,
+     "runs_truncated_fraction": 1.0
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_shackleton_alt1.png",
+    "3": "images/moon/moon_shackleton_alt3.png",
+    "5": "images/moon/moon_shackleton_alt5.png",
+    "7": "images/moon/moon_shackleton_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 3765.36572265625,
+    "elev_min_m": -2868.79736328125,
+    "elev_max_m": 896.568359375,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "de_gerlache_rim",
+   "name": "de Gerlache Rim",
+   "blurb": "An Artemis III candidate region on the rim of de Gerlache crater.",
+   "lat": -88.66652385459611,
+   "lon": -68.40908104175055,
+   "x": -37600.0,
+   "y": 14880.0,
+   "located_by": "highest rim point, 3,496 m above the lowest ground within 19 km",
+   "max_sun_deg": 2.8734761454038926,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.5974745282624017,
+     "shadow_run_km": 1.92,
+     "patch_km2": 84.81280000000001,
+     "edge_km_per_km2": 0.453895890132295,
+     "always_dark_fraction": 0.012556762092793682,
+     "unresolved_fraction": 0.0008951822916666666,
+     "runs_counted": 5816,
+     "runs_truncated_fraction": 0.6260316368638239
+    },
+    "3": {
+     "shadow_fraction": 0.5232682830326346,
+     "shadow_run_km": 1.6627687752661222,
+     "patch_km2": 78.2144,
+     "edge_km_per_km2": 0.4841238940850066,
+     "always_dark_fraction": 0.004703929164360819,
+     "unresolved_fraction": 0.00098307291666667,
+     "runs_counted": 5738,
+     "runs_truncated_fraction": 0.566747995817358
+    },
+    "5": {
+     "shadow_fraction": 0.4473973403555504,
+     "shadow_run_km": 1.2008885599144217,
+     "patch_km2": 74.25280000000001,
+     "edge_km_per_km2": 0.49348467731959184,
+     "always_dark_fraction": 0.001581402704198624,
+     "unresolved_fraction": 0.0009960937500000007,
+     "runs_counted": 5575,
+     "runs_truncated_fraction": 0.518744394618834
+    },
+    "7": {
+     "shadow_fraction": 0.387264491623909,
+     "shadow_run_km": 0.9237604307034016,
+     "patch_km2": 71.4752,
+     "edge_km_per_km2": 0.4799035934079519,
+     "always_dark_fraction": 0.0010280743376828785,
+     "unresolved_fraction": 0.0010091145833333315,
+     "runs_counted": 5239,
+     "runs_truncated_fraction": 0.47604504676464976
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_de_gerlache_rim_alt1.png",
+    "3": "images/moon/moon_de_gerlache_rim_alt3.png",
+    "5": "images/moon/moon_de_gerlache_rim_alt5.png",
+    "7": "images/moon/moon_de_gerlache_rim_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 2460.8642578125,
+    "elev_min_m": -647.0494384765625,
+    "elev_max_m": 1813.81494140625,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "shoemaker_rim",
+   "name": "Shoemaker Rim",
+   "blurb": "Rim of a 51 km crater with a permanently shadowed floor.",
+   "lat": -87.34661859355339,
+   "lon": 60.32576697738032,
+   "x": 69920.0,
+   "y": 39840.0,
+   "located_by": "highest rim point, 2,962 m above the lowest ground within 29 km",
+   "max_sun_deg": 4.193381406446613,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.5956289745919704,
+     "shadow_run_km": 0.9237604307034011,
+     "patch_km2": 129.0816,
+     "edge_km_per_km2": 0.6623898864817811,
+     "always_dark_fraction": 0.029837820815619587,
+     "unresolved_fraction": 0.0006380208333333359,
+     "runs_counted": 7347,
+     "runs_truncated_fraction": 0.43391860623383693
+    },
+    "3": {
+     "shadow_fraction": 0.4708169296801065,
+     "shadow_run_km": 0.72,
+     "patch_km2": 98.48320000000001,
+     "edge_km_per_km2": 0.7323976870181254,
+     "always_dark_fraction": 0.012229279261509329,
+     "unresolved_fraction": 0.0008170572916666637,
+     "runs_counted": 7524,
+     "runs_truncated_fraction": 0.36881977671451355
+    },
+    "5": {
+     "shadow_fraction": 0.3446432005304901,
+     "shadow_run_km": 0.64,
+     "patch_km2": 86.208,
+     "edge_km_per_km2": 0.7975051319455,
+     "always_dark_fraction": 0.006043131368986492,
+     "unresolved_fraction": 0.0009179687499999978,
+     "runs_counted": 7636,
+     "runs_truncated_fraction": 0.30474070193818753
+    },
+    "7": {
+     "shadow_fraction": 0.24172065857581101,
+     "shadow_run_km": 0.46188021535170065,
+     "patch_km2": 55.1424,
+     "edge_km_per_km2": 0.689554167032294,
+     "always_dark_fraction": 0.003321864989915767,
+     "unresolved_fraction": 0.0010221354166666623,
+     "runs_counted": 6453,
+     "runs_truncated_fraction": 0.2764605609793894
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_shoemaker_rim_alt1.png",
+    "3": "images/moon/moon_shoemaker_rim_alt3.png",
+    "5": "images/moon/moon_shoemaker_rim_alt5.png",
+    "7": "images/moon/moon_shoemaker_rim_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 2143.29052734375,
+    "elev_min_m": -1431.083740234375,
+    "elev_max_m": 712.2066650390625,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "faustini_rim",
+   "name": "Faustini Rim",
+   "blurb": "An Artemis III candidate region on the rim of Faustini crater.",
+   "lat": -86.57965070160643,
+   "lon": 77.07823643140823,
+   "x": 101120.0,
+   "y": 23200.0,
+   "located_by": "highest rim point, 3,457 m above the lowest ground within 22 km",
+   "max_sun_deg": 4.960349298393575,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.6744613534157521,
+     "shadow_run_km": 1.1085125168440817,
+     "patch_km2": 128.9728,
+     "edge_km_per_km2": 0.6385198089088582,
+     "always_dark_fraction": 0.112857086876445,
+     "unresolved_fraction": 0.0002669270833333311,
+     "runs_counted": 7421,
+     "runs_truncated_fraction": 0.4534429322193774
+    },
+    "3": {
+     "shadow_fraction": 0.4721159676845231,
+     "shadow_run_km": 0.56,
+     "patch_km2": 75.52000000000001,
+     "edge_km_per_km2": 0.8888254007583066,
+     "always_dark_fraction": 0.006612350926909907,
+     "unresolved_fraction": 0.000631510416666666,
+     "runs_counted": 8848,
+     "runs_truncated_fraction": 0.3123869801084991
+    },
+    "5": {
+     "shadow_fraction": 0.3036568358115049,
+     "shadow_run_km": 0.4,
+     "patch_km2": 59.2128,
+     "edge_km_per_km2": 0.7919148291008445,
+     "always_dark_fraction": 0.0010247113072951563,
+     "unresolved_fraction": 0.0007421875000000003,
+     "runs_counted": 7507,
+     "runs_truncated_fraction": 0.2654855468229652
+    },
+    "7": {
+     "shadow_fraction": 0.19884255623538297,
+     "shadow_run_km": 0.3695041722813604,
+     "patch_km2": 44.537600000000005,
+     "edge_km_per_km2": 0.5461593471359821,
+     "always_dark_fraction": 0.0002366023896841358,
+     "unresolved_fraction": 0.0007877604166666718,
+     "runs_counted": 5174,
+     "runs_truncated_fraction": 0.2696173173560108
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_faustini_rim_alt1.png",
+    "3": "images/moon/moon_faustini_rim_alt3.png",
+    "5": "images/moon/moon_faustini_rim_alt5.png",
+    "7": "images/moon/moon_faustini_rim_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 2493.17822265625,
+    "elev_min_m": -1317.63720703125,
+    "elev_max_m": 1175.541015625,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "haworth_rim",
+   "name": "Haworth Rim",
+   "blurb": "Rim of Haworth, a named Artemis III candidate region.",
+   "lat": -86.99540211237093,
+   "lon": -15.061016096478614,
+   "x": -23680.0,
+   "y": 88000.0,
+   "located_by": "highest rim point, 3,974 m above the lowest ground within 20 km",
+   "max_sun_deg": 4.544597887629075,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.593246690285551,
+     "shadow_run_km": 2.124648990617823,
+     "patch_km2": 153.7216,
+     "edge_km_per_km2": 0.25116848573776185,
+     "always_dark_fraction": 0.004706906099201012,
+     "unresolved_fraction": 0.0010384114583333326,
+     "runs_counted": 4118,
+     "runs_truncated_fraction": 0.6364740165128703
+    },
+    "3": {
+     "shadow_fraction": 0.5195001924462789,
+     "shadow_run_km": 1.3856406460551016,
+     "patch_km2": 152.576,
+     "edge_km_per_km2": 0.2687978044745807,
+     "always_dark_fraction": 0.0011471065226850204,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 4043,
+     "runs_truncated_fraction": 0.5844669799653722
+    },
+    "5": {
+     "shadow_fraction": 0.4543042657560273,
+     "shadow_run_km": 1.1085125168440813,
+     "patch_km2": 153.0368,
+     "edge_km_per_km2": 0.27003207096763626,
+     "always_dark_fraction": 0.0003164431786717298,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 3619,
+     "runs_truncated_fraction": 0.548494059132357
+    },
+    "7": {
+     "shadow_fraction": 0.39254616663390984,
+     "shadow_run_km": 0.6466323014923808,
+     "patch_km2": 148.87040000000002,
+     "edge_km_per_km2": 0.28039653146291926,
+     "always_dark_fraction": 7.911079466793244e-05,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 3421,
+     "runs_truncated_fraction": 0.47325343466822567
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_haworth_rim_alt1.png",
+    "3": "images/moon/moon_haworth_rim_alt3.png",
+    "5": "images/moon/moon_haworth_rim_alt5.png",
+    "7": "images/moon/moon_haworth_rim_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 4205.13671875,
+    "elev_min_m": -2555.056640625,
+    "elev_max_m": 1650.080322265625,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "sverdrup_rim",
+   "name": "Sverdrup Rim",
+   "blurb": "Rim of Sverdrup crater, between Shackleton and the far side.",
+   "lat": -87.98586329617399,
+   "lon": -166.36416524516773,
+   "x": -14400.0,
+   "y": -59360.0,
+   "located_by": "highest rim point, 4,014 m above the lowest ground within 19 km",
+   "max_sun_deg": 3.5541367038260114,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.558669466421679,
+     "shadow_run_km": 2.8,
+     "patch_km2": 83.4816,
+     "edge_km_per_km2": 0.3572322259413361,
+     "always_dark_fraction": 0.0029961365607506112,
+     "unresolved_fraction": 0.0007617187500000011,
+     "runs_counted": 4742,
+     "runs_truncated_fraction": 0.6566849430619992
+    },
+    "3": {
+     "shadow_fraction": 0.49171735783542975,
+     "shadow_run_km": 1.92,
+     "patch_km2": 80.384,
+     "edge_km_per_km2": 0.3979906765919812,
+     "always_dark_fraction": 0.001265772714686919,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 4865,
+     "runs_truncated_fraction": 0.5827338129496403
+    },
+    "5": {
+     "shadow_fraction": 0.43644862912735854,
+     "shadow_run_km": 1.8475208614068026,
+     "patch_km2": 74.944,
+     "edge_km_per_km2": 0.3749536798185273,
+     "always_dark_fraction": 0.0007911079466793244,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 4548,
+     "runs_truncated_fraction": 0.5839929639401935
+    },
+    "7": {
+     "shadow_fraction": 0.390181779841457,
+     "shadow_run_km": 1.7551448183364624,
+     "patch_km2": 75.2256,
+     "edge_km_per_km2": 0.3498253652384696,
+     "always_dark_fraction": 0.00047466476800759466,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 4172,
+     "runs_truncated_fraction": 0.5795781399808245
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_sverdrup_rim_alt1.png",
+    "3": "images/moon/moon_sverdrup_rim_alt3.png",
+    "5": "images/moon/moon_sverdrup_rim_alt5.png",
+    "7": "images/moon/moon_sverdrup_rim_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 3613.18798828125,
+    "elev_min_m": -2339.5224609375,
+    "elev_max_m": 1273.6654052734375,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "malapert",
+   "name": "Malapert Massif",
+   "blurb": "A tall mountain massif and Artemis III candidate region.",
+   "lat": -85.98899808698326,
+   "lon": 2.0346522531262123,
+   "x": 4320.0,
+   "y": 121600.0,
+   "located_by": "highest point, 5,725 m above the lowest ground within 20 km",
+   "max_sun_deg": 5.551001913016742,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.5319242752175641,
+     "shadow_run_km": 0.7390083445627208,
+     "patch_km2": 83.8464,
+     "edge_km_per_km2": 0.576230741958351,
+     "always_dark_fraction": 0.004310003954132068,
+     "unresolved_fraction": 0.0010123697916666619,
+     "runs_counted": 6495,
+     "runs_truncated_fraction": 0.4765204003079292
+    },
+    "3": {
+     "shadow_fraction": 0.47177063805134006,
+     "shadow_run_km": 0.6466323014923806,
+     "patch_km2": 74.0352,
+     "edge_km_per_km2": 0.5360906791163205,
+     "always_dark_fraction": 0.0016608011388350667,
+     "unresolved_fraction": 0.0010156250000000016,
+     "runs_counted": 6046,
+     "runs_truncated_fraction": 0.47204763479986767
+    },
+    "5": {
+     "shadow_fraction": 0.41947954929724823,
+     "shadow_run_km": 0.6466323014923806,
+     "patch_km2": 69.4464,
+     "edge_km_per_km2": 0.5183757416671554,
+     "always_dark_fraction": 0.0005932370970931383,
+     "unresolved_fraction": 0.0010286458333333322,
+     "runs_counted": 5672,
+     "runs_truncated_fraction": 0.46279971791255287
+    },
+    "7": {
+     "shadow_fraction": 0.36375678009998896,
+     "shadow_run_km": 0.7390083445627209,
+     "patch_km2": 56.224000000000004,
+     "edge_km_per_km2": 0.5090901658186988,
+     "always_dark_fraction": 0.000395522683225883,
+     "unresolved_fraction": 0.0010351562500000022,
+     "runs_counted": 5354,
+     "runs_truncated_fraction": 0.4525588345162495
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_malapert_alt1.png",
+    "3": "images/moon/moon_malapert_alt3.png",
+    "5": "images/moon/moon_malapert_alt5.png",
+    "7": "images/moon/moon_malapert_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 2452.75830078125,
+    "elev_min_m": 2719.72802734375,
+    "elev_max_m": 5172.486328125,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  },
+  {
+   "id": "nobile_rim",
+   "name": "Nobile Rim",
+   "blurb": "Rim of a 73 km crater; Nobile Rim is an Artemis III candidate region.",
+   "lat": -84.67267703618995,
+   "lon": 39.37718584321758,
+   "x": 102560.0,
+   "y": 124960.0,
+   "located_by": "highest rim point, 8,884 m above the lowest ground within 42 km",
+   "max_sun_deg": 6.8673229638100475,
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.6223320316830506,
+     "shadow_run_km": 2.0322729475474834,
+     "patch_km2": 96.8448,
+     "edge_km_per_km2": 0.48454733186038307,
+     "always_dark_fraction": 0.07667178336678868,
+     "unresolved_fraction": 0.0006282552083333356,
+     "runs_counted": 6051,
+     "runs_truncated_fraction": 0.5827136010576764
+    },
+    "3": {
+     "shadow_fraction": 0.5344651467206821,
+     "shadow_run_km": 1.385640646055102,
+     "patch_km2": 77.7664,
+     "edge_km_per_km2": 0.55552998294628,
+     "always_dark_fraction": 0.026457947241828005,
+     "unresolved_fraction": 0.0007779947916666622,
+     "runs_counted": 6237,
+     "runs_truncated_fraction": 0.48244348244348245
+    },
+    "5": {
+     "shadow_fraction": 0.444721632447685,
+     "shadow_run_km": 1.2008885599144214,
+     "patch_km2": 60.806400000000004,
+     "edge_km_per_km2": 0.5789679813085822,
+     "always_dark_fraction": 0.013259145258671718,
+     "unresolved_fraction": 0.0008430989583333345,
+     "runs_counted": 6071,
+     "runs_truncated_fraction": 0.40998188107395817
+    },
+    "7": {
+     "shadow_fraction": 0.3582296219707193,
+     "shadow_run_km": 1.2,
+     "patch_km2": 38.406400000000005,
+     "edge_km_per_km2": 0.5484387765073812,
+     "always_dark_fraction": 0.00703084883675001,
+     "unresolved_fraction": 0.0009212239583333282,
+     "runs_counted": 5493,
+     "runs_truncated_fraction": 0.3362461314400146
+    }
+   },
+   "images": {
+    "1": "images/moon/moon_nobile_rim_alt1.png",
+    "3": "images/moon/moon_nobile_rim_alt3.png",
+    "5": "images/moon/moon_nobile_rim_alt5.png",
+    "7": "images/moon/moon_nobile_rim_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 2899.708984375,
+    "elev_min_m": 4126.6220703125,
+    "elev_max_m": 7026.3310546875,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   }
+  }
+ ],
+ "earth": [
+  {
+   "id": "askja",
+   "name": "Askja",
+   "place": "Iceland",
+   "lat": 65.04,
+   "lon": -16.75,
+   "blurb": "Volcanic caldera where Apollo astronauts trained in 1965 and 1967.",
+   "epsg": 32628,
+   "sources": [
+    "Copernicus_DSM_COG_10_N64_00_W018_00_DEM",
+    "Copernicus_DSM_COG_10_N64_00_W017_00_DEM",
+    "Copernicus_DSM_COG_10_N65_00_W018_00_DEM",
+    "Copernicus_DSM_COG_10_N65_00_W017_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.7224347359871298,
+     "shadow_run_km": 0.4618802153517008,
+     "patch_km2": 107.02080000000001,
+     "edge_km_per_km2": 1.4201513489043736,
+     "always_dark_fraction": 0.12279940001578905,
+     "unresolved_fraction": 0.0008658854166666655,
+     "runs_counted": 12756,
+     "runs_truncated_fraction": 0.29037315772969585
+    },
+    "3": {
+     "shadow_fraction": 0.4969889273723573,
+     "shadow_run_km": 0.4,
+     "patch_km2": 50.656000000000006,
+     "edge_km_per_km2": 1.6675165454944294,
+     "always_dark_fraction": 0.006242345225396073,
+     "unresolved_fraction": 0.0009440104166666685,
+     "runs_counted": 13960,
+     "runs_truncated_fraction": 0.20573065902578797
+    },
+    "5": {
+     "shadow_fraction": 0.3397087158263836,
+     "shadow_run_km": 0.32,
+     "patch_km2": 20.2304,
+     "edge_km_per_km2": 1.6146661987595177,
+     "always_dark_fraction": 0.0012252480139124935,
+     "unresolved_fraction": 0.0009765625,
+     "runs_counted": 13507,
+     "runs_truncated_fraction": 0.15051454801214184
+    },
+    "7": {
+     "shadow_fraction": 0.243617358816976,
+     "shadow_run_km": 0.2771281292110204,
+     "patch_km2": 11.8016,
+     "edge_km_per_km2": 1.460883067977086,
+     "always_dark_fraction": 0.00011859582542694497,
+     "unresolved_fraction": 0.0009928385416666612,
+     "runs_counted": 12401,
+     "runs_truncated_fraction": 0.11757116361583743
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_askja_alt1.png",
+    "3": "images/moon/earth_askja_alt3.png",
+    "5": "images/moon/earth_askja_alt5.png",
+    "7": "images/moon/earth_askja_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 826.44091796875,
+    "elev_min_m": 668.338623046875,
+    "elev_max_m": 1494.779541015625,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 1239.6666666666667,
+    "longest_h": 6.166666666666667,
+    "longest_window": {
+     "start": "2027-01-26T10:20",
+     "end": "2027-01-26T16:20"
+    },
+    "hours_by_month": [
+     152.0,
+     91.5,
+     75.16666666666667,
+     75.16666666666667,
+     100.5,
+     131.66666666666666,
+     115.0,
+     82.5,
+     71.16666666666667,
+     86.16666666666667,
+     145.83333333333334,
+     113.0
+    ],
+    "max_elev": 48.411330820198586,
+    "score": 0.6337655495723363
+   },
+   "best_moon": "faustini_rim",
+   "shadow_mean": 0.8353417316791678,
+   "score": 0.7547112588364353
+  },
+  {
+   "id": "svalbard",
+   "name": "Adventdalen",
+   "place": "Svalbard, Norway",
+   "lat": 78.2,
+   "lon": 15.83,
+   "blurb": "Arctic valley near Longyearbyen; Svalbard has hosted the NASA-supported AMASE analog expeditions.",
+   "epsg": 32633,
+   "sources": [
+    "Copernicus_DSM_COG_10_N77_00_E014_00_DEM",
+    "Copernicus_DSM_COG_10_N77_00_E015_00_DEM",
+    "Copernicus_DSM_COG_10_N77_00_E016_00_DEM",
+    "Copernicus_DSM_COG_10_N77_00_E017_00_DEM",
+    "Copernicus_DSM_COG_10_N78_00_E014_00_DEM",
+    "Copernicus_DSM_COG_10_N78_00_E015_00_DEM",
+    "Copernicus_DSM_COG_10_N78_00_E016_00_DEM",
+    "Copernicus_DSM_COG_10_N78_00_E017_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.8906491829641964,
+     "shadow_run_km": 2.032272947547483,
+     "patch_km2": 143.8016,
+     "edge_km_per_km2": 0.48503140344753964,
+     "always_dark_fraction": 0.31402439024390244,
+     "unresolved_fraction": 0.00011980267794221382,
+     "runs_counted": 6434,
+     "runs_truncated_fraction": 0.6403481504507305
+    },
+    "3": {
+     "shadow_fraction": 0.7477972239527163,
+     "shadow_run_km": 1.2932646029847616,
+     "patch_km2": 114.48960000000001,
+     "edge_km_per_km2": 0.8729678404750209,
+     "always_dark_fraction": 0.08953132959755476,
+     "unresolved_fraction": 0.0003312191684284686,
+     "runs_counted": 8738,
+     "runs_truncated_fraction": 0.4115358205539025
+    },
+    "5": {
+     "shadow_fraction": 0.5890883622069055,
+     "shadow_run_km": 1.04,
+     "patch_km2": 69.3568,
+     "edge_km_per_km2": 1.0673920110892372,
+     "always_dark_fraction": 0.010714741273013308,
+     "unresolved_fraction": 0.0004651162790697642,
+     "runs_counted": 9668,
+     "runs_truncated_fraction": 0.3275755068266446
+    },
+    "7": {
+     "shadow_fraction": 0.4668944756838565,
+     "shadow_run_km": 0.8313843876330612,
+     "patch_km2": 31.5392,
+     "edge_km_per_km2": 1.1142195709117557,
+     "always_dark_fraction": 0.0012345153463028393,
+     "unresolved_fraction": 0.0005637773079633553,
+     "runs_counted": 9831,
+     "runs_truncated_fraction": 0.27708269758925846
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_svalbard_alt1.png",
+    "3": "images/moon/earth_svalbard_alt3.png",
+    "5": "images/moon/earth_svalbard_alt5.png",
+    "7": "images/moon/earth_svalbard_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 963.4075317382812,
+    "elev_min_m": -0.1619119942188263,
+    "elev_max_m": 963.24560546875,
+    "valid_fraction": 0.923828125,
+    "water_fraction": 0.076171875,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 1014.1666666666666,
+    "longest_h": 9.166666666666666,
+    "longest_window": {
+     "start": "2027-04-19T18:20",
+     "end": "2027-04-20T03:20"
+    },
+    "hours_by_month": [
+     0.0,
+     57.833333333333336,
+     191.66666666666666,
+     198.66666666666666,
+     55.5,
+     0.0,
+     4.333333333333333,
+     195.16666666666666,
+     156.33333333333334,
+     154.66666666666666,
+     0.0,
+     0.0
+    ],
+    "max_elev": 35.25992052388854,
+    "score": 0.5760442295509116
+   },
+   "best_moon": "nobile_rim",
+   "shadow_mean": 0.8610804907978011,
+   "score": 0.7470659862990453
+  },
+  {
+   "id": "peary_land",
+   "name": "Peary Land",
+   "place": "North Greenland",
+   "lat": 82.5,
+   "lon": -31.5,
+   "blurb": "One of the northernmost land areas on Earth, at 82.5\u00b0 N.",
+   "epsg": 32625,
+   "sources": [
+    "Copernicus_DSM_COG_10_N82_00_W034_00_DEM",
+    "Copernicus_DSM_COG_10_N82_00_W033_00_DEM",
+    "Copernicus_DSM_COG_10_N82_00_W032_00_DEM",
+    "Copernicus_DSM_COG_10_N82_00_W031_00_DEM",
+    "Copernicus_DSM_COG_10_N82_00_W030_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.801398597994389,
+     "shadow_run_km": 1.52,
+     "patch_km2": 135.3792,
+     "edge_km_per_km2": 1.0144601572182992,
+     "always_dark_fraction": 0.3186860569950218,
+     "unresolved_fraction": 0.00028971354166666224,
+     "runs_counted": 10676,
+     "runs_truncated_fraction": 0.44735856125889845
+    },
+    "3": {
+     "shadow_fraction": 0.5453840441714292,
+     "shadow_run_km": 0.64,
+     "patch_km2": 47.264,
+     "edge_km_per_km2": 1.6713447095954646,
+     "always_dark_fraction": 0.048642489489607484,
+     "unresolved_fraction": 0.00048502604166666036,
+     "runs_counted": 14951,
+     "runs_truncated_fraction": 0.22948297772724233
+    },
+    "5": {
+     "shadow_fraction": 0.37354657084238996,
+     "shadow_run_km": 0.4,
+     "patch_km2": 20.2624,
+     "edge_km_per_km2": 1.797546394761792,
+     "always_dark_fraction": 0.014325632649848478,
+     "unresolved_fraction": 0.0006250000000000052,
+     "runs_counted": 15499,
+     "runs_truncated_fraction": 0.15149364475127428
+    },
+    "7": {
+     "shadow_fraction": 0.25620606389509554,
+     "shadow_run_km": 0.2771281292110204,
+     "patch_km2": 6.1184,
+     "edge_km_per_km2": 1.6884022571206205,
+     "always_dark_fraction": 0.003427760923525472,
+     "unresolved_fraction": 0.0007161458333333296,
+     "runs_counted": 14528,
+     "runs_truncated_fraction": 0.11143997797356828
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_peary_land_alt1.png",
+    "3": "images/moon/earth_peary_land_alt3.png",
+    "5": "images/moon/earth_peary_land_alt5.png",
+    "7": "images/moon/earth_peary_land_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 675.9114990234375,
+    "elev_min_m": 344.7471008300781,
+    "elev_max_m": 1020.6585693359375,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 956.6666666666666,
+    "longest_h": 12.0,
+    "longest_window": {
+     "start": "2027-04-07T20:10",
+     "end": "2027-04-08T08:00"
+    },
+    "hours_by_month": [
+     0.0,
+     1.5,
+     252.16666666666666,
+     220.66666666666666,
+     0.0,
+     0.0,
+     0.0,
+     116.0,
+     285.6666666666667,
+     80.66666666666667,
+     0.0,
+     0.0
+    ],
+    "max_elev": 30.963955033567945,
+    "score": 0.5740653419746178
+   },
+   "best_moon": "faustini_rim",
+   "shadow_mean": 0.8530642786765891,
+   "score": 0.7414647039958006
+  },
+  {
+   "id": "dry_valleys",
+   "name": "McMurdo Dry Valleys",
+   "place": "Wright Valley, Antarctica",
+   "lat": -77.53,
+   "lon": 161.58,
+   "blurb": "The largest ice-free region of Antarctica, a long-standing NASA analog for polar exploration.",
+   "epsg": 32757,
+   "sources": [
+    "Copernicus_DSM_COG_10_S78_00_E160_00_DEM",
+    "Copernicus_DSM_COG_10_S78_00_E161_00_DEM",
+    "Copernicus_DSM_COG_10_S78_00_E162_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.9138698755620839,
+     "shadow_run_km": 2.6789052490398637,
+     "patch_km2": 151.872,
+     "edge_km_per_km2": 0.41016121364260566,
+     "always_dark_fraction": 0.5577697026530692,
+     "unresolved_fraction": 2.2786458333331112e-05,
+     "runs_counted": 5915,
+     "runs_truncated_fraction": 0.7362637362637363
+    },
+    "3": {
+     "shadow_fraction": 0.7984550522579054,
+     "shadow_run_km": 1.7551448183364622,
+     "patch_km2": 124.05760000000001,
+     "edge_km_per_km2": 0.621411224763702,
+     "always_dark_fraction": 0.2019546520719312,
+     "unresolved_fraction": 6.510416666666297e-05,
+     "runs_counted": 7196,
+     "runs_truncated_fraction": 0.6006114508060033
+    },
+    "5": {
+     "shadow_fraction": 0.6845214760317394,
+     "shadow_run_km": 1.385640646055102,
+     "patch_km2": 108.55040000000001,
+     "edge_km_per_km2": 0.7113358796794258,
+     "always_dark_fraction": 0.00862880451835582,
+     "unresolved_fraction": 0.0003385416666666641,
+     "runs_counted": 7456,
+     "runs_truncated_fraction": 0.5103272532188842
+    },
+    "7": {
+     "shadow_fraction": 0.5932110473521938,
+     "shadow_run_km": 1.2008885599144217,
+     "patch_km2": 94.9632,
+     "edge_km_per_km2": 0.7238002589098268,
+     "always_dark_fraction": 0.0006289802657441623,
+     "unresolved_fraction": 0.0005273437499999922,
+     "runs_counted": 7359,
+     "runs_truncated_fraction": 0.4427231960864248
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_dry_valleys_alt1.png",
+    "3": "images/moon/earth_dry_valleys_alt3.png",
+    "5": "images/moon/earth_dry_valleys_alt5.png",
+    "7": "images/moon/earth_dry_valleys_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 1962.474853515625,
+    "elev_min_m": 89.68853759765625,
+    "elev_max_m": 2052.163330078125,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 1015.1666666666666,
+    "longest_h": 8.833333333333334,
+    "longest_window": {
+     "start": "2027-02-16T09:10",
+     "end": "2027-02-16T17:50"
+    },
+    "hours_by_month": [
+     25.0,
+     184.0,
+     154.33333333333334,
+     140.5,
+     0.0,
+     0.0,
+     0.0,
+     59.333333333333336,
+     182.16666666666666,
+     186.66666666666666,
+     83.16666666666667,
+     0.0
+    ],
+    "max_elev": 35.928825752906356,
+    "score": 0.5737156173462671
+   },
+   "best_moon": "nobile_rim",
+   "shadow_mean": 0.8277008652506133,
+   "score": 0.7261067660888747
+  },
+  {
+   "id": "haughton",
+   "name": "Haughton Crater",
+   "place": "Devon Island, Canada",
+   "lat": 75.38,
+   "lon": -89.68,
+   "blurb": "A 23 km impact crater in the High Arctic, home of the NASA Haughton-Mars Project since 1997.",
+   "epsg": 32616,
+   "sources": [
+    "Copernicus_DSM_COG_10_N75_00_W091_00_DEM",
+    "Copernicus_DSM_COG_10_N75_00_W090_00_DEM",
+    "Copernicus_DSM_COG_10_N75_00_W089_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.7356034324708335,
+     "shadow_run_km": 0.48,
+     "patch_km2": 117.8176,
+     "edge_km_per_km2": 2.1944500251601826,
+     "always_dark_fraction": 0.24000469446835146,
+     "unresolved_fraction": 0.00012369791666666519,
+     "runs_counted": 19467,
+     "runs_truncated_fraction": 0.2039862331124467
+    },
+    "3": {
+     "shadow_fraction": 0.3669763143392481,
+     "shadow_run_km": 0.2771281292110204,
+     "patch_km2": 10.4832,
+     "edge_km_per_km2": 2.989995935337379,
+     "always_dark_fraction": 0.01638120678818353,
+     "unresolved_fraction": 0.00047200520833332965,
+     "runs_counted": 24686,
+     "runs_truncated_fraction": 0.08332658186826541
+    },
+    "5": {
+     "shadow_fraction": 0.20310083860899028,
+     "shadow_run_km": 0.1847520861406803,
+     "patch_km2": 1.1456,
+     "edge_km_per_km2": 2.3411863501349033,
+     "always_dark_fraction": 0.0023245734998621017,
+     "unresolved_fraction": 0.0007161458333333296,
+     "runs_counted": 19442,
+     "runs_truncated_fraction": 0.06424236189692419
+    },
+    "7": {
+     "shadow_fraction": 0.12333261453638183,
+     "shadow_run_km": 0.18475208614068023,
+     "patch_km2": 0.448,
+     "edge_km_per_km2": 1.7360571801344704,
+     "always_dark_fraction": 0.0003943839722353684,
+     "unresolved_fraction": 0.000797526041666663,
+     "runs_counted": 14553,
+     "runs_truncated_fraction": 0.059369202226345084
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_haughton_alt1.png",
+    "3": "images/moon/earth_haughton_alt3.png",
+    "5": "images/moon/earth_haughton_alt5.png",
+    "7": "images/moon/earth_haughton_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 238.7082977294922,
+    "elev_min_m": 64.54667663574219,
+    "elev_max_m": 303.2549743652344,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 1083.8333333333333,
+    "longest_h": 8.333333333333334,
+    "longest_window": {
+     "start": "2027-04-28T01:50",
+     "end": "2027-04-28T10:00"
+    },
+    "hours_by_month": [
+     0.0,
+     113.16666666666667,
+     140.33333333333334,
+     151.83333333333334,
+     133.33333333333334,
+     0.0,
+     55.833333333333336,
+     186.66666666666666,
+     125.0,
+     172.83333333333334,
+     4.833333333333333,
+     0.0
+    ],
+    "max_elev": 38.07792404048791,
+    "score": 0.5957069443172102
+   },
+   "best_moon": "faustini_rim",
+   "shadow_mean": 0.7858651118496887,
+   "score": 0.7098018448366973
+  },
+  {
+   "id": "mauna_kea",
+   "name": "Mauna Kea",
+   "place": "Hawai'i, USA",
+   "lat": 19.82,
+   "lon": -155.47,
+   "blurb": "Volcano slopes used for NASA lunar resource-extraction field tests.",
+   "epsg": 32605,
+   "sources": [
+    "Copernicus_DSM_COG_10_N19_00_W156_00_DEM",
+    "Copernicus_DSM_COG_10_N20_00_W156_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.55638713571396,
+     "shadow_run_km": 0.3695041722813605,
+     "patch_km2": 86.8416,
+     "edge_km_per_km2": 0.9822228268463208,
+     "always_dark_fraction": 0.0011050595942852632,
+     "unresolved_fraction": 0.0008561197916666652,
+     "runs_counted": 9814,
+     "runs_truncated_fraction": 0.3377827593234155
+    },
+    "3": {
+     "shadow_fraction": 0.4968242423471645,
+     "shadow_run_km": 0.3695041722813604,
+     "patch_km2": 75.79520000000001,
+     "edge_km_per_km2": 1.0202236129663331,
+     "always_dark_fraction": 0.0004346795226428515,
+     "unresolved_fraction": 0.0009602864583333296,
+     "runs_counted": 9918,
+     "runs_truncated_fraction": 0.31296632385561607
+    },
+    "5": {
+     "shadow_fraction": 0.4303526610429394,
+     "shadow_run_km": 0.2771281292110204,
+     "patch_km2": 60.729600000000005,
+     "edge_km_per_km2": 1.0989457777803409,
+     "always_dark_fraction": 0.00023713540431586437,
+     "unresolved_fraction": 0.0009733072916666696,
+     "runs_counted": 10328,
+     "runs_truncated_fraction": 0.27101084430673894
+    },
+    "7": {
+     "shadow_fraction": 0.35907921747647403,
+     "shadow_run_km": 0.2771281292110204,
+     "patch_km2": 55.264,
+     "edge_km_per_km2": 1.1634541315117428,
+     "always_dark_fraction": 0.00015815902890356254,
+     "unresolved_fraction": 0.0010091145833333315,
+     "runs_counted": 10529,
+     "runs_truncated_fraction": 0.24389780605945485
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_mauna_kea_alt1.png",
+    "3": "images/moon/earth_mauna_kea_alt3.png",
+    "5": "images/moon/earth_mauna_kea_alt5.png",
+    "7": "images/moon/earth_mauna_kea_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 2137.15966796875,
+    "elev_min_m": 2058.9970703125,
+    "elev_max_m": 4196.15673828125,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 409.8333333333333,
+    "longest_h": 0.6666666666666666,
+    "longest_window": {
+     "start": "2027-01-01T03:20",
+     "end": "2027-01-01T03:50"
+    },
+    "hours_by_month": [
+     36.166666666666664,
+     30.5,
+     33.0,
+     32.5,
+     34.166666666666664,
+     34.333333333333336,
+     37.5,
+     32.833333333333336,
+     32.5,
+     33.0,
+     36.0,
+     37.333333333333336
+    ],
+    "max_elev": 89.62610730932599,
+    "score": 0.19811687690651364
+   },
+   "best_moon": "malapert",
+   "shadow_mean": 0.8473744746338561,
+   "score": 0.5876714355429191
+  },
+  {
+   "id": "ries",
+   "name": "N\u00f6rdlinger Ries",
+   "place": "Bavaria, Germany",
+   "lat": 48.88,
+   "lon": 10.57,
+   "blurb": "A 24 km impact crater where the Apollo 14 crew trained in 1970.",
+   "epsg": 32632,
+   "sources": [
+    "Copernicus_DSM_COG_10_N48_00_E010_00_DEM",
+    "Copernicus_DSM_COG_10_N49_00_E010_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.261325837393708,
+     "shadow_run_km": 0.1847520861406803,
+     "patch_km2": 6.7712,
+     "edge_km_per_km2": 1.8027612643023563,
+     "always_dark_fraction": 0.0019561050037165996,
+     "unresolved_fraction": 0.0001269531250000048,
+     "runs_counted": 14180,
+     "runs_truncated_fraction": 0.2203808180535966
+    },
+    "3": {
+     "shadow_fraction": 0.0332039063705368,
+     "shadow_run_km": 0.18475208614068023,
+     "patch_km2": 0.33280000000000004,
+     "edge_km_per_km2": 0.47507814262027886,
+     "always_dark_fraction": 7.898894154818325e-05,
+     "unresolved_fraction": 0.000911458333333337,
+     "runs_counted": 3709,
+     "runs_truncated_fraction": 0.1369641412779725
+    },
+    "5": {
+     "shadow_fraction": 0.011869257962677002,
+     "shadow_run_km": 0.09237604307034016,
+     "patch_km2": 0.11520000000000001,
+     "edge_km_per_km2": 0.23444290387498654,
+     "always_dark_fraction": 0.0,
+     "unresolved_fraction": 0.0009505208333333385,
+     "runs_counted": 1873,
+     "runs_truncated_fraction": 0.0806193272824346
+    },
+    "7": {
+     "shadow_fraction": 0.005114040642215605,
+     "shadow_run_km": 0.09237604307034013,
+     "patch_km2": 0.057600000000000005,
+     "edge_km_per_km2": 0.13042251601304622,
+     "always_dark_fraction": 0.0,
+     "unresolved_fraction": 0.0010156250000000016,
+     "runs_counted": 1021,
+     "runs_truncated_fraction": 0.03525954946131244
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_ries_alt1.png",
+    "3": "images/moon/earth_ries_alt3.png",
+    "5": "images/moon/earth_ries_alt5.png",
+    "7": "images/moon/earth_ries_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 86.87277221679688,
+    "elev_min_m": 405.29437255859375,
+    "elev_max_m": 492.1671447753906,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 623.3333333333334,
+    "longest_h": 1.1666666666666667,
+    "longest_window": {
+     "start": "2027-01-02T14:30",
+     "end": "2027-01-02T15:30"
+    },
+    "hours_by_month": [
+     59.166666666666664,
+     46.333333333333336,
+     47.166666666666664,
+     46.166666666666664,
+     52.0,
+     56.5,
+     54.166666666666664,
+     49.5,
+     45.666666666666664,
+     49.5,
+     54.666666666666664,
+     62.5
+    ],
+    "max_elev": 64.56491846077273,
+    "score": 0.3010198917143245
+   },
+   "best_moon": "shoemaker_rim",
+   "shadow_mean": 0.6680527182637478,
+   "score": 0.5212395876439784
+  },
+  {
+   "id": "sudbury",
+   "name": "Sudbury Basin",
+   "place": "Ontario, Canada",
+   "lat": 46.6,
+   "lon": -81.18,
+   "blurb": "Ancient impact structure used for Apollo 16 and 17 geology training.",
+   "epsg": 32617,
+   "sources": [
+    "Copernicus_DSM_COG_10_N46_00_W082_00_DEM",
+    "Copernicus_DSM_COG_10_N46_00_W081_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.3912101076057916,
+     "shadow_run_km": 0.18475208614068023,
+     "patch_km2": 11.4048,
+     "edge_km_per_km2": 3.4170393638638443,
+     "always_dark_fraction": 0.014611154752553025,
+     "unresolved_fraction": 0.0004557291666666685,
+     "runs_counted": 25828,
+     "runs_truncated_fraction": 0.11630788291776367
+    },
+    "3": {
+     "shadow_fraction": 0.08521700783332996,
+     "shadow_run_km": 0.16,
+     "patch_km2": 0.39680000000000004,
+     "edge_km_per_km2": 1.4275715157365012,
+     "always_dark_fraction": 0.0,
+     "unresolved_fraction": 0.0008658854166666655,
+     "runs_counted": 11487,
+     "runs_truncated_fraction": 0.07190737355271176
+    },
+    "5": {
+     "shadow_fraction": 0.027958759725583208,
+     "shadow_run_km": 0.09237604307034013,
+     "patch_km2": 0.128,
+     "edge_km_per_km2": 0.6181297686292909,
+     "always_dark_fraction": 0.0,
+     "unresolved_fraction": 0.000999348958333331,
+     "runs_counted": 5232,
+     "runs_truncated_fraction": 0.052561162079510705
+    },
+    "7": {
+     "shadow_fraction": 0.00990805083324156,
+     "shadow_run_km": 0.09237604307034013,
+     "patch_km2": 0.0512,
+     "edge_km_per_km2": 0.2711930758438707,
+     "always_dark_fraction": 0.0,
+     "unresolved_fraction": 0.0010351562500000022,
+     "runs_counted": 2268,
+     "runs_truncated_fraction": 0.04805996472663139
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_sudbury_alt1.png",
+    "3": "images/moon/earth_sudbury_alt3.png",
+    "5": "images/moon/earth_sudbury_alt5.png",
+    "7": "images/moon/earth_sudbury_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 156.39434814453125,
+    "elev_min_m": 261.5,
+    "elev_max_m": 417.89434814453125,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 586.5,
+    "longest_h": 1.0,
+    "longest_window": {
+     "start": "2027-01-01T20:50",
+     "end": "2027-01-01T21:40"
+    },
+    "hours_by_month": [
+     54.666666666666664,
+     44.0,
+     45.5,
+     43.5,
+     49.166666666666664,
+     51.333333333333336,
+     51.0,
+     47.5,
+     43.833333333333336,
+     47.166666666666664,
+     51.166666666666664,
+     57.666666666666664
+    ],
+    "max_elev": 66.83388746653755,
+    "score": 0.2804389224534851
+   },
+   "best_moon": "shoemaker_rim",
+   "shadow_mean": 0.6751333354584532,
+   "score": 0.517255570256466
+  },
+  {
+   "id": "meteor_crater",
+   "name": "Meteor Crater",
+   "place": "Arizona, USA",
+   "lat": 35.027,
+   "lon": -111.022,
+   "blurb": "A 1.2 km impact crater used for Apollo astronaut geology training.",
+   "epsg": 32612,
+   "sources": [
+    "Copernicus_DSM_COG_10_N34_00_W112_00_DEM",
+    "Copernicus_DSM_COG_10_N34_00_W111_00_DEM",
+    "Copernicus_DSM_COG_10_N35_00_W112_00_DEM",
+    "Copernicus_DSM_COG_10_N35_00_W111_00_DEM"
+   ],
+   "ocean_tiles": [],
+   "fingerprint": {
+    "1": {
+     "shadow_fraction": 0.24338825671131517,
+     "shadow_run_km": 0.18475208614068026,
+     "patch_km2": 6.0864,
+     "edge_km_per_km2": 2.0890551362751593,
+     "always_dark_fraction": 0.01652077911836606,
+     "unresolved_fraction": 0.0007747395833333318,
+     "runs_counted": 16936,
+     "runs_truncated_fraction": 0.09453235710911667
+    },
+    "3": {
+     "shadow_fraction": 0.02512616911387178,
+     "shadow_run_km": 0.09237604307034013,
+     "patch_km2": 0.5376000000000001,
+     "edge_km_per_km2": 0.44203358863926373,
+     "always_dark_fraction": 0.006328362931614128,
+     "unresolved_fraction": 0.0010351562500000022,
+     "runs_counted": 3481,
+     "runs_truncated_fraction": 0.008618213157138753
+    },
+    "5": {
+     "shadow_fraction": 0.013185573839402961,
+     "shadow_run_km": 0.09237604307034013,
+     "patch_km2": 0.1728,
+     "edge_km_per_km2": 0.256226210464444,
+     "always_dark_fraction": 0.004074044774938692,
+     "unresolved_fraction": 0.0010384114583333326,
+     "runs_counted": 2050,
+     "runs_truncated_fraction": 0.007317073170731708
+    },
+    "7": {
+     "shadow_fraction": 0.008505572752882598,
+     "shadow_run_km": 0.09237604307034013,
+     "patch_km2": 0.7488,
+     "edge_km_per_km2": 0.1598110238960954,
+     "always_dark_fraction": 0.002689767018709703,
+     "unresolved_fraction": 0.001041666666666663,
+     "runs_counted": 1250,
+     "runs_truncated_fraction": 0.0064
+    }
+   },
+   "images": {
+    "1": "images/moon/earth_meteor_crater_alt1.png",
+    "3": "images/moon/earth_meteor_crater_alt3.png",
+    "5": "images/moon/earth_meteor_crater_alt5.png",
+    "7": "images/moon/earth_meteor_crater_alt7.png"
+   },
+   "terrain": {
+    "relief_m": 180.9429931640625,
+    "elev_min_m": 1558.8643798828125,
+    "elev_max_m": 1739.807373046875,
+    "valid_fraction": 1.0,
+    "water_fraction": 0.0,
+    "nodata_fraction": 0.0
+   },
+   "budget": {
+    "hours": 475.1666666666667,
+    "longest_h": 0.8333333333333334,
+    "longest_window": {
+     "start": "2027-01-01T23:40",
+     "end": "2027-01-02T00:20"
+    },
+    "hours_by_month": [
+     42.166666666666664,
+     36.0,
+     37.666666666666664,
+     37.166666666666664,
+     40.166666666666664,
+     40.833333333333336,
+     41.333333333333336,
+     39.166666666666664,
+     36.166666666666664,
+     38.333333333333336,
+     40.833333333333336,
+     45.333333333333336
+    ],
+    "max_elev": 78.37989458049708,
+    "score": 0.23082795204174675
+   },
+   "best_moon": "malapert",
+   "shadow_mean": 0.656989871958229,
+   "score": 0.4865251039916361
+  }
+ ],
+ "pairs": [
+  {
+   "earth": "askja",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8192912497276701,
+   "per_alt": {
+    "1": 0.8192912497276701
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9900039335800517,
+    "shadow_run_km": 0.5854064844135267,
+    "patch_km2": 0.9555609867081907,
+    "edge_km_per_km2": 0.738075958868359,
+    "always_dark_fraction": 0.8274088850682229
+   },
+   "time": 0.6337655495723363,
+   "total": 0.7450809696655366
+  },
+  {
+   "earth": "askja",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.5379585483592779,
+   "per_alt": {
+    "1": 0.5379585483592779
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7230402047371298,
+    "shadow_run_km": 0.3626328295762109,
+    "patch_km2": 0.9580440838814868,
+    "edge_km_per_km2": 0.5194480985857728,
+    "always_dark_fraction": 0.126627525015789
+   },
+   "time": 0.6337655495723363,
+   "total": 0.5762813488445013
+  },
+  {
+   "earth": "askja",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8509129589344164,
+   "per_alt": {
+    "1": 0.8509129589344164
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8750397922752718,
+    "shadow_run_km": 0.7192657959001724,
+    "patch_km2": 0.977086820889552,
+    "edge_km_per_km2": 0.7934150235300816,
+    "always_dark_fraction": 0.8897573620770046
+   },
+   "time": 0.6337655495723363,
+   "total": 0.7640539951895844
+  },
+  {
+   "earth": "askja",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.912457914154465,
+   "per_alt": {
+    "1": 0.8974129567249332,
+    "3": 0.9275028715839968
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9235111204562949,
+    "shadow_run_km": 0.8738039432642518,
+    "patch_km2": 0.9580186867971856,
+    "edge_km_per_km2": 0.856430076872734,
+    "always_dark_fraction": 0.9505257433818586
+   },
+   "time": 0.6337655495723363,
+   "total": 0.8009809683216136
+  },
+  {
+   "earth": "askja",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.9361591577907908,
+   "per_alt": {
+    "1": 0.9212856430851604,
+    "3": 0.9510326724964214
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9635768288703941,
+    "shadow_run_km": 0.88060103770857,
+    "patch_km2": 0.971138024982397,
+    "edge_km_per_km2": 0.8706360568130223,
+    "always_dark_fraction": 0.9948438405795711
+   },
+   "time": 0.6337655495723363,
+   "total": 0.815201714503409
+  },
+  {
+   "earth": "askja",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8391000721600035,
+   "per_alt": {
+    "1": 0.8205193591885541,
+    "3": 0.8576807851314527
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9241503446122498,
+    "shadow_run_km": 0.7272497722069154,
+    "patch_km2": 0.927848524588873,
+    "edge_km_per_km2": 0.6778455857016286,
+    "always_dark_fraction": 0.9384061336903504
+   },
+   "time": 0.6337655495723363,
+   "total": 0.7569662631249365
+  },
+  {
+   "earth": "askja",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8462638676362566,
+   "per_alt": {
+    "1": 0.8173852938827724,
+    "3": 0.8751424413897407
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9154815804488108,
+    "shadow_run_km": 0.6679241782197,
+    "patch_km2": 0.9650182213771554,
+    "edge_km_per_km2": 0.74528527611849,
+    "always_dark_fraction": 0.9376100820171263
+   },
+   "time": 0.6337655495723363,
+   "total": 0.7612645404106886
+  },
+  {
+   "earth": "askja",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.8998226763721799,
+   "per_alt": {
+    "1": 0.8821970184784534,
+    "3": 0.9265302328783458,
+    "5": 0.8907407777597405
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9015001388128508,
+    "shadow_run_km": 0.8913814720794965,
+    "patch_km2": 0.9390205307034462,
+    "edge_km_per_km2": 0.8084455572867849,
+    "always_dark_fraction": 0.958765682978321
+   },
+   "time": 0.6337655495723363,
+   "total": 0.7933998256522425
+  },
+  {
+   "earth": "askja",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.87610913997745,
+   "per_alt": {
+    "1": 0.871448940241712,
+    "3": 0.8912391890760814,
+    "5": 0.8656392906145565
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9191360532420981,
+    "shadow_run_km": 0.7342255953060848,
+    "patch_km2": 0.9465018680197111,
+    "edge_km_per_km2": 0.8068078886227533,
+    "always_dark_fraction": 0.9738742946966029
+   },
+   "time": 0.6337655495723363,
+   "total": 0.7791717038154045
+  },
+  {
+   "earth": "svalbard",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.9079192492358901,
+   "per_alt": {
+    "1": 0.9079192492358901
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8217894866029851,
+    "shadow_run_km": 0.877338267415121,
+    "patch_km2": 0.9264574156334907,
+    "edge_km_per_km2": 0.9326449518241898,
+    "always_dark_fraction": 0.9813661247036637
+   },
+   "time": 0.5760442295509116,
+   "total": 0.7751692413618987
+  },
+  {
+   "earth": "svalbard",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.7129673052067389,
+   "per_alt": {
+    "1": 0.7129673052067389
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8912546517141964,
+    "shadow_run_km": 0.6545646125778053,
+    "patch_km2": 0.9871476549561867,
+    "edge_km_per_km2": 0.7140170915416036,
+    "always_dark_fraction": 0.31785251524390246
+   },
+   "time": 0.5760442295509116,
+   "total": 0.658198074944408
+  },
+  {
+   "earth": "svalbard",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8660254809092189,
+   "per_alt": {
+    "1": 0.8660254809092189
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7068253452982053,
+    "shadow_run_km": 0.9888024210982334,
+    "patch_km2": 0.947983249814852,
+    "edge_km_per_km2": 0.9879840164859125,
+    "always_dark_fraction": 0.6985323718488912
+   },
+   "time": 0.5760442295509116,
+   "total": 0.7500329803658959
+  },
+  {
+   "earth": "svalbard",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8682039261190573,
+   "per_alt": {
+    "1": 0.8396713501894741,
+    "3": 0.8967365020486404
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7139997486775821,
+    "shadow_run_km": 0.8646222573949529,
+    "patch_km2": 0.9872621198503622,
+    "edge_km_per_km2": 0.9558798145545534,
+    "always_dark_fraction": 0.8192556901178358
+   },
+   "time": 0.5760442295509116,
+   "total": 0.751340047491799
+  },
+  {
+   "earth": "svalbard",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8834925512082157,
+   "per_alt": {
+    "1": 0.8805393217830899,
+    "3": 0.8864457806333416
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7540654570916813,
+    "shadow_run_km": 0.8578251629506346,
+    "patch_km2": 0.9741427816651507,
+    "edge_km_per_km2": 0.9734724953526633,
+    "always_dark_fraction": 0.8579568589809489
+   },
+   "time": 0.5760442295509116,
+   "total": 0.7605132225452941
+  },
+  {
+   "earth": "svalbard",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8686855414645303,
+   "per_alt": {
+    "1": 0.851752341153943,
+    "3": 0.8856187417751176
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7371502379074586,
+    "shadow_run_km": 0.9888235715477107,
+    "patch_km2": 0.9825677179413254,
+    "edge_km_per_km2": 0.833737033535943,
+    "always_dark_fraction": 0.8011491463902144
+   },
+   "time": 0.5760442295509116,
+   "total": 0.7516290166990828
+  },
+  {
+   "earth": "svalbard",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8585577642869958,
+   "per_alt": {
+    "1": 0.8369768474182813,
+    "3": 0.8801386811557104
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7059702086700981,
+    "shadow_run_km": 0.9294979775604953,
+    "patch_km2": 0.955790816534591,
+    "edge_km_per_km2": 0.9011767239528046,
+    "always_dark_fraction": 0.8003530947169901
+   },
+   "time": 0.5760442295509116,
+   "total": 0.7455523503925621
+  },
+  {
+   "earth": "svalbard",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.8674569818461224,
+   "per_alt": {
+    "1": 0.8095774032516954,
+    "3": 0.8736538199940582,
+    "5": 0.9191397222926134
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7318798978141116,
+    "shadow_run_km": 0.8568228830655776,
+    "patch_km2": 0.9679261432251905,
+    "edge_km_per_km2": 0.9165581247672026,
+    "always_dark_fraction": 0.86409786035853
+   },
+   "time": 0.5760442295509116,
+   "total": 0.750891880928038
+  },
+  {
+   "earth": "svalbard",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.9164156169034409,
+   "per_alt": {
+    "1": 0.8910404937772212,
+    "3": 0.9180075443315809,
+    "5": 0.9401988126015205
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7913280139091997,
+    "shadow_run_km": 0.9860212401610108,
+    "patch_km2": 0.9699954922887022,
+    "edge_km_per_km2": 0.9357234692311246,
+    "always_dark_fraction": 0.899009868927167
+   },
+   "time": 0.5760442295509116,
+   "total": 0.7802670619624291
+  },
+  {
+   "earth": "peary_land",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8878521832214086,
+   "per_alt": {
+    "1": 0.8878521832214086
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9110400715727925,
+    "shadow_run_km": 0.820109782048579,
+    "patch_km2": 0.9324035018382545,
+    "edge_km_per_km2": 0.7990031026948725,
+    "always_dark_fraction": 0.9767044579525443
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7623374467226922
+  },
+  {
+   "earth": "peary_land",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.6566862374228767,
+   "per_alt": {
+    "1": 0.6566862374228767
+   },
+   "per_metric": {
+    "shadow_fraction": 0.802004066744389,
+    "shadow_run_km": 0.5973361272112633,
+    "patch_km2": 0.981201568751423,
+    "edge_km_per_km2": 0.5803752424122863,
+    "always_dark_fraction": 0.3225141819950217
+   },
+   "time": 0.5740653419746178,
+   "total": 0.6236378792435731
+  },
+  {
+   "earth": "peary_land",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8504374464554442,
+   "per_alt": {
+    "1": 0.8504374464554442
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7960759302680127,
+    "shadow_run_km": 0.9539690935352247,
+    "patch_km2": 0.9539293360196158,
+    "edge_km_per_km2": 0.8543421673565952,
+    "always_dark_fraction": 0.6938707050977719
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7398886046631136
+  },
+  {
+   "earth": "peary_land",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8969419634375959,
+   "per_alt": {
+    "1": 0.8650723623826074,
+    "3": 0.9288115644925845
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8598316310531293,
+    "shadow_run_km": 0.9393325324391362,
+    "patch_km2": 0.9614903811860535,
+    "edge_km_per_km2": 0.8866859957134112,
+    "always_dark_fraction": 0.8373692767962497
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7677913148524046
+  },
+  {
+   "earth": "peary_land",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.9214259057847192,
+   "per_alt": {
+    "1": 0.9032814988321386,
+    "3": 0.9395703127372999
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8998973394672285,
+    "shadow_run_km": 0.9557431230799753,
+    "patch_km2": 0.97452664506333,
+    "edge_km_per_km2": 0.9008919756536995,
+    "always_dark_fraction": 0.8760704456593629
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7824816802606785
+  },
+  {
+   "earth": "peary_land",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8474530255563602,
+   "per_alt": {
+    "1": 0.8293068406575562,
+    "3": 0.865599210455164
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8829821202830059,
+    "shadow_run_km": 0.8909056114183702,
+    "patch_km2": 0.9360131584694902,
+    "edge_km_per_km2": 0.7081015045423058,
+    "always_dark_fraction": 0.8192627330686284
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7380979521236631
+  },
+  {
+   "earth": "peary_land",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8454830710438417,
+   "per_alt": {
+    "1": 0.8169097814037999,
+    "3": 0.8740563606838834
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8518020910456454,
+    "shadow_run_km": 0.8315800174311547,
+    "patch_km2": 0.9500253703878363,
+    "edge_km_per_km2": 0.7755411949591674,
+    "always_dark_fraction": 0.8184666813954041
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7369159794161521
+  },
+  {
+   "earth": "peary_land",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.8833847300837787,
+   "per_alt": {
+    "1": 0.8248835392606029,
+    "3": 0.9254441521724882,
+    "5": 0.8998264988182447
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8703264308827426,
+    "shadow_run_km": 0.9204113092592111,
+    "patch_km2": 0.9290772006217388,
+    "edge_km_per_km2": 0.8221387553033394,
+    "always_dark_fraction": 0.8749699543518608
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7596569748401143
+  },
+  {
+   "earth": "peary_land",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.887913945083277,
+   "per_alt": {
+    "1": 0.8709734277627398,
+    "3": 0.9132298369161267,
+    "5": 0.8795385705709645
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9129464915442066,
+    "shadow_run_km": 0.8579853770505962,
+    "patch_km2": 0.936558537938004,
+    "edge_km_per_km2": 0.8205010866393079,
+    "always_dark_fraction": 0.9115782322442701
+   },
+   "time": 0.5740653419746178,
+   "total": 0.7623745038398133
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8704097657962901,
+   "per_alt": {
+    "1": 0.8704097657962901
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7985687940050976,
+    "shadow_run_km": 0.9317705660290021,
+    "patch_km2": 0.921077945785613,
+    "edge_km_per_km2": 0.9630107108672413,
+    "always_dark_fraction": 0.7376208122944969
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7517321064162809
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.7843960117091118,
+   "per_alt": {
+    "1": 0.7843960117091118
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9144753443120839,
+    "shadow_run_km": 0.7089969111916864,
+    "patch_km2": 0.9925271248040645,
+    "edge_km_per_km2": 0.7443828505846553,
+    "always_dark_fraction": 0.5615978276530692
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7001238539639738
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.7994031678124809,
+   "per_alt": {
+    "1": 0.7994031678124809
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6836046527003178,
+    "shadow_run_km": 0.9343701224843521,
+    "patch_km2": 0.9426037799669743,
+    "edge_km_per_km2": 0.981650224471036,
+    "always_dark_fraction": 0.4547870594397244
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7091281476259954
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.809577210318051,
+   "per_alt": {
+    "1": 0.7682426436871012,
+    "3": 0.8509117769490008
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6770604882260438,
+    "shadow_run_km": 0.8073202764821531,
+    "patch_km2": 0.9806187279864271,
+    "edge_km_per_km2": 0.941715186219567,
+    "always_dark_fraction": 0.6411713726760642
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7152325731293374
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8185061032595299,
+   "per_alt": {
+    "1": 0.8091106152807169,
+    "3": 0.8279015912383428
+   },
+   "per_metric": {
+    "shadow_fraction": 0.717126196640143,
+    "shadow_run_km": 0.8005231820378349,
+    "patch_km2": 0.9674993898012156,
+    "edge_km_per_km2": 0.9275092062792787,
+    "always_dark_fraction": 0.6798725415391773
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7205899088942247
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8292123372716882,
+   "per_alt": {
+    "1": 0.7981251934143186,
+    "3": 0.8602994811290576
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7002109774559203,
+    "shadow_run_km": 0.9538744475394894,
+    "patch_km2": 0.9892111098052605,
+    "edge_km_per_km2": 0.8797003226093276,
+    "always_dark_fraction": 0.6230648289484428
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7270136493015198
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8348774243327837,
+   "per_alt": {
+    "1": 0.7994673639786816,
+    "3": 0.8702874846868859
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6690309482185598,
+    "shadow_run_km": 0.9867999584732952,
+    "patch_km2": 0.9491474246706559,
+    "edge_km_per_km2": 0.9471400130261892,
+    "always_dark_fraction": 0.6222687772752185
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7304127015381771
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.8243232995335886,
+   "per_alt": {
+    "1": 0.7381486967493224,
+    "3": 0.8397339582405465,
+    "5": 0.895087243610897
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6754426862381413,
+    "shadow_run_km": 0.7997754506250206,
+    "patch_km2": 0.9488714990754836,
+    "edge_km_per_km2": 0.9514565674137297,
+    "always_dark_fraction": 0.7460702943155679
+   },
+   "time": 0.5737156173462671,
+   "total": 0.72408022665866
+  },
+  {
+   "earth": "dry_valleys",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.8786024672219952,
+   "per_alt": {
+    "1": 0.8196841246141876,
+    "3": 0.8895253581335238,
+    "5": 0.926597918918274
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7348908023332297,
+    "shadow_run_km": 0.9569313273984325,
+    "patch_km2": 0.9508560538873293,
+    "edge_km_per_km2": 0.9707424741098838,
+    "always_dark_fraction": 0.7795916783811002
+   },
+   "time": 0.5737156173462671,
+   "total": 0.7566477272717039
+  },
+  {
+   "earth": "haughton",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8239583899950708,
+   "per_alt": {
+    "1": 0.8239583899950708
+   },
+   "per_metric": {
+    "shadow_fraction": 0.976835237096348,
+    "shadow_run_km": 0.5929885933163901,
+    "patch_km2": 0.9460919063145243,
+    "edge_km_per_km2": 0.6592620337273056,
+    "always_dark_fraction": 0.9446141795207853
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7326578117239265
+  },
+  {
+   "earth": "haughton",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.5516807993776265,
+   "per_alt": {
+    "1": 0.5516807993776265
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7362089012208335,
+    "shadow_run_km": 0.3702149384790744,
+    "patch_km2": 0.9675131642751531,
+    "edge_km_per_km2": 0.44063417344471956,
+    "always_dark_fraction": 0.24383281946835145
+   },
+   "time": 0.5957069443172102,
+   "total": 0.56929125735346
+  },
+  {
+   "earth": "haughton",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.808697981420792,
+   "per_alt": {
+    "1": 0.808697981420792
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8618710957915682,
+    "shadow_run_km": 0.7268479048030358,
+    "patch_km2": 0.9676177404958857,
+    "edge_km_per_km2": 0.7146010983890283,
+    "always_dark_fraction": 0.7725520676244422
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7235015665793593
+  },
+  {
+   "earth": "haughton",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8523346368719538,
+   "per_alt": {
+    "1": 0.8589856113687754,
+    "3": 0.8456836623751322
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8780924633901392,
+    "shadow_run_km": 0.8414401189962053,
+    "patch_km2": 0.8851557020002112,
+    "edge_km_per_km2": 0.764144300562916,
+    "always_dark_fraction": 0.892840599410297
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7496835598500563
+  },
+  {
+   "earth": "haughton",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8746526872404765,
+   "per_alt": {
+    "1": 0.8828582977290026,
+    "3": 0.8664470767519505
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9168591337998218,
+    "shadow_run_km": 0.8482372134405236,
+    "patch_km2": 0.8982750401854226,
+    "edge_km_per_km2": 0.7783502805032043,
+    "always_dark_fraction": 0.93154176827341
+   },
+   "time": 0.5957069443172102,
+   "total": 0.76307439007117
+  },
+  {
+   "earth": "haughton",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7725450085318194,
+   "per_alt": {
+    "1": 0.7820920138323961,
+    "3": 0.7629980032312427
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8525596898538433,
+    "shadow_run_km": 0.694885947938869,
+    "patch_km2": 0.8549855397918987,
+    "edge_km_per_km2": 0.5855598093918105,
+    "always_dark_fraction": 0.8747340556826755
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7018097828459757
+  },
+  {
+   "earth": "haughton",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7788693018367248,
+   "per_alt": {
+    "1": 0.7751703163691479,
+    "3": 0.7825682873043016
+   },
+   "per_metric": {
+    "shadow_fraction": 0.849162495227332,
+    "shadow_run_km": 0.6355603539516537,
+    "patch_km2": 0.8826861561865147,
+    "edge_km_per_km2": 0.6529994998086721,
+    "always_dark_fraction": 0.8739380040094513
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7056043588289189
+  },
+  {
+   "earth": "haughton",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.8178123757018839,
+   "per_alt": {
+    "1": 0.8399820409648289,
+    "3": 0.8419347667065425,
+    "5": 0.7715203194342806
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8250492694487935,
+    "shadow_run_km": 0.8337276035774154,
+    "patch_km2": 0.7898415325254882,
+    "edge_km_per_km2": 0.7244922838131683,
+    "always_dark_fraction": 0.9159511891445543
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7289702031480144
+  },
+  {
+   "earth": "haughton",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.7922348256708501,
+   "per_alt": {
+    "1": 0.8292339627280876,
+    "3": 0.8006119518009862,
+    "5": 0.7468585624834765
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8258729909973628,
+    "shadow_run_km": 0.6765717268040036,
+    "patch_km2": 0.7973228698417533,
+    "edge_km_per_km2": 0.7228546151491368,
+    "always_dark_fraction": 0.9385519255619944
+   },
+   "time": 0.5957069443172102,
+   "total": 0.7136236731293941
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.7744197881179793,
+   "per_alt": {
+    "1": 0.7744197881179793
+   },
+   "per_metric": {
+    "shadow_fraction": 0.8439484661467785,
+    "shadow_run_km": 0.5414388176029015,
+    "patch_km2": 0.9761452510280545,
+    "edge_km_per_km2": 0.8048518611654428,
+    "always_dark_fraction": 0.7057145446467191
+   },
+   "time": 0.19811687690651364,
+   "total": 0.543898623633393
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.4808549544536621,
+   "per_alt": {
+    "1": 0.4808549544536621
+   },
+   "per_metric": {
+    "shadow_fraction": 0.55699260446396,
+    "shadow_run_km": 0.31866516276558576,
+    "patch_km2": 0.9374598195616229,
+    "edge_km_per_km2": 0.5862240008828568,
+    "always_dark_fraction": 0.004933184594285267
+   },
+   "time": 0.19811687690651364,
+   "total": 0.36775972343480273
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.8961242090158358,
+   "per_alt": {
+    "1": 0.8961242090158358
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9589126074515584,
+    "shadow_run_km": 0.6752981290895472,
+    "patch_km2": 0.9976710852094159,
+    "edge_km_per_km2": 0.8601909258271655,
+    "always_dark_fraction": 0.9885482975014915
+   },
+   "time": 0.19811687690651364,
+   "total": 0.6169212761721069
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.9386010666941578,
+   "per_alt": {
+    "1": 0.928216299057449,
+    "3": 0.9489858343308667
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9673754242274659,
+    "shadow_run_km": 0.8440073217677923,
+    "patch_km2": 0.9675769724296843,
+    "edge_km_per_km2": 0.9343092955259471,
+    "always_dark_fraction": 0.9797363195198996
+   },
+   "time": 0.19811687690651364,
+   "total": 0.6424073907791001
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.9298603100295808,
+   "per_alt": {
+    "1": 0.8873483274638334,
+    "3": 0.9723722925953282
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9286087538177832,
+    "shadow_run_km": 0.8508044162121106,
+    "patch_km2": 0.9803379539949884,
+    "edge_km_per_km2": 0.9485152754662354,
+    "always_dark_fraction": 0.9410351506567867
+   },
+   "time": 0.19811687690651364,
+   "total": 0.637162936780354
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8717319752397675,
+   "per_alt": {
+    "1": 0.8623279811302051,
+    "3": 0.8811359693493299
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9702322476646473,
+    "shadow_run_km": 0.697453150710456,
+    "patch_km2": 0.9374068102213717,
+    "edge_km_per_km2": 0.7557248043548417,
+    "always_dark_fraction": 0.997842863247521
+   },
+   "time": 0.19811687690651364,
+   "total": 0.602285935906466
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.8902794260270961,
+   "per_alt": {
+    "1": 0.8819428189132978,
+    "3": 0.8986160331408943
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9963053923902732,
+    "shadow_run_km": 0.6381275567232405,
+    "patch_km2": 0.995160771329518,
+    "edge_km_per_km2": 0.8231644947717034,
+    "always_dark_fraction": 0.9986389149207453
+   },
+   "time": 0.19811687690651364,
+   "total": 0.6134144063788631
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.9435219111506622,
+   "per_alt": {
+    "1": 0.9471419288347139,
+    "3": 0.9489199608189864,
+    "5": 0.9345038437982861
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9798701411540295,
+    "shadow_run_km": 0.8620696942057465,
+    "patch_km2": 0.9936712336700925,
+    "edge_km_per_km2": 0.8835942092797145,
+    "always_dark_fraction": 0.998404277443728
+   },
+   "time": 0.19811687690651364,
+   "total": 0.6453598974530027
+  },
+  {
+   "earth": "mauna_kea",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.9009766309759627,
+   "per_alt": {
+    "1": 0.876774818130363,
+    "3": 0.9126562778128742,
+    "5": 0.913498796984651
+   },
+   "per_metric": {
+    "shadow_fraction": 0.9606817427508821,
+    "shadow_run_km": 0.7049138174323346,
+    "patch_km2": 0.995535054529595,
+    "edge_km_per_km2": 0.8819565406156831,
+    "always_dark_fraction": 0.9617959995513186
+   },
+   "time": 0.19811687690651364,
+   "total": 0.619832729348183
+  },
+  {
+   "earth": "ries",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.6255358814599629,
+   "per_alt": {
+    "1": 0.6255358814599629
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5488871678265266,
+    "shadow_run_km": 0.4048627700044195,
+    "patch_km2": 0.7724931662346892,
+    "edge_km_per_km2": 0.6948707131780283,
+    "always_dark_fraction": 0.7065655900561505
+   },
+   "time": 0.3010198917143245,
+   "total": 0.4957294855617075
+  },
+  {
+   "earth": "ries",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.3224291482068674,
+   "per_alt": {
+    "1": 0.3224291482068674
+   },
+   "per_metric": {
+    "shadow_fraction": 0.2619313061437081,
+    "shadow_run_km": 0.1820891151671038,
+    "patch_km2": 0.6860982368243667,
+    "edge_km_per_km2": 0.4762428528954421,
+    "always_dark_fraction": 0.005784230003716528
+   },
+   "time": 0.3010198917143245,
+   "total": 0.3138654456098502
+  },
+  {
+   "earth": "ries",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.7386299686852745,
+   "per_alt": {
+    "1": 0.7386299686852745
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6638513091313063,
+    "shadow_run_km": 0.5387220814910652,
+    "patch_km2": 0.7509673320533278,
+    "edge_km_per_km2": 0.750209777839751,
+    "always_dark_fraction": 0.9893993429109229
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5635859378968945
+  },
+  {
+   "earth": "ries",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7492196635179043,
+   "per_alt": {
+    "1": 0.7697904928106544,
+    "3": 0.7286488342251541
+   },
+   "per_metric": {
+    "shadow_fraction": 0.614041919746084,
+    "shadow_run_km": 0.7074312741693102,
+    "patch_km2": 0.5745039333390944,
+    "edge_km_per_km2": 0.8701371934009645,
+    "always_dark_fraction": 0.9799839969340679
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5699397547964724
+  },
+  {
+   "earth": "ries",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7332789610282677,
+   "per_alt": {
+    "1": 0.7289225212170386,
+    "3": 0.737635400839497
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5739762113319848,
+    "shadow_run_km": 0.7142283686136285,
+    "patch_km2": 0.5876232715243059,
+    "edge_km_per_km2": 0.8492841256004646,
+    "always_dark_fraction": 0.9412828280709549
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5603753333026904
+  },
+  {
+   "earth": "ries",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.6928277264709832,
+   "per_alt": {
+    "1": 0.7039021748834104,
+    "3": 0.681753278058556
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5908914305162075,
+    "shadow_run_km": 0.5608771031119739,
+    "patch_km2": 0.5443337711307821,
+    "edge_km_per_km2": 0.7699457869342634,
+    "always_dark_fraction": 0.9980905406616893
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5361045925683197
+  },
+  {
+   "earth": "ries",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7131740550438461,
+   "per_alt": {
+    "1": 0.7250720144328782,
+    "3": 0.7012760956548142
+   },
+   "per_metric": {
+    "shadow_fraction": 0.622071459753568,
+    "shadow_run_km": 0.5015515091247584,
+    "patch_km2": 0.6059752366548656,
+    "edge_km_per_km2": 0.837385477351125,
+    "always_dark_fraction": 0.9988865923349136
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5483123897120374
+  },
+  {
+   "earth": "ries",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.7461378032072027,
+   "per_alt": {
+    "1": 0.7998844397484332,
+    "3": 0.7517315162797361,
+    "5": 0.6867974535934387
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6277415130535898,
+    "shadow_run_km": 0.6988630244933245,
+    "patch_km2": 0.5296481874412183,
+    "edge_km_per_km2": 0.8759459404628126,
+    "always_dark_fraction": 0.9984903505850683
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5680906386100514
+  },
+  {
+   "earth": "ries",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.6912412567534209,
+   "per_alt": {
+    "1": 0.7183490118835681,
+    "3": 0.7019401163867589,
+    "5": 0.6534346419899354
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5682933969585015,
+    "shadow_run_km": 0.5417071477199126,
+    "patch_km2": 0.5276636326293725,
+    "edge_km_per_km2": 0.8566600337666586,
+    "always_dark_fraction": 0.9618820726926588
+   },
+   "time": 0.3010198917143245,
+   "total": 0.5351527107377823
+  },
+  {
+   "earth": "sudbury",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.6411538900801128,
+   "per_alt": {
+    "1": 0.6411538900801128
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6787714380386101,
+    "shadow_run_km": 0.4048627700044194,
+    "patch_km2": 0.8238565297955183,
+    "edge_km_per_km2": 0.5790580727570291,
+    "always_dark_fraction": 0.719220639804987
+   },
+   "time": 0.2804389224534851,
+   "total": 0.4968679030294617
+  },
+  {
+   "earth": "sudbury",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.3380471568270174,
+   "per_alt": {
+    "1": 0.3380471568270174
+   },
+   "per_metric": {
+    "shadow_fraction": 0.39181557635579156,
+    "shadow_run_km": 0.1820891151671037,
+    "patch_km2": 0.7374616003851957,
+    "edge_km_per_km2": 0.36043021247444307,
+    "always_dark_fraction": 0.018439279752552995
+   },
+   "time": 0.2804389224534851,
+   "total": 0.31500386307760453
+  },
+  {
+   "earth": "sudbury",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.753426220241521,
+   "per_alt": {
+    "1": 0.753426220241521
+   },
+   "per_metric": {
+    "shadow_fraction": 0.79373557934339,
+    "shadow_run_km": 0.5387220814910652,
+    "patch_km2": 0.8023306956141569,
+    "edge_km_per_km2": 0.6343971374187518,
+    "always_dark_fraction": 0.9979456073402406
+   },
+   "time": 0.2804389224534851,
+   "total": 0.5642313011263066
+  },
+  {
+   "earth": "sudbury",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7568725358087165,
+   "per_alt": {
+    "1": 0.7854085014308042,
+    "3": 0.7283365701866288
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7049906055835223,
+    "shadow_run_km": 0.6932602288551446,
+    "patch_km2": 0.6088498832247561,
+    "edge_km_per_km2": 0.7909899340424473,
+    "always_dark_fraction": 0.9862720273377121
+   },
+   "time": 0.2804389224534851,
+   "total": 0.566299090466624
+  },
+  {
+   "earth": "sudbury",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7479436428672377,
+   "per_alt": {
+    "1": 0.7445405298371887,
+    "3": 0.7513467558972867
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6649248971694232,
+    "shadow_run_km": 0.7000573232994629,
+    "patch_km2": 0.6219692214099677,
+    "edge_km_per_km2": 0.8051959139827356,
+    "always_dark_fraction": 0.947570858474599
+   },
+   "time": 0.2804389224534851,
+   "total": 0.5609417547017367
+  },
+  {
+   "earth": "sudbury",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.6828211320902442,
+   "per_alt": {
+    "1": 0.7155584840422196,
+    "3": 0.650083780138269
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6818401163536458,
+    "shadow_run_km": 0.5467060577978082,
+    "patch_km2": 0.5786797210164436,
+    "edge_km_per_km2": 0.612405442871342,
+    "always_dark_fraction": 0.9944743224119814
+   },
+   "time": 0.2804389224534851,
+   "total": 0.5218682482355406
+  },
+  {
+   "earth": "sudbury",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7028253067554171,
+   "per_alt": {
+    "1": 0.7360440157763071,
+    "3": 0.669606597734527
+   },
+   "per_metric": {
+    "shadow_fraction": 0.7130201455910063,
+    "shadow_run_km": 0.4873804638105928,
+    "patch_km2": 0.6403211865405273,
+    "edge_km_per_km2": 0.6798451332882036,
+    "always_dark_fraction": 0.9935596045467553
+   },
+   "time": 0.2804389224534851,
+   "total": 0.5338707530346443
+  },
+  {
+   "earth": "sudbury",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.7515517732650231,
+   "per_alt": {
+    "1": 0.8113819880492148,
+    "3": 0.7288150657671086,
+    "5": 0.7144582659787456
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6937371375328508,
+    "shadow_run_km": 0.6894156609505474,
+    "patch_km2": 0.5560054843192375,
+    "edge_km_per_km2": 0.8227856465339293,
+    "always_dark_fraction": 0.9958149369885504
+   },
+   "time": 0.2804389224534851,
+   "total": 0.5631066329404079
+  },
+  {
+   "earth": "sudbury",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.7015583611907884,
+   "per_alt": {
+    "1": 0.7339670205037181,
+    "3": 0.6816040886018131,
+    "5": 0.6891039744668342
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6342890214377623,
+    "shadow_run_km": 0.5322597841771355,
+    "patch_km2": 0.5540209295073916,
+    "edge_km_per_km2": 0.8211479778698978,
+    "always_dark_fraction": 0.966074092961755
+   },
+   "time": 0.2804389224534851,
+   "total": 0.5331105856958671
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "south_pole",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.6174215652855055,
+   "per_alt": {
+    "1": 0.6174215652855055
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5309495871441337,
+    "shadow_run_km": 0.4048627700044194,
+    "patch_km2": 0.7619889398027968,
+    "edge_km_per_km2": 0.6681762653053775,
+    "always_dark_fraction": 0.7211302641708
+   },
+   "time": 0.23082795204174675,
+   "total": 0.462784119988002
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "shackleton",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.3143148320324101,
+   "per_alt": {
+    "1": 0.3143148320324101
+   },
+   "per_metric": {
+    "shadow_fraction": 0.24399372546131515,
+    "shadow_run_km": 0.1820891151671037,
+    "patch_km2": 0.6755940103924742,
+    "edge_km_per_km2": 0.4495484050227915,
+    "always_dark_fraction": 0.020348904118365985
+   },
+   "time": 0.23082795204174675,
+   "total": 0.28092008003614477
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "de_gerlache_rim",
+   "altitudes": [
+    1
+   ],
+   "shadow": 0.7289300457005884,
+   "per_alt": {
+    "1": 0.7289300457005884
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6459137284489135,
+    "shadow_run_km": 0.5387220814910652,
+    "patch_km2": 0.7404631056214355,
+    "edge_km_per_km2": 0.7235153299671002,
+    "always_dark_fraction": 0.9960359829744276
+   },
+   "time": 0.23082795204174675,
+   "total": 0.5296892082370517
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "shoemaker_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7347410656310862,
+   "per_alt": {
+    "1": 0.7616761766361971,
+    "3": 0.7078059546259754
+   },
+   "per_metric": {
+    "shadow_fraction": 0.601034260776555,
+    "shadow_run_km": 0.6391432503700691,
+    "patch_km2": 0.5928753007033789,
+    "edge_km_per_km2": 0.8502614953190024,
+    "always_dark_fraction": 0.9903910209864256
+   },
+   "time": 0.23082795204174675,
+   "total": 0.5331758201953504
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "faustini_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.7188003631414497,
+   "per_alt": {
+    "1": 0.7208082050425813,
+    "3": 0.7167925212403181
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5609685523624559,
+    "shadow_run_km": 0.6459403448143873,
+    "patch_km2": 0.6059946388885904,
+    "edge_km_per_km2": 0.8294084275185026,
+    "always_dark_fraction": 0.9516898521233126
+   },
+   "time": 0.23082795204174675,
+   "total": 0.5236113987015685
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "haworth_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.6775614923568012,
+   "per_alt": {
+    "1": 0.6910623095012871,
+    "3": 0.6640606752123152
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5778837715466785,
+    "shadow_run_km": 0.49258907931273266,
+    "patch_km2": 0.5627051384950665,
+    "edge_km_per_km2": 0.7631270371435748,
+    "always_dark_fraction": 0.9915024352859529
+   },
+   "time": 0.23082795204174675,
+   "total": 0.49886807623077944
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "sverdrup_rim",
+   "altitudes": [
+    1,
+    3
+   ],
+   "shadow": 0.6975894002603743,
+   "per_alt": {
+    "1": 0.7115478412353746,
+    "3": 0.683630959285374
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6090638007840391,
+    "shadow_run_km": 0.4332634853255173,
+    "patch_km2": 0.6243466040191501,
+    "edge_km_per_km2": 0.8305667275604365,
+    "always_dark_fraction": 0.9907063836127287
+   },
+   "time": 0.23082795204174675,
+   "total": 0.5108848209729233
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "malapert",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.7378660385258229,
+   "per_alt": {
+    "1": 0.7868858135082822,
+    "3": 0.7290216119634458,
+    "5": 0.6976906901057405
+   },
+   "per_metric": {
+    "shadow_fraction": 0.6195085123661458,
+    "shadow_run_km": 0.6533376752938304,
+    "patch_km2": 0.5552110767410446,
+    "edge_km_per_km2": 0.8680593097730464,
+    "always_dark_fraction": 0.9932136184550471
+   },
+   "time": 0.23082795204174675,
+   "total": 0.5350508039321924
+  },
+  {
+   "earth": "meteor_crater",
+   "moon": "nobile_rim",
+   "altitudes": [
+    1,
+    3,
+    5
+   ],
+   "shadow": 0.6856840446900221,
+   "per_alt": {
+    "1": 0.7102346957091109,
+    "3": 0.6810972367875803,
+    "5": 0.6657202015733753
+   },
+   "per_metric": {
+    "shadow_fraction": 0.5600603962710573,
+    "shadow_run_km": 0.4961817985204185,
+    "patch_km2": 0.5532265219291989,
+    "edge_km_per_km2": 0.8487734030768923,
+    "always_dark_fraction": 0.9701781036525435
+   },
+   "time": 0.23082795204174675,
+   "total": 0.503741607630712
+  }
+ ],
+ "overview": {
+  "image": "images/moon/moon_overview.png",
+  "half_km": 160,
+  "pixel_m": 320,
+  "sun_alt": 1,
+  "sun_az": 300,
+  "marks": [
+   {
+    "id": "south_pole",
+    "fx": 0.5,
+    "fy": 0.5
+   },
+   {
+    "id": "shackleton",
+    "fx": 0.524,
+    "fy": 0.52
+   },
+   {
+    "id": "de_gerlache_rim",
+    "fx": 0.3825,
+    "fy": 0.4535
+   },
+   {
+    "id": "shoemaker_rim",
+    "fx": 0.7185,
+    "fy": 0.3755
+   },
+   {
+    "id": "faustini_rim",
+    "fx": 0.816,
+    "fy": 0.4275
+   },
+   {
+    "id": "haworth_rim",
+    "fx": 0.426,
+    "fy": 0.225
+   },
+   {
+    "id": "sverdrup_rim",
+    "fx": 0.455,
+    "fy": 0.6855
+   },
+   {
+    "id": "malapert",
+    "fx": 0.5135,
+    "fy": 0.12
+   },
+   {
+    "id": "nobile_rim",
+    "fx": 0.8205,
+    "fy": 0.1095
+   }
+  ],
+  "shadow_fraction": 0.705795
+ },
+ "files": {
+  "moon_dem": {
+   "path": "moon_data/The moon/The moon/LDEM_80S_80MPP_ADJ.tiff",
+   "pixel_m": 80,
+   "size_px": [
+    7600,
+    7600
+   ],
+   "extent_km": 608,
+   "crs": "Polar stereographic, Moon sphere R = 1737.4 km"
+  },
+  "earth_dem": {
+   "product": "Copernicus GLO-30 DSM",
+   "native": "1 arc-second (~30 m)",
+   "resampled_m": 80,
+   "url": "https://copernicus-dem-30m.s3.amazonaws.com/readme.html"
+  },
+  "grid_px": 660
+ },
+ "metrics": [
+  "shadow_fraction",
+  "shadow_run_km",
+  "patch_km2",
+  "edge_km_per_km2",
+  "always_dark_fraction"
+ ]
+}
