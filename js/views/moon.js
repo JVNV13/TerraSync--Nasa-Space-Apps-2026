@@ -305,7 +305,7 @@ function worldMap() {
   const ticks = [60, 30, 0, -30, -60].map(l => `<line x1="0" x2="360" y1="${90 - l}" y2="${90 - l}" class="ll-wm-grid"/><text x="2" y="${90 - l - 1.2}" class="ll-wm-ax">${l === 0 ? '0°' : Math.abs(l) + '°' + (l > 0 ? 'N' : 'S')}</text>`).join('');
   return html`<figure class="ll-world">
     <svg viewBox="0 0 360 180" class="ll-wm" role="img" aria-label="World map: hours per year with the Sun between 0 and 7 degrees, by latitude, with our Earth sites">
-      <g class="ll-wm-bands">${raw(bands)}</g>
+      <g class="ll-wm-bands" shape-rendering="crispEdges">${raw(bands)}</g>
       <path d="${EARTH_LAND_PATH}" class="ll-wm-land"/>
       ${raw(ticks)}${raw(dots)}
     </svg>
